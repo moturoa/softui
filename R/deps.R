@@ -16,7 +16,7 @@ add_softui_dependencies <- function(tag){
       name = "soft-ui-dashboard-js",
       version = "0.1",
       src = c(file = "assets/js"),
-      script = "soft-ui-dashboard.min.js",
+      script = "soft-ui-dashboard.js",
       #stylesheet = ,
       package = "softui"
     ),
@@ -29,13 +29,23 @@ add_softui_dependencies <- function(tag){
       package = "softui"
     ),
     htmltools::htmlDependency(
-      name = "shinydashboard",
+      name = "perfectscrollbar",
       version = "0.1",
-      src = c(file = "shinydashboard"),
-      script = "shinydashboard.js",
+      src = c(file = "assets/js/plugins"),
+      script = "perfect-scrollbar.min.js",
       #stylesheet = ,
       package = "softui"
     ),
+
+
+    # htmltools::htmlDependency(
+    #   name = "shinydashboard",
+    #   version = "0.1",
+    #   src = c(file = "shinydashboard"),
+    #   script = "shinydashboard.js",
+    #   #stylesheet = ,
+    #   package = "softui"
+    # ),
     htmltools::htmlDependency(
       name = "softuiextra",
       version = "0.1",

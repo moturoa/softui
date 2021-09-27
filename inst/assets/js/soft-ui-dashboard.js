@@ -1,8 +1,14 @@
 "use strict";
+
+
+$( document ).ready(function() {
+
+
 (function() {
   var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
   if (isWindows) {
+
     // if we are on windows OS we activate the perfectScrollbar function
     if (document.getElementsByClassName('main-content')[0]) {
       var mainpanel = document.querySelector('.main-content');
@@ -45,6 +51,7 @@ var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
 
 // initialization of Toasts
 document.addEventListener("DOMContentLoaded", function() {
+
   var toastElList = [].slice.call(document.querySelectorAll(".toast"));
 
   var toastList = toastElList.map(function(toastEl) {
@@ -609,6 +616,7 @@ function getEventTarget(e) {
 
 // click to minimize the sidebar or reverse to normal
 if (document.querySelector('.sidenav-toggler')) {
+
   var sidenavToggler = document.getElementsByClassName('sidenav-toggler')[0];
   var sidenavShow = document.getElementsByClassName('g-sidenav-show')[0];
   var toggleNavbarMinimize = document.getElementById('navbarMinimize');
@@ -1472,3 +1480,6 @@ var soft = {
   }
 
 }
+
+
+});

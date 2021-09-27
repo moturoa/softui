@@ -19,6 +19,8 @@ dashboard_page <- function(title = ""){
               href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     )
 
+   #includeScript("inst/assets/js/soft-ui-dashboard.js")
+
   )
 
 
@@ -102,9 +104,21 @@ dashboard_page <- function(title = ""){
         tags$div(class = "container-fluid",   # py-1 px-3
 
               tags$div(
+                class = "sidenav-toggler sidenav-toggler-inner d-xl-block d-none ",
+
+                  tags$a(href="javascript:;", class="nav-link text-body p-0",
+                    tags$div(
+                      class="sidenav-toggler-inner",
+                      tags$i(class="sidenav-toggler-line"),
+                      tags$i(class="sidenav-toggler-line"),
+                      tags$i(class="sidenav-toggler-line")
+                    )
+                  )
+              ),
+
+              tags$div(
                 class = "collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4",
                 id="navbar",
-
 
                 tags$div(
                   class="ms-md-auto pe-md-3 d-flex align-items-center",
