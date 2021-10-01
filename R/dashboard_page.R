@@ -1,7 +1,7 @@
 
 #' Soft UI dashboard page
 #' @export
-dashboard_page <- function(title = "", icon = bsicon("house")){
+dashboard_page <- function(header, sidebar, body, title = "", icon = bsicon("speedometer")){
 
 
   head_tag <- shiny::tags$head(
@@ -48,11 +48,36 @@ dashboard_page <- function(title = "", icon = bsicon("house")){
     )
 
 
+  header <- dashboard_header(
+    tags$div(
+      class="ms-md-auto pe-md-3 d-flex align-items-center",
+      textInput("search", "", placeholder = "Zoek")
+    ),
 
+    # icoontjes rechts
+    tags$ul(
+      class = "navbar-nav justify-content-end",
+
+      tags$li(
+        class = "nav-item d-flex align-items-center",
+        #bsicon("person-circle"),
+
+        tags$a(
+          class = "nav-link",
+          icon("user"),
+          tags$span(
+            class="d-sm-inline d-none",
+            "Log out"
+          )
+        )
+
+      )
+    )
+  )
 
   main_tag <- tags$main(
     class = "main-content position-relative max-height-vh-100 h-100 border-radius-lg ",
-    dashboard_header(),
+    header,
     tab_items()
   )
 
