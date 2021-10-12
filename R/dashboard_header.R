@@ -1,5 +1,7 @@
 
-
+#' The dashboard header
+#' @param \dots header_item's
+#' @export
 dashboard_header <- function(...){
 
   tags$nav(
@@ -43,5 +45,27 @@ dashboard_header <- function(...){
 
   )
 }
+
+
+#' UI to place in the header bar (to the right)
+#' @export
+header_item <- function(...){
+
+  tags$li(
+    class = "nav-item d-flex align-items-center",
+    #bsicon("person-circle"),
+
+    tags$a(
+      class = "nav-link",
+      ...
+    )
+
+  )
+
+}
+
+
+
+
 
 

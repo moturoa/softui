@@ -21,6 +21,7 @@ body <- dashboard_body(
   tab_items(
     tab_item("analyse",
 
+             tags$h2(class="font-weight-bolder mb-0", "SoftUI test app"),
              fluid_row(
                column(8,
 
@@ -109,21 +110,16 @@ body <- dashboard_body(
 
 
 header <- dashboard_header(
-  tags$li(
-    class = "nav-item d-flex align-items-center",
-    #bsicon("person-circle"),
 
-    tags$a(
-      class = "nav-link",
-      icon("user"),
-      tags$span(
-        class="d-sm-inline d-none",
-        "Log out"
-      )
-    )
+  header_item(bsicon("person-square")),
+  header_item(bsicon("gear-fill"))
 
-  )
 )
+
+
+
+
+
 
 #library(softui)
 ui <- dashboard_page(title = "Shinto App",
