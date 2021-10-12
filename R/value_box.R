@@ -1,9 +1,13 @@
-
+#' Value box
+#' @param value A value to display
+#' @param sub_value A subtitle under the value
+#' @param sub_status "success" or "danger" to color the subtitle
+#' @param icon An icon to place
 value_box <- function(value,
                       title,
                       sub_value = "",
                       sub_status = c("success","danger"),
-                      icon = bsicon("file-earmark-bar-graph"),
+                      icon = icon("chart-bar"),
                       width = 4){
 
   sub_status <- match.arg(sub_status)

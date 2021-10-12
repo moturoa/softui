@@ -1,3 +1,7 @@
+
+#' Content container
+#' @export
+#' @rdname fluid_page
 fluid_page <- function(...){
 
 
@@ -5,6 +9,9 @@ fluid_page <- function(...){
 
 }
 
+#' @rdname fluid_page
+#' @param margin Margin units, space between boxes (4 is default)
+#' @export
 fluid_row <- function(..., margin = 4){
 
   tags$div(class = glue::glue("row mt-{margin}"), ...)
