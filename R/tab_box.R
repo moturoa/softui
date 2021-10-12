@@ -1,29 +1,5 @@
 
 
-if(FALSE){
-HTML('    <div class="card">
-      <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs" data-tabsetid="8986">
-          <li class="nav-item">
-            <a href="#tab-8986-1" data-toggle="tab" data-bs-toggle="tab" data-value="Een" class="nav-link active"><i class=\'bi-house\' role=\'presentation\' aria-label=\'house icon\'></i> Een</a>
-          </li>
-          <li class="nav-item">
-            <a href="#tab-8986-2" data-toggle="tab" data-bs-toggle="tab" data-value="Twee" class="nav-link">Twee</a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <div class="tab-content" data-tabsetid="8986">
-          <div class="tab-pane active" data-value="Een" id="tab-8986-1">Content</div>
-          <div class="tab-pane" data-value="Twee" id="tab-8986-2">Meer content</div>
-        </div>
-      </div>
-    </div>')
-
-}
-
-
-
 
 
 
@@ -39,7 +15,9 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL){
 
 }
 
-tab_box <- function(..., selected = NULL, width = 12){
+tab_box <- function(..., selected = NULL, width = 12,
+                    type = c("tabs","pills"),
+                    fill = FALSE){
 
   items <- list(...)
   n_items <- length(items)
@@ -85,23 +63,23 @@ tab_box <- function(..., selected = NULL, width = 12){
   i_act <- which(vals == selected)
   cont[[i_act]] <- cont[[i_act]] %>% tagAppendAttributes(class = "active")
 
+
+  nav_cl <- glue::glue("nav nav-{type} card-header-tabs")
+  if(fill)nav_cl <- paste(nav_cl, "nav-fill")
+
+
   tags$div(class = glue::glue("col-lg-{width}"),
     tags$div(class = "card",
       tags$div(class = "card-header",
-        tags$ul(class = "nav nav-tabs card-header-tabs",
+        tags$ul(class = nav_cl,
                 `data-tabsetid`= glue::glue("{idnr}"),
-
                 lis
-
         )
       ),
       tags$div(class = "card-body",
             tags$div(class = "tab-content", `data-tabsetid` = idnr,
-
                      cont
-
             )
-
 
       )
 
@@ -115,39 +93,8 @@ if(FALSE){
 
 
 tab_box(
-  tab_item("Een", tags$p("content"), icon = icon("home")),
-  tab_item("Twee", tags$p("meer content"))
+  tab_panel("Een", tags$p("content"), icon = icon("home")),
+  tab_panel("Twee", tags$p("meer content"))
 )
 
-
-
-
-items <- tagList(
-  tab_item("Een", tags$p("content"), icon = icon("home")),
-  tab_item("Twee", tags$p("meer content"))
-)
-
-for(i in seq_along(items)){
-
-  items[[i]] <- items[[i]] %>%
-    tagAppendAttributes(id = paste0("999-",i))
 }
-
-
-tg <- htmltools::tagQuery(items)
-
-tg$find(".tab-pane")$find("[data-value]")
-
-
-
-tab_box <- function(..., id = NULL){
-
-  bslib2::navs_tab_card(
-
-    ...
-  )
-
-}
-
-}
-
