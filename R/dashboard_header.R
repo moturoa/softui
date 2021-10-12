@@ -24,7 +24,17 @@ dashboard_header <- function(...){
              tags$div(
                class = "collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4",
                id="navbar",
-               ...
+
+               tags$div(
+                 class="ms-md-auto pe-md-3 d-flex align-items-center"
+               ),
+
+               # icoontjes rechts
+               tags$ul(
+                 class = "navbar-nav justify-content-end",
+                 ...
+
+               )
 
              )
 

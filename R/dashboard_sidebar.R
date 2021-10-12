@@ -1,4 +1,10 @@
 
+# empty :)
+dashboard_sidebar <- function(arg){
+  arg
+}
+
+
 
 sidebar_menu <- function(..., id = NULL, .list = NULL){
 

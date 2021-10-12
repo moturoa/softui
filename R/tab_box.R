@@ -27,7 +27,7 @@ HTML('    <div class="card">
 
 
 
-tab_item <- function(title = "", ..., value = title, icon = NULL){
+tab_panel <- function(title = "", ..., value = title, icon = NULL){
 
   if(!is.null(icon)){
     tab_title <- paste(icon, title)

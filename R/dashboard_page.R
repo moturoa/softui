@@ -42,44 +42,16 @@ dashboard_page <- function(header, sidebar, body, title = "", icon = bsicon("spe
 
       tags$hr(class="horizontal dark mt-0"),
 
-      sidebar_menu(
-        menu_item("Analyse", tabName = "analyse", icon = bsicon("bar-chart-fill")),
-        menu_item("Administratie", tabName = "administratie", icon = bsicon("tools"))
-      )
+      sidebar
     )
 
 
-  header <- dashboard_header(
-    tags$div(
-      class="ms-md-auto pe-md-3 d-flex align-items-center",
-      textInput("search", "", placeholder = "Zoek")
-    ),
 
-    # icoontjes rechts
-    tags$ul(
-      class = "navbar-nav justify-content-end",
-
-      tags$li(
-        class = "nav-item d-flex align-items-center",
-        #bsicon("person-circle"),
-
-        tags$a(
-          class = "nav-link",
-          icon("user"),
-          tags$span(
-            class="d-sm-inline d-none",
-            "Log out"
-          )
-        )
-
-      )
-    )
-  )
 
   main_tag <- tags$main(
     class = "main-content position-relative max-height-vh-100 h-100 border-radius-lg ",
     header,
-    tab_items()
+    body
   )
 
 
