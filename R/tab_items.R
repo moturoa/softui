@@ -8,12 +8,15 @@ dashboard_body <- function(...){
 tab_items <- function(...){
 
 
+  items <- list(...)
+  items[[1]] <- items[[1]] %>% tagAppendAttributes(class = "active")
+
   fluid_page(
 
     tags$div(
     class = "tab-content",
 
-    ...
+    items
 
   ))
 
