@@ -39,7 +39,7 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL){
 
 }
 
-tab_box <- function(..., selected = NULL){
+tab_box <- function(..., selected = NULL, width = 12){
 
   items <- list(...)
   n_items <- length(items)
@@ -85,25 +85,27 @@ tab_box <- function(..., selected = NULL){
   i_act <- which(vals == selected)
   cont[[i_act]] <- cont[[i_act]] %>% tagAppendAttributes(class = "active")
 
-  tags$div(class = "card",
-    tags$div(class = "card-header",
-      tags$ul(class = "nav nav-tabs card-header-tabs",
-              `data-tabsetid`= glue::glue("{idnr}"),
+  tags$div(class = glue::glue("col-lg-{width}"),
+    tags$div(class = "card",
+      tags$div(class = "card-header",
+        tags$ul(class = "nav nav-tabs card-header-tabs",
+                `data-tabsetid`= glue::glue("{idnr}"),
 
-              lis
+                lis
+
+        )
+      ),
+      tags$div(class = "card-body",
+            tags$div(class = "tab-content", `data-tabsetid` = idnr,
+
+                     cont
+
+            )
+
 
       )
-    ),
-    tags$div(class = "card-body",
-          tags$div(class = "tab-content", `data-tabsetid` = idnr,
-
-                   cont
-
-          )
-
 
     )
-
   )
 
 }

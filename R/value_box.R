@@ -2,8 +2,11 @@
 value_box <- function(value,
                       title,
                       sub_value = "",
+                      sub_status = c("success","danger"),
                       icon = bsicon("file-earmark-bar-graph"),
                       width = 4){
+
+  sub_status <- match.arg(sub_status)
 
   tags$div(class = glue::glue("col-lg-{width} col-sm-{width}"),
 
@@ -17,7 +20,7 @@ value_box <- function(value,
                                                         ),
                                                         tags$h5(class="font-weight-bolder mb-0",
                                                                 value,
-                                                                tags$span(class = "text-success text-sm font-weight-bolder",
+                                                                tags$span(class = glue::glue("text-{sub_status} text-sm font-weight-bolder"),
                                                                           sub_value
                                                                 )
                                                         )
