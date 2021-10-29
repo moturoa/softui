@@ -2,13 +2,23 @@
 % Please edit documentation in R/dashboard_header.R
 \name{dashboard_header}
 \alias{dashboard_header}
+\alias{header_item}
+\alias{dropdown_item}
 \title{The dashboard header}
 \usage{
 dashboard_header(...)
+
+header_item(...)
+
+dropdown_item(icon, ...)
 }
 \arguments{
 \item{\dots}{header_item's}
 }
 \description{
 The dashboard header
+
+UI to place in the header bar (to the right)
+
+Dropdown item in the header bar
 }

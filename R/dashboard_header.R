@@ -2,6 +2,7 @@
 #' The dashboard header
 #' @param \dots header_item's
 #' @export
+#' @rdname dashboard_header
 dashboard_header <- function(...){
 
   tags$nav(
@@ -49,6 +50,7 @@ dashboard_header <- function(...){
 
 #' UI to place in the header bar (to the right)
 #' @export
+#' @rdname dashboard_header
 header_item <- function(...){
 
   tags$li(
@@ -65,6 +67,29 @@ header_item <- function(...){
 }
 
 
+#' Dropdown item in the header bar
+#' @export
+#' @rdname dashboard_header
+dropdown_item <- function(icon, ...){
+
+  tags$li(
+    class = "nav-item d-flex align-items-center dropdown",
+
+    tags$a(
+      class = "nav-link",
+      icon,
+      `data-bs-toggle` = "dropdown", href = "#",
+      `aria-expanded` = "false"
+    ),
+    tags$ul(
+      class = "dropdown-menu",
+      tags$li(
+        class = "dropdown-item", tags$p("content")
+      )
+    )
+  )
+
+}
 
 
 

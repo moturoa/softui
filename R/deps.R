@@ -29,13 +29,21 @@ add_softui_dependencies <- function(tag){
       package = "softui"
     ),
     htmltools::htmlDependency(
-      name = "perfectscrollbar",
-      version = "0.1",
-      src = c(file = "assets/js/plugins"),
-      script = "perfect-scrollbar.min.js",
+      name = "popper",
+      version = "1.0",
+      src = c(file = "assets/js/core"),
+      script = "popper.min.js",
       #stylesheet = ,
       package = "softui"
     ),
+    # htmltools::htmlDependency(
+    #   name = "perfectscrollbar",
+    #   version = "0.1",
+    #   src = c(file = "assets/js/plugins"),
+    #   script = "perfect-scrollbar.min.js",
+    #   #stylesheet = ,
+    #   package = "softui"
+    # ),
 
     htmltools::htmlDependency(
       name = "softuiextra",
