@@ -1,10 +1,13 @@
 
-
+#'Dashboard body
+#'@export
+#'@rdname dashboard_body
 dashboard_body <- function(...){
   tags$div(...)
 }
 
-
+#'@export
+#'@rdname dashboard_body
 tab_items <- function(...){
 
 
@@ -23,7 +26,8 @@ tab_items <- function(...){
 }
 
 
-
+#'@export
+#'@rdname dashboard_body
 tab_item <- function(tabName, ...){
 
   tags$div(class = "tab-pane fade show",

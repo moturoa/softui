@@ -1,33 +1,37 @@
 
-# empty :)
+#' Dashboard sidebar
+#' @export
+#' @rdname sidebar
 dashboard_sidebar <- function(arg){
   arg
 }
 
 
-
+#' Sidebar menu
+#' @export
+#' @rdname sidebar
 sidebar_menu <- function(..., id = NULL, .list = NULL){
 
   items <- c(list(...), .list)
+  if(is.null(id)){
+    id <- paste0("tabs_", round(stats::runif(1, min = 0, max = 1e+09)))
+  }
 
   items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], class = "show active")
 
-  tags$div(class="collapse navbar-collapse  w-auto h-auto max-height-vh-100 h-100",
-           id="sidenav-collapse-main",
-
-           tags$ul(
-             class = "navbar-nav sidebar-menu nav navtabs",
-             role = "tablist",
-             items
-           )
+  shiny::tags$ul(
+     class = "navbar-nav sidebar-menu nav navtabs",
+     role = "tablist",
+     items,
+     shiny::tags$div(id = id, class = "sidebarMenuSelectedTabItem",
+                     `data-value` = "null")
   )
-
-
-
 
 }
 
-
+#' Sidebar menu item
+#' @export
+#' @rdname sidebar
 menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
                       tabName = NULL){
 

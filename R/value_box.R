@@ -3,6 +3,7 @@
 #' @param sub_value A subtitle under the value
 #' @param sub_status "success" or "danger" to color the subtitle
 #' @param icon An icon to place
+#' @export
 value_box <- function(value,
                       title,
                       sub_value = "",

@@ -4,7 +4,7 @@
 \alias{dashboard_page}
 \title{Soft UI dashboard page}
 \usage{
-dashboard_page(title = "")
+dashboard_page(header, sidebar, body, title = "", icon = bsicon("speedometer"))
 }
 \description{
 Soft UI dashboard page

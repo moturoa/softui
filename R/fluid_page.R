@@ -6,6 +6,10 @@ fluid_page <- function(...){
 
 
   tags$div(class = "container-fluid py-4", ...)
+  # shiny::fluidPage(
+  #   theme = bslib::bs_theme(version = 5),
+  #   ...
+  # )
 
 }
 

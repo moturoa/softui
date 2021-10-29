@@ -2,7 +2,9 @@
 
 
 
-
+#'Tab panels
+#'@export
+#'@rdname tabbox
 tab_panel <- function(title = "", ..., value = title, icon = NULL){
 
   if(!is.null(icon)){
@@ -15,6 +17,8 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL){
 
 }
 
+#'@export
+#'@rdname tabbox
 tab_box <- function(..., selected = NULL, width = 12,
                     type = c("tabs","pills"),
                     fill = FALSE){

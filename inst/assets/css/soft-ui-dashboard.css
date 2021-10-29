@@ -2692,7 +2692,8 @@ progress {
   color: #6c757d;
 }
 
-.form-control {
+
+/*.form-control {
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
@@ -2706,8 +2707,9 @@ progress {
   appearance: none;
   border-radius: 0.5rem;
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
-}
+}*/
 
+/*
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
@@ -2849,7 +2851,7 @@ progress {
   padding: 0.75rem 0.75rem;
   margin: -0.75rem -0.75rem;
   margin-inline-end: 0.75rem;
-}
+}*/
 
 textarea.form-control {
   min-height: unset;
@@ -2862,6 +2864,7 @@ textarea.form-control-sm {
 textarea.form-control-lg {
   min-height: unset;
 }
+
 
 .form-control-color {
   width: 3rem;

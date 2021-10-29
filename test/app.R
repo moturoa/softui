@@ -3,10 +3,11 @@
 
 library(shiny)
 library(dplyr)
+library(shinyWidgets)
 
-#library(bslib2)
-devtools::load_all()
-
+#library(bslib)
+#devtools::load_all()
+library(softui)
 
 sidebar <- dashboard_sidebar(
   sidebar_menu(
@@ -24,7 +25,6 @@ body <- dashboard_body(
              tags$h2(class="font-weight-bolder mb-0", "SoftUI test app"),
              fluid_row(
                column(8,
-
 
                  fluid_row(
                    column(6,
@@ -86,13 +86,33 @@ body <- dashboard_body(
              ),
              fluid_row(
                tab_box(width = 6, type = "pills", fill = TRUE,
+
+                       tab_panel("Data",
+                                 icon = bsicon("clipboard-data"),
+
+                                 # sliderInput("slide1", "Slider", min=0, max=100, value = c(0,50)),
+                                 # textInput("text1", "Text"),
+                                 # shinyWidgets::numericRangeInput("num1", "Num range", value = c(0,100)),
+                                 # shinyWidgets::materialSwitch("tog1", "Toggle", value = TRUE, status = "primary"),
+                                 # softui::pickerInput("pick1", "Picker", choices = rownames(mtcars),
+                                 #                           multiple = TRUE),
+                                 # softui::pickerInput("pick1", "Picker", choices = rownames(mtcars),
+                                 #                           multiple = FALSE),
+                                 shinyWidgets::pickerInput("pick1", "Picker", choices = rownames(mtcars),
+                                                           multiple = TRUE),
+                                 shinyWidgets::pickerInput("pick2", "Picker", choices = rownames(mtcars),
+                                                           multiple = TRUE),
+                                 # shinyWidgets::pickerInput("pick2", "Picker", choices = rownames(mtcars),
+                                 #                           multiple = FALSE),
+                                 selectInput("sel1", "Select", choices = rownames(mtcars), multiple=TRUE)
+
+
+
+                                 ),
                        tab_panel("Analyse",
                                  icon = bsicon("graph-up"),
                                  plotOutput("plot1")
-                                 ),
-                       tab_panel("Data",
-                                 icon = bsicon("clipboard-data"),
-                                 tags$p("meer content"))
+                       )
                ),
                column(6,
                  box(
