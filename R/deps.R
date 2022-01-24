@@ -12,14 +12,14 @@ add_softui_dependencies <- function(tag){
       stylesheet = "soft-ui-dashboard.css",
       package = "softui"
     ),
-    htmltools::htmlDependency(
-      name = "soft-ui-dashboard-js",
-      version = "0.1",
-      src = c(file = "assets/js"),
-      script = "soft-ui-dashboard.js",
-      #stylesheet = ,
-      package = "softui"
-    ),
+    # htmltools::htmlDependency(
+    #   name = "soft-ui-dashboard-js",
+    #   version = "0.1",
+    #   src = c(file = "assets/js"),
+    #   script = "soft-ui-dashboard.js",
+    #   #stylesheet = ,
+    #   package = "softui"
+    # ),
     htmltools::htmlDependency(
       name = "bootstrap5-js",
       version = "5.1.0",
@@ -44,7 +44,7 @@ add_softui_dependencies <- function(tag){
     #   #stylesheet = ,
     #   package = "softui"
     # ),
-
+    
     htmltools::htmlDependency(
       name = "softuiextra",
       version = "0.1",

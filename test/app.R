@@ -5,9 +5,9 @@ library(shiny)
 library(dplyr)
 library(shinyWidgets)
 
-#library(bslib)
-#devtools::load_all()
-library(softui)
+library(bslib)
+devtools::load_all()
+#library(softui)
 
 sidebar <- dashboard_sidebar(
   sidebar_menu(
@@ -19,6 +19,9 @@ sidebar <- dashboard_sidebar(
 
 
 body <- dashboard_body(
+  includeCSS(system.file("assets/css/soft-ui-dashboard.css", package = "softui")),
+  includeCSS(system.file("assets/softuiextra/softuiextra.css", package = "softui")),
+  
   tab_items(
     tab_item("analyse",
 
@@ -28,6 +31,7 @@ body <- dashboard_body(
 
                  fluid_row(
                    column(6,
+                          
                      value_box("1251", "Documenten", "+18",
                                width = 12,
                                icon = bsicon("file-earmark-bar-graph")),
@@ -44,45 +48,8 @@ body <- dashboard_body(
                                icon = bsicon("box-seam"))
                    )
                  )
-               ),
-               column(4,
-
-                      HTML('<div class="card">
-            <div class="card-header p-3 pb-0">
-              <h6 class="mb-0">Activiteiten</h6>
-              <p class="text-sm mb-0 text-capitalize font-weight-bold">Gepland</p>
-            </div>
-            <div class="card-body border-radius-lg p-3">
-              <div class="d-flex">
-                <div>
-                  <div class="icon bg-info-soft shadow text-center border-radius-md shadow-none">
-                    <i class="bi-diagram-3-fill" role="presentation" aria-label="diagram-3-fill icon"></i>
-                  </div>
-                </div>
-                <div class="ms-3">
-                  <div class="numbers">
-                    <h6 class="mb-1 text-dark text-sm">Netwerken</h6>
-                    <span class="text-sm">17 Maart 2022</span>
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex mt-4">
-                <div>
-                  <div class="icon bg-primary-soft shadow text-center border-radius-md shadow-none">
-                    <i class="bi-signpost-2" role="presentation" aria-label="signpost-2 icon"></i>
-                  </div>
-                </div>
-                <div class="ms-3">
-                  <div class="numbers">
-                    <h6 class="mb-1 text-dark text-sm">Gebruiker test</h6>
-                    <span class="text-sm">22 Maart 2022</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>')
-
-                      )
+               )
+               
              ),
              fluid_row(
                tab_box(width = 6, type = "pills", fill = TRUE,
@@ -90,23 +57,13 @@ body <- dashboard_body(
                        tab_panel("Data",
                                  icon = bsicon("clipboard-data"),
 
-                                 # sliderInput("slide1", "Slider", min=0, max=100, value = c(0,50)),
-                                 # textInput("text1", "Text"),
-                                 # shinyWidgets::numericRangeInput("num1", "Num range", value = c(0,100)),
-                                 # shinyWidgets::materialSwitch("tog1", "Toggle", value = TRUE, status = "primary"),
-                                 # softui::pickerInput("pick1", "Picker", choices = rownames(mtcars),
-                                 #                           multiple = TRUE),
-                                 # softui::pickerInput("pick1", "Picker", choices = rownames(mtcars),
-                                 #                           multiple = FALSE),
-                                 shinyWidgets::pickerInput("pick1", "Picker", choices = rownames(mtcars),
-                                                           multiple = TRUE),
-                                 shinyWidgets::pickerInput("pick2", "Picker", choices = rownames(mtcars),
-                                                           multiple = TRUE),
-                                 # shinyWidgets::pickerInput("pick2", "Picker", choices = rownames(mtcars),
-                                 #                           multiple = FALSE),
-                                 selectInput("sel1", "Select", choices = rownames(mtcars), multiple=TRUE)
-
-
+                                 sliderInput("slide1", "Slider", min=0, max=100, value = c(0,50)),
+                                 textInput("text1", "Text"),
+                                 shinyWidgets::numericRangeInput("num1", "Num range", value = c(0,100)),
+                                 shinyWidgets::materialSwitch("tog1", "Toggle", value = TRUE, status = "primary"),
+                                 
+                                 selectInput("sel1", "Select", choices = rownames(mtcars), multiple=TRUE),
+                                 selectInput("sel1", "Select", choices = rownames(mtcars), multiple=FALSE)
 
                                  ),
                        tab_panel("Analyse",
@@ -205,6 +162,8 @@ server <- function(input, output, session) {
       theme_minimal()
 
   })
+  
+  observeEvent(input$btn_press, {message("pressed")})
 
 }
 

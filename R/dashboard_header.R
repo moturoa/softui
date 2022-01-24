@@ -11,18 +11,19 @@ dashboard_header <- function(...){
 
     tags$div(class = "container-fluid",   # py-1 px-3
 
-             tags$div(
-               class = "sidenav-toggler sidenav-toggler-inner d-xl-block d-none ",
-
-               tags$a(href="javascript:;", class="nav-link text-body p-0",
-                      tags$div(
-                        class="sidenav-toggler-inner",
-                        tags$i(class="sidenav-toggler-line"),
-                        tags$i(class="sidenav-toggler-line"),
-                        tags$i(class="sidenav-toggler-line")
-                      )
-               )
-             ),
+             # Krijg de toggler niet aan de praat ...
+             # tags$div(
+             #   class = "sidenav-toggler sidenav-toggler-inner d-xl-block d-none ",
+             # 
+             #   tags$a(href="javascript:;", class="nav-link text-body p-0",
+             #          tags$div(
+             #            class="sidenav-toggler-inner",
+             #            tags$i(class="sidenav-toggler-line"),
+             #            tags$i(class="sidenav-toggler-line"),
+             #            tags$i(class="sidenav-toggler-line")
+             #          )
+             #   )
+             # ),
 
              tags$div(
                class = "collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4",
