@@ -51,20 +51,33 @@ body <- softui::dashboard_body(
              fluid_row(
                softui::tab_box(width = 6, type = "pills", fill = TRUE,
 
-                        softui::tab_panel("Data",
-                                 icon = bsicon("clipboard-data"),
+                        softui::tab_panel("Data", icon = bsicon("clipboard-data"),
 
+                          fluid_row(
+                            column(6, 
                                  sliderInput("slide1", "Slider", min=0, max=100, value = c(0,50)),
                                  textInput("text1", "Text"),
                                  shinyWidgets::numericRangeInput("num1", "Num range", value = c(0,100)),
                                  shinyWidgets::materialSwitch("tog1", "Toggle", value = TRUE, status = "primary"),
-                                 
+                            ),
+                            column(6, 
                                  selectInput("sel1", "Select", choices = rownames(mtcars), multiple=TRUE),
                                  selectInput("sel1", "Select", choices = rownames(mtcars), multiple=FALSE),
                                  
                                  shinyWidgets::pickerInput("pick1", "Picker", choices = rownames(mtcars), multiple=TRUE)
-
-                                 ),
+                            )
+                          )
+                        ),
+                        softui::tab_panel("Test", icon = icon("chart-bar"),
+                                          
+                                          actionButton("btn1", "Primary", class = "btn-primary"),
+                                          actionButton("btn2", "Secondary", class = "btn-secondary"),
+                                          actionButton("btn3", "Warning", class = "btn-warning"),
+                                          actionButton("btn4", "Success", class = "btn-success"),
+                                          actionButton("btn5", "Info", class = "btn-info"),
+                                          actionButton("btn6", "Light", class = "btn-light")
+                                          
+                                          ),
                         softui::tab_panel("Analyse",
                                  icon = bsicon("graph-up"),
                                  plotOutput("plot1")
@@ -164,6 +177,20 @@ server <- function(input, output, session) {
   
   observeEvent(input$btn_press, {message("pressed")})
 
+  
+  observeEvent(input$btn1, {
+    showModal(
+      modalDialog(
+        title = "Dit is een test model",
+        size = "l",
+        tags$h2("Tekst in h2"),
+        tags$h3("Tekst in h3"),
+        tags$h4("Tekst in h4"),
+        tags$h5("Tekst in h5")
+      )
+    )
+  })
+  
 }
 
 shinyApp(ui, server)
