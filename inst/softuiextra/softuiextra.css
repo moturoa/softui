@@ -2,6 +2,10 @@
    color: white !important;
 }
 
+
 .nav-pills .nav-link.active{
-	background-color: hotpink !important;
+	background-color: #B2B4F1 !important;
+	color: white;
 }
+
+

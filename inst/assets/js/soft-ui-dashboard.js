@@ -623,6 +623,7 @@ if (document.querySelector('.sidenav-toggler')) {
 
   if (sidenavShow) {
     sidenavToggler.onclick = function() {
+
       if (!sidenavShow.classList.contains('g-sidenav-hidden')) {
         sidenavShow.classList.remove('g-sidenav-pinned');
         sidenavShow.classList.add('g-sidenav-hidden');

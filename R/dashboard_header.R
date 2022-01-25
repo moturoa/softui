@@ -11,7 +11,7 @@ dashboard_header <- function(...){
 
     tags$div(class = "container-fluid",   # py-1 px-3
 
-             # Krijg de toggler niet aan de praat ...
+
              # tags$div(
              #   class = "sidenav-toggler sidenav-toggler-inner d-xl-block d-none ",
              # 
