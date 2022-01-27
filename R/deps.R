@@ -36,31 +36,42 @@ add_softui_dependencies <- function(tag){
       #stylesheet = ,
       package = "softui"
     ),
-    htmltools::htmlDependency(
-      name = "popper",
-      version = "1.0",
-      src = c(file = "assets/js/core"),
-      script = "popper.min.js",
-      #stylesheet = ,
-      package = "softui"
-    ),
     # htmltools::htmlDependency(
-    #   name = "perfectscrollbar",
-    #   version = "0.1",
-    #   src = c(file = "assets/js/plugins"),
-    #   script = "perfect-scrollbar.min.js",
+    #   name = "popper",
+    #   version = "1.0",
+    #   src = c(file = "assets/js/core"),
+    #   script = "popper.min.js",
     #   #stylesheet = ,
     #   package = "softui"
     # ),
-    
+    htmltools::htmlDependency(
+      name = "perfectscrollbar",
+      version = "0.1",
+      src = c(file = "assets/js/plugins"),
+      script = "perfect-scrollbar.min.js",
+      #stylesheet = ,
+      package = "softui"
+    ),
+
     htmltools::htmlDependency(
       name = "softuiextra",
       version = "0.1",
       src = c(file = "softuiextra"),
-      #script = "shinydashboard.js",
+      script = "softuiextra.js",
       stylesheet = "softuiextra.css",
       package = "softui"
     ),
+    
+    
+    # 
+    # htmltools::htmlDependency(
+    #   name = "softuibindings",
+    #   version = "0.1",
+    #   src = c(file = "softuibindings"),
+    #   script = "bindings.js",
+    #   package = "softui"
+    # ),
+    
     htmltools::htmlDependency(name = "clock", version = "0.1",
                               package = "softui",
                               src = "assets",

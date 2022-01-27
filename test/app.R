@@ -5,11 +5,12 @@ library(shiny)
 library(dplyr)
 library(shinyWidgets)
 library(bslib)
+library(fontawesome)
 
 library(softui)
 
 sidebar <- softui::dashboard_sidebar(
-  softui::sidebar_menu(
+  softui::sidebar_menu(id = "sidebar",
     softui::menu_item("Analyse", tabName = "analyse", icon = bsicon("bar-chart-fill")),
     softui::menu_item("Administratie", tabName = "administratie", icon = bsicon("tools"))
   )
@@ -19,6 +20,7 @@ sidebar <- softui::dashboard_sidebar(
 
 body <- softui::dashboard_body(
   
+
   softui::tab_items(
     softui::tab_item("analyse",
 
@@ -70,9 +72,10 @@ body <- softui::dashboard_body(
                         ),
                         softui::tab_panel("Test", icon = icon("chart-bar"),
                                           
+                                          tags$p("Test icon: ", icon("home")),
                                           actionButton("btn1", "Primary", class = "btn-primary"),
                                           actionButton("btn2", "Secondary", class = "btn-secondary"),
-                                          actionButton("btn3", "Warning", class = "btn-warning"),
+                                          actionButton("btn3", "Warning", class = "btn-warning", onclick = "selectMenuItem('HIER!!!');"),
                                           actionButton("btn4", "Success", class = "btn-success"),
                                           actionButton("btn5", "Info", class = "btn-info"),
                                           actionButton("btn6", "Light", class = "btn-light")
@@ -189,6 +192,13 @@ server <- function(input, output, session) {
         tags$h5("Tekst in h5")
       )
     )
+  })
+  
+  
+  observeEvent(input$btn2, {
+    
+    session$sendCustomMessage("selectMenuItem", list(selected = "administratie"))
+    
   })
   
 }
