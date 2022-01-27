@@ -62,16 +62,6 @@ add_softui_dependencies <- function(tag){
       package = "softui"
     ),
     
-    
-    # 
-    # htmltools::htmlDependency(
-    #   name = "softuibindings",
-    #   version = "0.1",
-    #   src = c(file = "softuibindings"),
-    #   script = "bindings.js",
-    #   package = "softui"
-    # ),
-    
     htmltools::htmlDependency(name = "clock", version = "0.1",
                               package = "softui",
                               src = "assets",
