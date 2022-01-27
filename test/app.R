@@ -197,7 +197,7 @@ server <- function(input, output, session) {
   
   observeEvent(input$btn2, {
     
-    session$sendCustomMessage("selectMenuItem", list(selected = "administratie"))
+    softui::update_tab_item("administratie")
     
   })
   
