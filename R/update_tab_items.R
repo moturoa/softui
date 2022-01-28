@@ -1,5 +1,5 @@
 #' Update tabItem (menu)
 #' @export
-update_tab_item <- function(selected, session = shiny::getDefaultReactiveDomain()){
+update_sidebar <- function(selected, session = shiny::getDefaultReactiveDomain()){
   session$sendCustomMessage("selectMenuItem", list(selected = selected))
 }

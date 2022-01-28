@@ -30,12 +30,12 @@ dashboard_page <- function(header, sidebar, body, title = "", icon = bsicon("spe
       class = "sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3",
       id="sidenav-main",
 
-      tags$div(class = "sidenav-header",
+      tags$div(class = "sidenav-header", #style = "height: 36px !important;",
 
-               tags$a(class = "navbar-brand m-0",
+               tags$a(class = "navbar-brand m-0", #style = "height: 36px !important; box-sizing: border-box;",
 
                       tags$span(class = "ms-1 font-weight-bold",
-                                style = "font-size: 1.1em;",
+                                style = "font-size: 1.3em;",
                                 icon,
                                 title)
                )

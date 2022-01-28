@@ -12,15 +12,22 @@ box <- function(..., width = 12,
                 tag = "",
                 header_ui = NULL){
 
+  if(title == "" & subtitle == ""){
+    head_section <- NULL
+  } else {
+    head_section <- tags$div(class = "card-header",
+                             tags$span(class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2",tag),
+                             tags$h5(class = "card-title", title),
+                             tags$h6(class = "card-subtitle text-muted", subtitle),
+                             
+                             header_ui
+    )
+  }
+  
+  
   tags$div(class = glue::glue("col-lg-{width}"),
     tags$div(class = "card",
-             tags$div(class = "card-header",
-                tags$span(class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2",tag),
-                tags$h5(class = "card-title", title),
-                tags$h6(class = "card-subtitle text-muted", subtitle),
-
-                header_ui
-             ),
+             head_section,        
              tags$div(class = "card-body", ...)
 
     )

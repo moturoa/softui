@@ -6,7 +6,7 @@
 \alias{dropdown_item}
 \title{The dashboard header}
 \usage{
-dashboard_header(...)
+dashboard_header(..., tag_line = NULL, left_content = NULL)
 
 header_item(...)
 

@@ -3,13 +3,17 @@
 #' @param \dots header_item's
 #' @export
 #' @rdname dashboard_header
-dashboard_header <- function(...){
+dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
 
-  tags$nav(
-    class = "navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky",
+  tag_line <- tags$h6(class = "header_tagline fw-light", tag_line)
+  
+  tags$nav(  # mt-4  mx-4 position-sticky 
+    class = "navbar navbar-main navbar-expand-lg top-1 px-0 shadow-none border-radius-xl z-index-sticky",
     id="navbarBlur", `data-scroll`="true",
+    style = "height: 96px !important;",
 
     tags$div(class = "container-fluid",   # py-1 px-3
+             style = "height: 96px !important;",
 
 
              # tags$div(
@@ -24,21 +28,28 @@ dashboard_header <- function(...){
              #          )
              #   )
              # ),
-
+             
+             tags$nav(
+               c(list(tag_line), left_content)
+             ),
+             
              tags$div(
                class = "collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4",
-               id="navbar",
+               id="navbar-right",
 
                tags$div(
-                 class="ms-md-auto pe-md-3 d-flex align-items-center"
-               ),
-
-               # icoontjes rechts
-               tags$ul(
-                 class = "navbar-nav justify-content-end",
-                 ...
-
+                 class="ms-md-auto pe-md-3 d-flex align-items-center",
+                 
+                 # 
+                 # content on the right (usually dropdowns)
+                 tags$ul(
+                   class = "navbar-nav justify-content-end",
+                   ...
+                   
+                 )
                )
+
+
 
              )
 

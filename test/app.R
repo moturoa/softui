@@ -3,11 +3,11 @@
 
 library(shiny)
 library(dplyr)
-library(shinyWidgets)
 library(bslib)
 library(fontawesome)
-
 library(softui)
+library(dqshiny)
+library(shinyWidgets)
 
 sidebar <- softui::dashboard_sidebar(
   softui::sidebar_menu(id = "sidebar",
@@ -64,7 +64,16 @@ body <- softui::dashboard_body(
                             ),
                             column(6, 
                                  selectInput("sel1", "Select", choices = rownames(mtcars), multiple=TRUE),
-                                 selectInput("sel1", "Select", choices = rownames(mtcars), multiple=FALSE)
+                                 selectInput("sel1", "Select", choices = rownames(mtcars), multiple=FALSE),
+                                 
+                                 # werkt goed!
+                                 # --> alleen enkele selectie
+                                 dqshiny::autocomplete_input("aut1","Autocomplete", 
+                                                             placeholder = "Zoek iets",
+                                                             contains = TRUE,
+                                                             options = rownames(mtcars)),
+                                 
+                                 shinyWidgets::pickerInput("pick1", "Picker", choices = rownames(mtcars), multiple = TRUE)
                             )
                           )
                         ),
@@ -156,8 +165,10 @@ header <- softui::dashboard_header(
                         header = "Gebruiker",
                         tags$p("Ingelogd als Remko"),
                         align_right = TRUE
-  )
-
+  ),
+  
+  tag_line = "Wat een nuttige applicatie"
+  
 )
 
 
@@ -204,7 +215,7 @@ server <- function(input, output, session) {
   
   observeEvent(input$btn2, {
     
-    softui::update_tab_item("administratie")
+    softui::update_sidebar("administratie")
     
   })
   

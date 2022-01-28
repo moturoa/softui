@@ -2,7 +2,7 @@
    color: white !important;
 }
 
-
+/* tab_box highlighted tab title */
 .nav-pills .nav-link.active{
 	background-color: #8392ab !important;
 	color: white;
@@ -13,4 +13,11 @@
 .input-numeric-range .input-group-addon{
   border: 1px solid #A2A2A2;
   background: #ECECEC;
+}
+
+
+.header_tagline{
+  font-style: italic;
+  margin-bottom:0;
+  padding-top: 14px;
 }
