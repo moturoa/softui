@@ -60,13 +60,11 @@ body <- softui::dashboard_body(
                                  sliderInput("slide1", "Slider", min=0, max=100, value = c(0,50)),
                                  textInput("text1", "Text"),
                                  shinyWidgets::numericRangeInput("num1", "Num range", value = c(0,100)),
-                                 shinyWidgets::materialSwitch("tog1", "Toggle", value = TRUE, status = "primary"),
+                                 shinyWidgets::materialSwitch("tog1", "Toggle", value = TRUE, status = "primary")
                             ),
                             column(6, 
                                  selectInput("sel1", "Select", choices = rownames(mtcars), multiple=TRUE),
-                                 selectInput("sel1", "Select", choices = rownames(mtcars), multiple=FALSE),
-                                 
-                                 shinyWidgets::pickerInput("pick1", "Picker", choices = rownames(mtcars), multiple=TRUE)
+                                 selectInput("sel1", "Select", choices = rownames(mtcars), multiple=FALSE)
                             )
                           )
                         ),
@@ -151,10 +149,14 @@ header <- softui::dashboard_header(
   softui::dropdown_item(bsicon("gear-fill"), 
                         tags$p("Version: 0.1"),
                         tags$p("More information here"),
-                        tags$p("this is a longer line does it still fit who knows"),
                         header = "App Info",
                         align_right = TRUE
-                        )
+                        ),
+  softui::dropdown_item(bsicon("person-circle"), 
+                        header = "Gebruiker",
+                        tags$p("Ingelogd als Remko"),
+                        align_right = TRUE
+  )
 
 )
 
