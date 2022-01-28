@@ -148,8 +148,13 @@ body <- softui::dashboard_body(
 
 header <- softui::dashboard_header(
 
-  softui::header_item(bsicon("person-square")),
-  softui::header_item(bsicon("gear-fill"))
+  softui::dropdown_item(bsicon("gear-fill"), 
+                        tags$p("Version: 0.1"),
+                        tags$p("More information here"),
+                        tags$p("this is a longer line does it still fit who knows"),
+                        header = "App Info",
+                        align_right = TRUE
+                        )
 
 )
 

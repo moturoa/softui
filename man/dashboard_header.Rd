@@ -10,7 +10,7 @@ dashboard_header(...)
 
 header_item(...)
 
-dropdown_item(icon, ...)
+dropdown_item(icon, ..., header = NULL, align_right = FALSE)
 }
 \arguments{
 \item{\dots}{header_item's}

@@ -44,14 +44,14 @@ add_softui_dependencies <- function(tag){
     #   #stylesheet = ,
     #   package = "softui"
     # ),
-    htmltools::htmlDependency(
-      name = "perfectscrollbar",
-      version = "0.1",
-      src = c(file = "assets/js/plugins"),
-      script = "perfect-scrollbar.min.js",
-      #stylesheet = ,
-      package = "softui"
-    ),
+    # htmltools::htmlDependency(
+    #   name = "perfectscrollbar",
+    #   version = "0.1",
+    #   src = c(file = "assets/js/plugins"),
+    #   script = "perfect-scrollbar.min.js",
+    #   #stylesheet = ,
+    #   package = "softui"
+    # ),
 
     htmltools::htmlDependency(
       name = "softuiextra",

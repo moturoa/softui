@@ -71,21 +71,28 @@ header_item <- function(...){
 #' Dropdown item in the header bar
 #' @export
 #' @rdname dashboard_header
-dropdown_item <- function(icon, ...){
+dropdown_item <- function(icon, ..., 
+                          header = NULL,
+                          align_right = FALSE){
 
-  tags$li(
-    class = "nav-item d-flex align-items-center dropdown",
+  dclass <- ifelse(align_right, "dropdown-menu dropdown-menu-end", "dropdown-menu")
+  
+  # tags$li(
+  #   class = "nav-item d-flex dropdown",
 
+  tags$div(class = "dropdown",
     tags$a(
       class = "nav-link",
       icon,
       `data-bs-toggle` = "dropdown", href = "#",
       `aria-expanded` = "false"
     ),
-    tags$ul(
-      class = "dropdown-menu",
-      tags$li(
-        class = "dropdown-item", tags$p("content")
+    tags$div(class = dclass,
+      if(!is.null(header)){
+        tags$h6(header, class = "dropdown-header")
+      } else NULL,
+      tags$div(
+        class = "dropdown-item", ...
       )
     )
   )
