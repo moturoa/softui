@@ -7,8 +7,8 @@
 #' @param header_ui More UI to place just under the title
 #' @export
 box <- function(..., width = 12,
-                title = "",
-                subtitle = "",
+                title = NULL,
+                subtitle = NULL,
                 tag = "",
                 collapsible = TRUE,
                 collapsed = FALSE,
@@ -24,7 +24,7 @@ box <- function(..., width = 12,
   } else NULL
   
   
-  if(title == "" & subtitle == ""){
+  if(is.null(title) & is.null(subtitle)){
     head_section <- NULL
   } else {
     head_section <- tags$div(class = "card-header",
