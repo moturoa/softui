@@ -25,7 +25,7 @@ picker_select_ui <- function(id, label = "", btn_class = "btn-info", height = 30
                                       textInput(ns("txt_search"), NULL, width = "90%")
                              ),
                              actionButton(ns("btn_reset_search"), label = icon("remove"), 
-                                          class = "btn-light", style = "background: none; border: none;"),
+                                          class = "btn-light", style = "background: none; border: none; box-shadow: none;"),
                              tags$br(),
                              
                              actionButton(ns("btn_all_on"), "Alles aan",icon = bsicon("check"), class = "btn-light btn-sm"),
