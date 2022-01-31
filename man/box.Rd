@@ -4,7 +4,16 @@
 \alias{box}
 \title{Content box}
 \usage{
-box(..., width = 12, title = "", subtitle = "", tag = "", header_ui = NULL)
+box(
+  ...,
+  width = 12,
+  title = "",
+  subtitle = "",
+  tag = "",
+  collapsible = TRUE,
+  collapsed = FALSE,
+  header_ui = NULL
+)
 }
 \arguments{
 \item{width}{Bootstrap width}

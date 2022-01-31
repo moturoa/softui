@@ -1,11 +1,15 @@
 
 
 
+
+ devtools::load_all()
+#library(softui)
+
 library(shiny)
 library(dplyr)
 library(bslib)
 library(fontawesome)
-library(softui)
+
 library(dqshiny)
 library(shinyWidgets)
 
@@ -51,6 +55,7 @@ body <- softui::dashboard_body(
                
              ),
              fluid_row(
+               
                softui::tab_box(width = 6, type = "pills", fill = TRUE,
 
                         softui::tab_panel("Data", icon = bsicon("clipboard-data"),
@@ -117,6 +122,8 @@ body <- softui::dashboard_body(
                 softui::box(
                    title = "Box 1",
                    width = 6,
+                   collapsible =TRUE,
+                   collapsed=FALSE,
                    tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                    )
@@ -124,6 +131,8 @@ body <- softui::dashboard_body(
                 softui::box(
                    title = "Box 2",
                    width = 6,
+                   collapsible =TRUE,
+                   collapsed=TRUE,
                    tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                    )
@@ -133,6 +142,7 @@ body <- softui::dashboard_body(
                 softui::box(
                    title = "Box 3",
                    width = 6,
+                   collapsible =FALSE,
                    tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                    )
@@ -145,6 +155,8 @@ body <- softui::dashboard_body(
                    )
                  )
                )
+
+              
              )
 
     )
