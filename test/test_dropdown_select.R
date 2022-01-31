@@ -12,7 +12,7 @@ ui <- fluidPage(theme = bs_theme(version = 5),
 
                 fluidRow(
                   column(4, 
-                         picker_select_ui("test", "Select mtcar", width = 300)       
+                         picker_select_ui("test", "Select mtcar", width = 350)       
                   ), 
                   column(4,
                          
@@ -28,7 +28,7 @@ ui <- fluidPage(theme = bs_theme(version = 5),
 
 server <- function(input, output, session) {
   
-  out <- callModule(picker_select_module, "test", choices = rownames(mtcars), update = test_update)
+  out <- callModule(picker_select_module, "test", choices = sort(readRDS("../test/ehv_projecten.rds")$projectnaam), update = test_update)
   test_update <- reactiveVal()
   
   observeEvent(input$btn_update, {
