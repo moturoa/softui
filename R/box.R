@@ -28,10 +28,13 @@ box <- function(..., width = 12,
     head_section <- NULL
   } else {
     head_section <- tags$div(class = "card-header",
+                             style = "border-radius: 1rem;",
                              tags$span(class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2",tag),
-                             tags$h5(class = "card-title", title, style = "display: inline-block !important; float: left;"),
-                             tags$h6(class = "card-subtitle text-muted", subtitle, style = "display: inline-block !important; float: left;"),
-                             tool_ui,
+                             tags$div(style = "width: 100% !important; height: 40px !important;",
+                               tags$h5(class = "card-title", title, style = "display: inline-block !important; float: left;"),
+                               tool_ui,  
+                             ),
+                             tags$h6(class = "card-subtitle text-muted", subtitle), #, style = "display: inline-block !important; float: left;"),
                              header_ui
     )
   }
@@ -39,6 +42,7 @@ box <- function(..., width = 12,
   
   tags$div(class = glue::glue("col-lg-{width}"), 
     tags$div(class = "card",
+             style = "margin-bottom: 32px !important;",
              head_section,        
              tags$div(
                id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),

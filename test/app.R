@@ -121,6 +121,7 @@ body <- softui::dashboard_body(
               softui::fluid_row(
                 softui::box(
                    title = "Box 1",
+                   subtitle = "This is a subtitle",
                    width = 6,
                    collapsible =TRUE,
                    collapsed=FALSE,
@@ -130,6 +131,8 @@ body <- softui::dashboard_body(
                  ),
                 softui::box(
                    title = "Box 2",
+                   subtitle = "This is a subtitle",
+                   tag = "info",
                    width = 6,
                    collapsible =TRUE,
                    collapsed=TRUE,
@@ -142,7 +145,7 @@ body <- softui::dashboard_body(
                 softui::box(
                    title = "Box 3",
                    width = 6,
-                   collapsible =FALSE,
+                   collapsible =TRUE,
                    tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                    )
