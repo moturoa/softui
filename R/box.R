@@ -16,6 +16,10 @@ box <- function(..., width = 12,
 
   id_bx <- paste(sample(letters,8),collapse="")
   
+  if(collapsed & is.null(title)){
+    stop("Must provide title for collapsed box")
+  }
+  
   tool_ui <- if(collapsible){
     tags$a(style = "float:right;display:inline-block;", 
            `data-bs-toggle` = "collapse",

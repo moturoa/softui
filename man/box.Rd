@@ -7,8 +7,8 @@
 box(
   ...,
   width = 12,
-  title = "",
-  subtitle = "",
+  title = NULL,
+  subtitle = NULL,
   tag = "",
   collapsible = TRUE,
   collapsed = FALSE,
