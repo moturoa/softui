@@ -5,7 +5,7 @@
 \alias{tab_box}
 \title{Tab panels}
 \usage{
-tab_panel(title = "", ..., value = title, icon = NULL)
+tab_panel(title = "", ..., value = title, icon = NULL, style = "")
 
 tab_box(
   ...,

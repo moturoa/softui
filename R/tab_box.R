@@ -5,7 +5,7 @@
 #'Tab panels
 #'@export
 #'@rdname tabbox
-tab_panel <- function(title = "", ..., value = title, icon = NULL){
+tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
 
   if(!is.null(icon)){
     tab_title <- paste(icon, title)
@@ -13,7 +13,7 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL){
     tab_title <- title
   }
 
-  tags$div(class = "tab-pane", `data-value` = value, tab_title = HTML(tab_title), ...)
+  tags$div(class = "tab-pane", `data-value` = value, tab_title = HTML(tab_title), style = style, ...)
 
 }
 

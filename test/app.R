@@ -58,6 +58,49 @@ body <- softui::dashboard_body(
                
                softui::tab_box(width = 6, type = "pills", fill = TRUE,
 
+                        softui::tab_panel("Dropdowns", 
+                                          icon = bsicon("list-task"),
+                                          
+                                          tags$div(class = "dropdown",
+                                            
+                                            actionButton("btn_drop", "Drop down 1", class = "btn-secondary dropdown-toggle",
+                                                         `data-bs-toggle`="dropdown"),
+                                            
+                                            tags$ul(class = "dropdown-menu",
+                                                    
+                                              tags$li(tags$a(class = "dropdown-item", "Something!")),
+                                              tags$li(tags$a(class = "dropdown-item", "Something else!"))
+                                                    
+                                            )
+                                                   
+                                                   
+                                          ),
+                                          tags$div(class = "dropdown",
+                                                   
+                                                   actionButton("btn_drop", "Drop down 2", class = "btn-info dropdown-toggle",
+                                                                `data-bs-toggle`="dropdown", 
+                                                                `data-bs-root-boundary` = "viewport", 
+                                                                `data-bd-boundary` = "viewport"),
+                                                   
+                                                   tags$div(class = "dropdown-menu", 
+                                                            tags$div(style = "padding: 24px;overflow-y: scroll;height: 300px;",
+                                                                     checkboxGroupInput("chk1", NULL, choices = rownames(mtcars))
+                                                            )
+                                                   )
+                                                   
+                                                   
+                                                   
+                                          )
+
+                                        
+                                          
+                                          
+                                          
+                        ),       
+                               
+                               
+                               
+                               
                         softui::tab_panel("Data", icon = bsicon("clipboard-data"),
 
                           fluid_row(

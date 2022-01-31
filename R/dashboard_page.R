@@ -21,6 +21,10 @@ dashboard_page <- function(header, sidebar, body, title = "", icon = bsicon("spe
     tags$link(rel="stylesheet",
               href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     )
+    # tags$script(
+    #   src= "https://kit.fontawesome.com/42d5adcbca.js", crossorigin = "anonymous"
+    # )
+    
 
   )
 
