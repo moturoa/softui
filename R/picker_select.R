@@ -2,7 +2,16 @@
 #' @description Replacement for `shinyWidgets::pickerInput`, which is somehow not compatible with this (bootstrap 5.1 / softui) framework.
 #' @export
 #' @rdname picker_select
-picker_select_ui <- function(id, label = "", btn_class = "btn-info", height = 300, width = 300, button_style = "", dropdown_style = ""){
+picker_select_ui <- function(id, 
+                             label = "", 
+                             btn_class = "btn-info", 
+                             height = 300, 
+                             width = 300, 
+                             button_style = "", 
+                             dropdown_style = "",
+                             search = TRUE,
+                             buttons_select = TRUE
+                             ){
   
   ns <- NS(id)
   w_css <- shiny::validateCssUnit(width)
@@ -21,16 +30,28 @@ picker_select_ui <- function(id, label = "", btn_class = "btn-info", height = 30
            tags$div(class = "dropdown-menu", 
                     tags$div(style = drop_style,
                              
-                             tags$div(style = "display:inline-block;",
-                                      textInput(ns("txt_search"), NULL, width = "90%")
-                             ),
-                             actionButton(ns("btn_reset_search"), label = icon("remove"), 
-                                          class = "btn-light", style = "background: none; border: none; box-shadow: none;"),
-                             tags$br(),
+                             if(search){
+                              tagList(
+                                tags$div(style = "display:inline-block;",
+                                         textInput(ns("txt_search"), NULL, width = "90%")
+                                ),
+                                actionButton(ns("btn_reset_search"), label = icon("remove"), 
+                                             class = "btn-light", style = "background: none; border: none; box-shadow: none;"),
+                                tags$br()
+                              )  
+                             } else NULL,
                              
-                             actionButton(ns("btn_all_on"), "Alles aan",icon = bsicon("check"), class = "btn-light btn-sm"),
-                             actionButton(ns("btn_all_off"), "Alles uit", icon = bsicon("x"), class = "btn-light btn-sm"),
-                             tags$hr(),
+                             if(buttons_select){
+                              tagList(
+                                actionButton(ns("btn_all_on"), "Alles aan",icon = bsicon("check"), class = "btn-light btn-sm"),
+                                actionButton(ns("btn_all_off"), "Alles uit", icon = bsicon("x"), class = "btn-light btn-sm")   
+                              ) 
+                             } else NULL,
+                             
+                             if(buttons_select | search){
+                               tags$hr()  
+                             } else NULL,
+                             
                              checkboxGroupInput(ns("chk1"), NULL, choices = NULL),
                              uiOutput(ns("ui_end_choices"))
                     )
@@ -102,7 +123,7 @@ picker_select_module <- function(input, output, session, choices = NULL, update 
   # selected choices
   selection <- reactive({
     input$chk1
-  })
+  }) 
   
   # select all
   observeEvent(input$btn_all_on, {
