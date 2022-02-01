@@ -16,16 +16,10 @@ dashboard_page <- function(header, sidebar, body, title = "", icon = bsicon("spe
     tags$link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700",
               rel="stylesheet"),
 
-    htmltools::findDependencies(selectizeInput("foo", "bar", choices = "a")),
-    
     tags$link(rel="stylesheet",
-              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
     )
-    # tags$script(
-    #   src= "https://kit.fontawesome.com/42d5adcbca.js", crossorigin = "anonymous"
-    # )
     
-
   )
 
 

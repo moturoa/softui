@@ -58,8 +58,7 @@ add_softui_dependencies <- function(tag){
       script = "42d5adcbca.js",
       package = "softui"
     ),
-    
-    
+
     htmltools::htmlDependency(
       name = "softuiextra",
       version = "0.1",
@@ -68,12 +67,19 @@ add_softui_dependencies <- function(tag){
       stylesheet = "softuiextra.css",
       package = "softui"
     ),
-    
-    htmltools::htmlDependency(name = "clock", version = "0.1",
-                              package = "softui",
-                              src = "assets",
-                              script = "clock/clock.js"
+    htmltools::htmlDependency(
+      name = "clock", version = "0.1",
+      package = "softui",
+      src = "assets",
+      script = "clock/clock.js"
     )
+    # htmltools::htmlDependency(
+    #   name = "bootstrapicons",
+    #   version = "1.8.0",   # downloaded 2022/2/1
+    #   src = c(file = "bootstrap_icons"),
+    #   stylesheet = "bootstrap-icons.css",
+    #   package = "softui"
+    # )
 
 
   )
