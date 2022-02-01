@@ -58,44 +58,11 @@ body <- softui::dashboard_body(
                
                softui::tab_box(width = 6, type = "pills", fill = TRUE,
 
-                        softui::tab_panel("Dropdowns", 
+                        softui::tab_panel("Picker select", 
                                           icon = bsicon("list-task"),
                                           
-                                          tags$div(class = "dropdown",
-                                            
-                                            actionButton("btn_drop", "Drop down 1", class = "btn-secondary dropdown-toggle",
-                                                         `data-bs-toggle`="dropdown"),
-                                            
-                                            tags$ul(class = "dropdown-menu",
-                                                    
-                                              tags$li(tags$a(class = "dropdown-item", "Something!")),
-                                              tags$li(tags$a(class = "dropdown-item", "Something else!"))
-                                                    
-                                            )
-                                                   
-                                                   
-                                          ),
-                                          tags$div(class = "dropdown",
-                                                   
-                                                   actionButton("btn_drop", "Drop down 2", class = "btn-info dropdown-toggle",
-                                                                `data-bs-toggle`="dropdown", 
-                                                                `data-bs-root-boundary` = "viewport", 
-                                                                `data-bd-boundary` = "viewport"),
-                                                   
-                                                   tags$div(class = "dropdown-menu", 
-                                                            tags$div(style = "padding: 24px;overflow-y: scroll;height: 300px;",
-                                                                     checkboxGroupInput("chk1", NULL, choices = rownames(mtcars))
-                                                            )
-                                                   )
-                                                   
-                                                   
-                                                   
-                                          )
+                                          picker_select_ui("test", "Select project", width = 350)    
 
-                                        
-                                          
-                                          
-                                          
                         ),       
                                
                                
@@ -125,13 +92,13 @@ body <- softui::dashboard_body(
                             )
                           )
                         ),
-                        softui::tab_panel("Test", icon = icon("chart-bar"),
+                        softui::tab_panel("Buttons", icon = icon("chart-bar"),
                                           
                                           tags$p("Test icon: ", icon("home")),
-                                          actionButton("btn1", "Primary", class = "btn-primary"),
-                                          actionButton("btn2", "Secondary", class = "btn-secondary"),
-                                          actionButton("btn3", "Warning", class = "btn-warning", onclick = "selectMenuItem('HIER!!!');"),
-                                          actionButton("btn4", "Success", class = "btn-success"),
+                                          actionButton("btn1", "Primary", class = "btn-primary", icon = bsicon("check")),
+                                          actionButton("btn2", "Secondary", class = "btn-secondary", icon = bsicon("clipboard-data")),
+                                          actionButton("btn3", "Warning", class = "btn-warning", icon = bsicon("alarm-fill")),
+                                          actionButton("btn4", "Success", class = "btn-success", icon = bsicon("bricks")),
                                           actionButton("btn5", "Info", class = "btn-info"),
                                           actionButton("btn6", "Light", class = "btn-light")
                                           
@@ -270,12 +237,11 @@ server <- function(input, output, session) {
     )
   })
   
+
   
-  observeEvent(input$btn2, {
-    
-    softui::update_sidebar("administratie")
-    
-  })
+  out <- callModule(picker_select_module, "test", 
+                    choices = sort(readRDS("ehv_projecten.rds")$projectnaam))
+  
   
 }
 
