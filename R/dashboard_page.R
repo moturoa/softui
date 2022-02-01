@@ -14,11 +14,7 @@ dashboard_page <- function(header, sidebar, body, title = "", icon = bsicon("spe
     shiny::tags$title(title),
 
     tags$link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700",
-              rel="stylesheet"),
-
-    tags$link(rel="stylesheet",
-              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
-    )
+              rel="stylesheet")
     
   )
 
