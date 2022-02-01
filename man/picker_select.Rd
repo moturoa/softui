@@ -12,7 +12,9 @@ picker_select_ui(
   height = 300,
   width = 300,
   button_style = "",
-  dropdown_style = ""
+  dropdown_style = "",
+  search = TRUE,
+  buttons_select = TRUE
 )
 
 picker_select_module(
