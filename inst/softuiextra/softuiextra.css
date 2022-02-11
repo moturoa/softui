@@ -4,7 +4,7 @@
 
 /* tab_box highlighted tab title */
 .nav-pills .nav-link.active{
-	background-color: #8392ab !important;
+	background-color: #8392ab;
 	color: white;
 }
 
@@ -26,4 +26,4 @@
   font-size: 0.9rem !important;
   text-transform: none !important;
   line-height: 1.5 !important;
-}
+} 

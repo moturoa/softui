@@ -19,7 +19,10 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
 
 #'@export
 #'@rdname tabbox
-tab_box <- function(..., selected = NULL, width = 12,
+tab_box <- function(..., 
+                    id = NULL,
+                    selected = NULL, 
+                    width = 12,
                     type = c("tabs","pills"),
                     fill = FALSE){
 
@@ -48,7 +51,9 @@ tab_box <- function(..., selected = NULL, width = 12,
 
     tags$li(class = "nav-item",
             tags$a(class = cl, href = glue::glue("#tab-{idnr}-{el$index}"),
-                   `data-toggle`="tab", `data-bs-toggle`="tab", `data-value`=el$`data-value`,
+                   `data-toggle`="tab", 
+                   `data-bs-toggle`="tab", 
+                   `data-value`=el$`data-value`,
                    el$tab_title
                    )
     )
@@ -73,7 +78,7 @@ tab_box <- function(..., selected = NULL, width = 12,
 
 
   tags$div(class = glue::glue("col-lg-{width}"),
-    tags$div(class = "card",
+    tags$div(class = "card", id = id,
       tags$div(class = "card-header",
         tags$ul(class = nav_cl,
                 `data-tabsetid`= glue::glue("{idnr}"),
@@ -93,12 +98,3 @@ tab_box <- function(..., selected = NULL, width = 12,
 }
 
 
-if(FALSE){
-
-
-tab_box(
-  tab_panel("Een", tags$p("content"), icon = icon("home")),
-  tab_panel("Twee", tags$p("meer content"))
-)
-
-}

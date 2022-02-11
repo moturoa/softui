@@ -9,6 +9,7 @@ tab_panel(title = "", ..., value = title, icon = NULL, style = "")
 
 tab_box(
   ...,
+  id = NULL,
   selected = NULL,
   width = 12,
   type = c("tabs", "pills"),

@@ -56,19 +56,24 @@ body <- softui::dashboard_body(
              ),
              fluid_row(
                
-               softui::tab_box(width = 6, type = "pills", fill = TRUE,
+               softui::tab_box(width = 6, 
+                               id = "front_tabbox",
+                               type = "pills", 
+                               fill = TRUE,
 
-                        softui::tab_panel("Picker select", 
+                        softui::tab_panel("Picker select", value = "picker",
                                           icon = bsicon("list-task"),
                                           
-                                          picker_select_ui("test", "Select project", width = 350)    
+                                          picker_select_ui("test", "Select project", width = 350),
+                                          
+                                          actionButton("btn_switch", "Go to other tab", class = "btn-primary")
 
                         ),       
                                
                                
                                
                                
-                        softui::tab_panel("Data", icon = bsicon("clipboard-data"),
+                        softui::tab_panel("Data", icon = bsicon("clipboard-data"), value = "data",
 
                           fluid_row(
                             column(6, 
@@ -88,11 +93,12 @@ body <- softui::dashboard_body(
                                                              contains = TRUE,
                                                              options = rownames(mtcars)),
                                  
+                                 # werkt niet!
                                  shinyWidgets::pickerInput("pick1", "Picker", choices = rownames(mtcars), multiple = TRUE)
                             )
                           )
                         ),
-                        softui::tab_panel("Buttons", icon = icon("chart-bar"),
+                        softui::tab_panel("Buttons", icon = icon("chart-bar"), value = "buttons",
                                           
                                           tags$p("Test icon: ", icon("home")),
                                           actionButton("btn1", "Primary", class = "btn-primary", icon = bsicon("check")),
@@ -223,6 +229,13 @@ server <- function(input, output, session) {
   
   observeEvent(input$btn_press, {message("pressed")})
 
+  
+  observeEvent(input$btn_switch, {
+    
+    update_tabpanel("front_tabbox", selected = "buttons")
+    
+  })
+  
   
   observeEvent(input$btn1, {
     showModal(
