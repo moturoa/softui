@@ -2,11 +2,11 @@
    color: white !important;
 }
 
-/* tab_box highlighted tab title */
-.nav-pills .nav-link.active{
+/* tab_box highlighted tab title 
+.nav-pills > .nav-link.active{
 	background-color: #8392ab;
 	color: white;
-}
+}*/
 
 
 /* Numeric range input */

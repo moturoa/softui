@@ -16,7 +16,9 @@ library(shinyWidgets)
 sidebar <- softui::dashboard_sidebar(
   softui::sidebar_menu(id = "sidebar",
     softui::menu_item("Analyse", tabName = "analyse", icon = bsicon("bar-chart-fill")),
-    softui::menu_item("Administratie", tabName = "administratie", icon = bsicon("tools"))
+    softui::menu_item("Administratie", tabName = "administratie", icon = bsicon("tools")),
+    softui::menu_output("extra_menu")
+
   )
 )
 
@@ -178,6 +180,21 @@ body <- softui::dashboard_body(
               
              )
 
+    ),
+    
+    softui::tab_item("extra", 
+                     
+                     
+                     softui::fluid_page(
+                       softui::fluid_row(
+                         softui::box(width = 6,
+                                     title = "Extra!",
+                                     tags$p("Extra, extra, read all about it")
+                         )
+                       )
+                     )
+                     
+                     
     )
 
   )
@@ -219,6 +236,10 @@ ui <- softui::dashboard_page(title = "Shinto App",
 server <- function(input, output, session) {
 
 
+  output$extra_menu <- renderUI({
+    softui::menu_item("Extra", tabName = "extra", icon = bsicon("cart-plus"))
+  })
+  
   output$plot1 <- renderPlot({
 
     ggplot(mtcars, aes(x = wt, y = disp, colour = cyl)) +
@@ -231,9 +252,7 @@ server <- function(input, output, session) {
 
   
   observeEvent(input$btn_switch, {
-    
     update_tabpanel("front_tabbox", selected = "buttons")
-    
   })
   
   
@@ -250,7 +269,13 @@ server <- function(input, output, session) {
     )
   })
   
+  output$extra_menu <- renderUI({
+    softui::menu_link(tabName = "extra",icon = bsicon("send-plus-fill"),text = "Extra!")
+  })
 
+
+
+  
   
   out <- callModule(picker_select_module, "test", 
                     choices = sort(readRDS("ehv_projecten.rds")$projectnaam))
