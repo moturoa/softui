@@ -10,7 +10,7 @@ picker_select_ui <- function(id,
                              button_style = "", 
                              dropdown_style = "",
                              search = TRUE,
-                             buttons_select = TRUE
+                             buttons_select = FALSE
                              ){
   
   ns <- NS(id)
@@ -21,13 +21,16 @@ picker_select_ui <- function(id,
   
   tags$div(class = "dropdown",
            
-           actionButton(ns("btn_drop"), label, 
-                        class = paste(btn_class, "dropdown-toggle"),
-                        `data-bs-toggle`="dropdown", 
-                        `data-bs-auto-close` = "outside", 
-                        style = button_style),
+           tags$label(label, class = "control-label"),
+           tags$div(
+             actionButton(ns("btn_drop"), 
+                          uiOutput(ns("dropdown_label"), container = span, inline = TRUE), 
+                          class = paste(btn_class, "dropdown-toggle"),
+                          `data-bs-toggle`="dropdown", 
+                          `data-bs-auto-close` = "outside", 
+                          style = button_style),
            
-           tags$div(class = "dropdown-menu", 
+            tags$div(class = "dropdown-menu", 
                     tags$div(style = drop_style,
                              
                              if(search){
@@ -35,16 +38,19 @@ picker_select_ui <- function(id,
                                 tags$div(style = "display:inline-block;",
                                          textInput(ns("txt_search"), NULL, width = "90%")
                                 ),
-                                actionButton(ns("btn_reset_search"), label = icon("remove"), 
-                                             class = "btn-light", style = "background: none; border: none; box-shadow: none;"),
+                                tags$div(style = "display:inline-block; padding-top: 8px;",
+                                  actionButton(ns("btn_reset_search"), label = icon("remove"), 
+                                               class = "btn-light", 
+                                               style = "background: none; border: none; box-shadow: none;")
+                                ),
                                 tags$br()
                               )  
                              } else NULL,
                              
                              if(buttons_select){
                               tagList(
-                                actionButton(ns("btn_all_on"), "Alles aan",icon = bsicon("check"), class = "btn-light btn-sm"),
-                                actionButton(ns("btn_all_off"), "Alles uit", icon = bsicon("x"), class = "btn-light btn-sm")   
+                                actionButton(ns("btn_all_on"), "Alles aan", class = "btn-light btn-sm"),
+                                actionButton(ns("btn_all_off"), "Alles uit", class = "btn-light btn-sm")   
                               ) 
                              } else NULL,
                              
@@ -57,7 +63,7 @@ picker_select_ui <- function(id,
                     )
            )
            
-           
+           )
            
   )
   
@@ -66,18 +72,22 @@ picker_select_ui <- function(id,
 
 #' @rdname picker_select
 #' @export
-picker_select_module <- function(input, output, session, choices = NULL, update = reactive(NULL), 
-                                 max_choices = 50, debounce = 500){
+picker_select_module <- function(input, output, session, 
+                                 choices = NULL, 
+                                 update = reactive(NULL), 
+                                 max_choices = 50, 
+                                 debounce = 500){
   
   
   
+  all_choices <- reactiveVal(choices)
   
   # reactive for the search
   txt_searched_instant <- reactive({
     input$txt_search
   })
   
-  # debounced search
+  # debounced search (avoid searches while typing)
   txt_searched <- debounce(txt_searched_instant, millis = debounce, domain = session)
   
   
@@ -121,24 +131,43 @@ picker_select_module <- function(input, output, session, choices = NULL, update 
   })
   
   # selected choices
-  selection <- reactive({
-    input$chk1
-  }) 
+  selection <- reactiveVal()
+  
+  observeEvent(input$chk1, {
+    selection(input$chk1)
+  })
+  
+  output$dropdown_label <- renderUI({
+    n_sel <- length(selection())
+    if(n_sel == 0){
+      "Maak een selectie"
+    } else {
+      glue("{n_sel} geselecteerd")
+    }
+    
+  })
+  
   
   # select all
   observeEvent(input$btn_all_on, {
     updateCheckboxGroupInput(session, "chk1", selected = choices)
+    selection(all_choices())
   })
   
   # unselect all
   observeEvent(input$btn_all_off, {
     updateCheckboxGroupInput(session, "chk1", selected = character(0))
+    selection(NULL)
   })
   
   # update selected or choices
   observeEvent(update(), {
     
     u <- update()
+    
+    if(!is.null(u$choices)){
+      all_choices(u$choices)
+    }
     
     updateCheckboxGroupInput(session, "chk1", selected = u$selected, choices = u$choices)
     
@@ -148,9 +177,9 @@ picker_select_module <- function(input, output, session, choices = NULL, update 
   observeEvent(input$btn_reset_search, {
     updateTextInput(session, "txt_search", value = "")  
     n_extra_clicked(0)
+    selection(NULL)
   })
   
-
   
   observe({
     

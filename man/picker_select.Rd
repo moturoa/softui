@@ -14,7 +14,7 @@ picker_select_ui(
   button_style = "",
   dropdown_style = "",
   search = TRUE,
-  buttons_select = TRUE
+  buttons_select = FALSE
 )
 
 picker_select_module(
