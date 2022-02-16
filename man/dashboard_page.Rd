@@ -4,7 +4,16 @@
 \alias{dashboard_page}
 \title{Soft UI dashboard page}
 \usage{
-dashboard_page(header, sidebar, body, title = "", icon = bsicon("speedometer"))
+dashboard_page(
+  header,
+  sidebar,
+  body,
+  title = "",
+  icon = bsicon("speedometer"),
+  loadingscreen_time = 4,
+  busybar_color = "#346E6E",
+  disconnect_message = "De sessie is verlopen of er ging iets fout!"
+)
 }
 \description{
 Soft UI dashboard page

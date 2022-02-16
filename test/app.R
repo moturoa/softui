@@ -2,7 +2,7 @@
 
 
 
- #devtools::load_all()
+#devtools::load_all()
 library(softui)
 
 library(shiny)
@@ -71,9 +71,6 @@ body <- softui::dashboard_body(
                                           actionButton("btn_switch", "Go to other tab", class = "btn-primary")
 
                         ),       
-                               
-                               
-                               
                                
                         softui::tab_panel("Data", icon = bsicon("clipboard-data"), value = "data",
 

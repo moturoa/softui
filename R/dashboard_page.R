@@ -1,7 +1,12 @@
 
 #' Soft UI dashboard page
 #' @export
-dashboard_page <- function(header, sidebar, body, title = "", icon = bsicon("speedometer")){
+dashboard_page <- function(header, sidebar, body, title = "", 
+                           icon = bsicon("speedometer"),
+                           loadingscreen_time = 4,
+                           busybar_color = "#346E6E",
+                           disconnect_message = "De sessie is verlopen of er ging iets fout!"
+                           ){
 
 
   head_tag <- shiny::tags$head(
@@ -45,11 +50,25 @@ dashboard_page <- function(header, sidebar, body, title = "", icon = bsicon("spe
     )
 
 
+  dependency_tag <- tagList(
+    shinyjs::useShinyjs(),
+    
+    shinytoastr::useToastr(),
+    
+    
+    # Loading bar, loading screen
+    shinybusy::add_busy_bar(color = busybar_color, height = "6px"),
+    
+    shintoshiny::loadingscreen(time = loadingscreen_time),
+    shintoshiny::disconnect_message(disconnect_message),
+  )
+  
 
 
   main_tag <- tags$main(
     class = "main-content position-relative max-height-vh-100 h-100 border-radius-lg ",
     header,
+    dependency_tag,
     body
   )
 

@@ -27,3 +27,7 @@
   text-transform: none !important;
   line-height: 1.5 !important;
 } 
+
+.table.dataTable tbody tr.active td {
+    background-color: #345483 !important;
+}
