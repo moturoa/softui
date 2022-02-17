@@ -1,13 +1,13 @@
 Package: softui
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.2
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-Depends: shiny, glue, htmltools
+Title: Layout for Shinto Apps - 2022
+Version: 0.3
+Author: Remko Duursma
+Maintainer: Remko Duursma <remko@shintolabs.nl>
+Description: A shiny dashboard template with Soft UI styling. 
+    Opinionated framework for Shinto Labs.
+License: Private
+Depends: shiny, glue, htmltools, shintoshiny, shinybusy, shinydisconnect, shinyjs
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2

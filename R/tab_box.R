@@ -18,14 +18,18 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
 }
 
 #'@export
+#'@param id Optional id for the tab_box
+#'
 #'@rdname tabbox
 tab_box <- function(..., 
                     id = NULL,
                     selected = NULL, 
                     width = 12,
-                    type = c("tabs","pills"),
                     fill = FALSE){
 
+  
+  type <- "pills"
+  
   items <- list(...)
   n_items <- length(items)
   idnr <- as.character(sample(1000:9999,1))
@@ -78,6 +82,7 @@ tab_box <- function(...,
 
 
   tags$div(class = glue::glue("col-lg-{width}"),
+              
     tags$div(class = "card", id = id,
       tags$div(class = "card-header",
         tags$ul(class = nav_cl,

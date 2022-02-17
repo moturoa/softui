@@ -44,7 +44,21 @@ dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
                  # content on the right (usually dropdowns)
                  tags$ul(
                    class = "navbar-nav justify-content-end",
-                   ...
+                   ...,
+                   
+                   
+                   
+                   # Two standard dropdowns for Shinto apps
+                   softui::dropdown_item(bsicon("gear-fill"), 
+                                         header = "App Info",
+                                         shintoshiny::appInfoUI("appinfo"),
+                                         align_right = TRUE
+                   ),
+                   softui::dropdown_item(bsicon("person-circle"), 
+                                         header = "Gebruiker",
+                                         softui::userLogoutUI("user"),
+                                         align_right = TRUE
+                   )
                    
                  )
                )

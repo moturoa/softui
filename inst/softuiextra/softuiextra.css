@@ -2,11 +2,11 @@
    color: white !important;
 }
 
-/* tab_box highlighted tab title 
-.nav-pills > .nav-link.active{
-	background-color: #8392ab;
-	color: white;
-}*/
+/* tab_box highlighted tab title */
+.nav-pills .nav-link.active{
+	background-color: #345483 !important;
+	color: white !important;
+}
 
 
 /* Numeric range input */

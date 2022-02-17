@@ -464,6 +464,7 @@ function debounce(func, wait, immediate) {
 
 // Tabs navigation
 
+/*
 var total = document.querySelectorAll('.nav-pills');
 
 function initNavs() {
@@ -510,11 +511,15 @@ function initNavs() {
       }
     }
   });
-}
+} 
+*/
 
+/*
 setTimeout(function() {
   initNavs();
 }, 100);
+*/
+
 
 // Tabs navigation resize
 

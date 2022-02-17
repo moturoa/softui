@@ -7,14 +7,10 @@
 \usage{
 tab_panel(title = "", ..., value = title, icon = NULL, style = "")
 
-tab_box(
-  ...,
-  id = NULL,
-  selected = NULL,
-  width = 12,
-  type = c("tabs", "pills"),
-  fill = FALSE
-)
+tab_box(..., id = NULL, selected = NULL, width = 12, fill = FALSE)
+}
+\arguments{
+\item{id}{Optional id for the tab_box}
 }
 \description{
 Tab panels

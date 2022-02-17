@@ -54,12 +54,11 @@ dashboard_page <- function(header, sidebar, body, title = "",
     shinyjs::useShinyjs(),
     
     shinytoastr::useToastr(),
-    
+    shintoshiny::shintoshiny_dependencies(),
     
     # Loading bar, loading screen
     shinybusy::add_busy_bar(color = busybar_color, height = "6px"),
     
-    shintoshiny::loadingscreen(time = loadingscreen_time),
     shintoshiny::disconnect_message(disconnect_message),
   )
   
@@ -75,8 +74,9 @@ dashboard_page <- function(header, sidebar, body, title = "",
 
   out_tag <- add_softui_dependencies(
       shiny::tags$body(class = "g-sidenav-show  bg-gray-100",
-                              sidebar_and_title_tag,
-                              main_tag)
+                       shintoshiny::loadingscreen(time = loadingscreen_time),
+                       sidebar_and_title_tag,
+                       main_tag)
   )
   
 
