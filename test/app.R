@@ -9,7 +9,7 @@ library(shiny)
 library(dplyr)
 library(bslib)
 library(fontawesome)
-
+library(ggplot2)
 library(dqshiny)
 library(shinyWidgets)
 
@@ -216,13 +216,6 @@ header <- softui::dashboard_header(
 )
 
 
-
-
-
-
-#library(softui)
-
-library(ggplot2)
 
 ui <- softui::dashboard_page(title = "Shinto App",
                              loadingscreen_time = 1,
