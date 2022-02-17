@@ -2,7 +2,13 @@
 
 
 
-#'Tab panels
+#' Tab panels
+#' @description Replaces `shiny::tabPanel`, and is used only for placing tabs inside a `softui::tab_box`
+#' @param title Title for the tab
+#' @param \dots Content for the tab
+#' @param value Name of the tab to refer to when using `softui::update_tabpanel` (defaults to title)
+#' @param icon An icon, with `shiny::icon` or `softui::bsicon`
+#' @param style Extra CSS string to send to the body of the tabpanel
 #'@export
 #'@rdname tabbox
 tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
@@ -19,7 +25,9 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
 
 #'@export
 #'@param id Optional id for the tab_box
-#'
+#'@param selected Which tab is selected initially? Defaults to the first tab
+#'@param width Width of tab_box in bootstrap units (default = 12)
+#'@param fill If TRUE, makes the tab panel titles fill the entire available width
 #'@rdname tabbox
 tab_box <- function(..., 
                     id = NULL,

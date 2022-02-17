@@ -1,6 +1,7 @@
-
 #' The dashboard header
-#' @param \dots header_item's
+#' @param tag_line A short statement to appear in the header (italic text)
+#' @param left_content UI to place on the left (just right of the tagline). Untested.
+#' @param \dots Any header items, usually made with `softui::dropdown_item`
 #' @export
 #' @rdname dashboard_header
 dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
