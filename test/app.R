@@ -2,8 +2,8 @@
 
 
 
-#devtools::load_all()
-library(softui)
+devtools::load_all()
+#library(softui)
 
 library(shiny)
 library(dplyr)
@@ -60,7 +60,6 @@ body <- softui::dashboard_body(
                
                softui::tab_box(width = 6, 
                                id = "front_tabbox",
-                               type = "pills", 
                                fill = TRUE,
 
                         softui::tab_panel("Picker select", value = "picker",
@@ -226,9 +225,10 @@ header <- softui::dashboard_header(
 library(ggplot2)
 
 ui <- softui::dashboard_page(title = "Shinto App",
-                     header = header,
-                     sidebar = sidebar,
-                     body = body)
+                             loadingscreen_time = 1,
+                             header = header,
+                             sidebar = sidebar,
+                             body = body)
 
 server <- function(input, output, session) {
 

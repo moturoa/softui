@@ -35,15 +35,20 @@ picker_select_ui <- function(id,
                              
                              if(search){
                               tagList(
-                                tags$div(style = "display:inline-block;",
-                                         textInput(ns("txt_search"), NULL, width = "90%")
-                                ),
-                                tags$div(style = "display:inline-block; padding-top: 8px;",
-                                  actionButton(ns("btn_reset_search"), label = icon("remove"), 
-                                               class = "btn-light", 
-                                               style = "background: none; border: none; box-shadow: none;")
-                                ),
-                                tags$br()
+                                softui::fluid_row(
+                                  column(10, 
+                                    textInput(ns("txt_search"), NULL, width = "100%", placeholder = "Zoek")
+                                  ),
+                                  column(2, 
+                                      tags$div(style = "padding-top: 8px;",
+                                          actionButton(ns("btn_reset_search"), 
+                                                        label = tags$span(style = "font-size: 1.3em;", bsicon("x")), 
+                                                        class = "btn-light", 
+                                                        style = "background: none; border: none; box-shadow: none; width: 30px; padding:0; margin: 0;")
+                                      )
+                                  )
+                                 
+                                )
                               )  
                              } else NULL,
                              
@@ -73,14 +78,12 @@ picker_select_ui <- function(id,
 #' @rdname picker_select
 #' @export
 picker_select_module <- function(input, output, session, 
-                                 choices = NULL, 
+                                 choices = reactive(NULL), 
                                  update = reactive(NULL), 
                                  max_choices = 50, 
                                  debounce = 500){
   
   
-  
-  all_choices <- reactiveVal(choices)
   
   # reactive for the search
   txt_searched_instant <- reactive({
@@ -151,7 +154,7 @@ picker_select_module <- function(input, output, session,
   # select all
   observeEvent(input$btn_all_on, {
     updateCheckboxGroupInput(session, "chk1", selected = choices)
-    selection(all_choices())
+    selection(choices())
   })
   
   # unselect all
@@ -164,11 +167,6 @@ picker_select_module <- function(input, output, session,
   observeEvent(update(), {
     
     u <- update()
-    
-    if(!is.null(u$choices)){
-      all_choices(u$choices)
-    }
-    
     updateCheckboxGroupInput(session, "chk1", selected = u$selected, choices = u$choices)
     
   })
