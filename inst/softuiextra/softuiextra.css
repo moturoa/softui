@@ -31,3 +31,7 @@
 .table.dataTable tbody tr.active td {
     background-color: #345483 !important;
 }
+
+.text-gradient.text-shinto {
+  background-image: linear-gradient(310deg, #b82525, #000000);
+}
