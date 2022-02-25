@@ -12,6 +12,7 @@ dashboard_page(
   icon = softui::bsicon("speedometer"),
   loadingscreen_time = 4,
   busybar_color = "#346E6E",
+  shinto_logo = TRUE,
   disconnect_message = "De sessie is verlopen of er ging iets fout!"
 )
 }

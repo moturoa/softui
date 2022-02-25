@@ -14,6 +14,7 @@ dashboard_page <- function(header, sidebar, body, title = "",
                            icon = softui::bsicon("speedometer"),
                            loadingscreen_time = 4,
                            busybar_color = "#346E6E",
+                           shinto_logo = TRUE,
                            disconnect_message = "De sessie is verlopen of er ging iets fout!"
                            ){
 
@@ -51,7 +52,16 @@ dashboard_page <- function(header, sidebar, body, title = "",
 
       shiny::tags$div(class="collapse navbar-collapse w-auto h-auto max-height-vh-100 h-100",
                       id="sidenav-collapse-main",
-                      sidebar
+                      sidebar,
+                      
+                      if(shinto_logo){
+                        tags$div(
+                          style = "position: fixed; bottom: 24px; left: 24px;",
+                          tags$img(src = "shintologo/logoshintolabs96.png",
+                                   width = "24px")
+                        )  
+                      } else NULL
+                      
       )
     )
 

@@ -15,6 +15,13 @@ menu_item(text, ..., icon = bsicon("bar-chart-fill"), tabName = NULL)
 
 menu_link(tabName, icon, text)
 }
+\arguments{
+\item{\dots}{`menu_item`'s}
+
+\item{id}{Id for the sidebar, currently unused}
+
+\item{.list}{Further `menu_item`'s can be passed as a list instead of in \dots.}
+}
 \description{
 Dashboard sidebar
 

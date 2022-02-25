@@ -8,6 +8,9 @@ dashboard_sidebar <- function(arg){
 
 
 #' Sidebar menu
+#' @param \dots `menu_item`'s
+#' @param id Id for the sidebar, currently unused
+#' @param .list Further `menu_item`'s can be passed as a list instead of in \dots.
 #' @export
 #' @rdname sidebar
 sidebar_menu <- function(..., id = NULL, .list = NULL){
@@ -18,12 +21,15 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
   }
 
   # First menu item is always selected
-  items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], class = "show active")
+  items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
+                                                             class = "show active")
 
   shiny::tags$ul(
      class = "navbar-nav sidebar-menu nav navtabs",
      role = "tablist",
      items,
+     
+     # --> this is here for a menuOutput implementation, which we haven't implemented yet
      shiny::tags$div(id = id, class = "sidebarMenuSelectedTabItem",
                      `data-value` = "null")
   )
