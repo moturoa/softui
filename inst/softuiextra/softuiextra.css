@@ -31,3 +31,7 @@
 .table.dataTable tbody tr.active td {
     background-color: #345483 !important;
 }
+
+.modal-title{
+  width: 100% !important;
+}

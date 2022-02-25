@@ -25,11 +25,8 @@ dashboard_page <- function(header, sidebar, body, title = "",
       content = "width=device-width, initial-scale=1, shrink-to-fit=no"
     ),
     shiny::tags$meta(`http-equiv` = "x-ua-compatible", content = "ie=edge"),
-    shiny::tags$title(title),
-
-    tags$link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700",
-              rel="stylesheet")
-    
+    shiny::tags$title(title)
+ 
   )
 
 

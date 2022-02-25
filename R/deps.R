@@ -4,7 +4,6 @@ add_softui_dependencies <- function(tag){
 
   deps <- list(
     
-    
     htmltools::htmlDependency(
       name = "bootstrap51",
       version = "0.1",
@@ -78,6 +77,13 @@ add_softui_dependencies <- function(tag){
       version = "1.8.0",   # downloaded 2022/2/1
       src = c(file = "bootstrap_icons"),
       stylesheet = "bootstrap-icons.css",
+      package = "softui"
+    ),
+    htmltools::htmlDependency(
+      name = "opensans",
+      version = "1.0",   # downloaded 2022/2/25
+      src = c(file = "opensans"),
+      stylesheet = "opensans.css",
       package = "softui"
     )
 

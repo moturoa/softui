@@ -16,13 +16,16 @@ modal <- function(..., title = "", easyClose = TRUE,
                   close_icon = softui::bsicon("x-lg"),
                   session = shiny::getDefaultReactiveDomain()){
   
-  img <- system.file("logo/logoshintolabs.png", package = "softui")
+  # see zzz.R; inst/logo is available under logo/
+  img <- "shintologo/logoshintolabs.png"
   
   modalDialog(
     easyClose = TRUE,
-    title = tagList(title, 
-                    tags$span(tags$img(src=img, width = 70), 
-                    style = "display:inline-block; float:right;")),
+    title = tags$div(title, 
+                    tags$span(
+                      tags$img(src=img, width = 70), 
+                      style = "display:inline-block; float:right;")
+            ),
     
     ...,
     footer = list(
