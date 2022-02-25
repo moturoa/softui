@@ -13,7 +13,11 @@ header_item(...)
 dropdown_item(icon, ..., header = NULL, align_right = FALSE)
 }
 \arguments{
-\item{\dots}{header_item's}
+\item{\dots}{Any header items, usually made with `softui::dropdown_item`}
+
+\item{tag_line}{A short statement to appear in the header (italic text)}
+
+\item{left_content}{UI to place on the left (just right of the tagline). Untested.}
 }
 \description{
 The dashboard header

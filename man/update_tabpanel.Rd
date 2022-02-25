@@ -2,10 +2,17 @@
 % Please edit documentation in R/update_tabpanel.R
 \name{update_tabpanel}
 \alias{update_tabpanel}
-\title{Update tabPanel (menu)}
+\title{Update tab_box}
 \usage{
 update_tabpanel(id, selected, session = shiny::getDefaultReactiveDomain())
 }
+\arguments{
+\item{id}{id of the tab_box (required)}
+
+\item{selected}{Which tab to select (using 'value' of the `tab_panel`)}
+
+\item{session}{Not required}
+}
 \description{
-Update tabPanel (menu)
+Simulates a click on a tab inside a `softui::tab_box` (replaces updateTabsetpanel)
 }

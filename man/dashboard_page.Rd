@@ -9,12 +9,29 @@ dashboard_page(
   sidebar,
   body,
   title = "",
-  icon = bsicon("speedometer"),
+  icon = softui::bsicon("speedometer"),
   loadingscreen_time = 4,
   busybar_color = "#346E6E",
   disconnect_message = "De sessie is verlopen of er ging iets fout!"
 )
 }
+\arguments{
+\item{header}{Made with `softui::dashboard_header`}
+
+\item{sidebar}{Made with `softui::dashboard_sidebar`}
+
+\item{body}{Made with `softui::dashboard_body`}
+
+\item{title}{App title (shown topleft)}
+
+\item{icon}{An icon for the very topleft}
+
+\item{loadingscreen_time}{How many seconds to show the Shinto loading screen}
+
+\item{busybar_color}{Color of the 'busy bar' when shiny is busy}
+
+\item{disconnect_message}{Message to show when session is disconnected (timeout / error)}
+}
 \description{
-Soft UI dashboard page
+Main function to make the Soft UI dashboard page in shiny.
 }

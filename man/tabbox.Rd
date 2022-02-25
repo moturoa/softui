@@ -10,8 +10,24 @@ tab_panel(title = "", ..., value = title, icon = NULL, style = "")
 tab_box(..., id = NULL, selected = NULL, width = 12, fill = FALSE)
 }
 \arguments{
+\item{title}{Title for the tab}
+
+\item{\dots}{Content for the tab}
+
+\item{value}{Name of the tab to refer to when using `softui::update_tabpanel` (defaults to title)}
+
+\item{icon}{An icon, with `shiny::icon` or `softui::bsicon`}
+
+\item{style}{Extra CSS string to send to the body of the tabpanel}
+
 \item{id}{Optional id for the tab_box}
+
+\item{selected}{Which tab is selected initially? Defaults to the first tab}
+
+\item{width}{Width of tab_box in bootstrap units (default = 12)}
+
+\item{fill}{If TRUE, makes the tab panel titles fill the entire available width}
 }
 \description{
-Tab panels
+Replaces `shiny::tabPanel`, and is used only for placing tabs inside a `softui::tab_box`
 }

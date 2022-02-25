@@ -17,7 +17,9 @@ sidebar <- softui::dashboard_sidebar(
   softui::sidebar_menu(id = "sidebar",
     softui::menu_item("Analyse", tabName = "analyse", icon = bsicon("bar-chart-fill")),
     softui::menu_item("Administratie", tabName = "administratie", icon = bsicon("tools")),
-    softui::menu_output("extra_menu")
+    
+    softui::menu_output("extra_menu"),  # typical menuoutput
+    softui::restricted_menu_item("superuser_menu")    # more integrated
 
   )
 )
@@ -191,7 +193,14 @@ body <- softui::dashboard_body(
                      )
                      
                      
-    )
+    ),
+    
+    softui::tab_item("administratie", 
+                     
+                     
+                     tags$p("Found me!")
+                     
+                     )
 
   )
 )
@@ -226,6 +235,14 @@ ui <- softui::dashboard_page(title = "Shinto App",
 server <- function(input, output, session) {
 
 
+  callModule(restricted_menu_item_module, "superuser_menu", 
+             text = "Superuser", 
+             tabName = "superuser",
+             icon = bsicon("incognito"),
+             user_group = "superuser",
+             allowed_groups = "superuser")
+  
+  
   output$extra_menu <- renderUI({
     softui::menu_item("Extra", tabName = "extra", icon = bsicon("cart-plus"))
   })

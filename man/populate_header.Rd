@@ -10,5 +10,5 @@ populate_header(username)
 \item{username}{Current username (for logout menu)}
 }
 \description{
-Writes logout menu, app info menu, etc.
+Writes logout menu, app info menu, etc. Call once at the top of the main server function.
 }

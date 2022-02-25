@@ -21,7 +21,7 @@ picker_select_module(
   input,
   output,
   session,
-  choices = NULL,
+  choices = reactive(NULL),
   update = reactive(NULL),
   max_choices = 50,
   debounce = 500
