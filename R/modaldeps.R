@@ -29,7 +29,7 @@ modal <- function(..., title = "", easyClose = TRUE,
     
     ...,
     footer = list(
-      actionButton(uuid::UUIDgenerate(), 
+      actionButton(random_id(), 
                    close_txt, 
                    icon = close_icon,
                    class= "btn-danger",

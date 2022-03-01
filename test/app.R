@@ -2,8 +2,8 @@
 
 
 
-devtools::load_all()
-#library(softui)
+#devtools::load_all()
+library(softui)
 
 library(shiny)
 library(dplyr)
@@ -18,8 +18,15 @@ sidebar <- softui::dashboard_sidebar(
     softui::menu_item("Analyse", tabName = "analyse", icon = bsicon("bar-chart-fill")),
     softui::menu_item("Administratie", tabName = "administratie", icon = bsicon("tools")),
     
+    softui::menu_item("Submenu", icon = bsicon("cloud-moon-fill"),
+                      
+                      softui::menu_subitem("Kleine pagina 1", "minipage1"),
+                      softui::menu_subitem("Kleine pagina 2", "minipage2")
+                      
+                      ),
+    
     softui::menu_output("extra_menu"),  # typical menuoutput
-    softui::restricted_menu_item("superuser_menu")    # more integrated
+    softui::restricted_menu_item("superuser_menu")    # more integrated / experimental
 
   )
 )
@@ -202,7 +209,22 @@ body <- softui::dashboard_body(
                      
                      tags$p("Found me!")
                      
-                     )
+                     ),
+    
+    softui::tab_item("minipage1", 
+                     
+                     
+                     tags$p("Minipage 1 !!")
+                     
+    ),
+    
+    softui::tab_item("minipage2", 
+                     
+                     
+                     tags$p("Minipage 2 !!")
+                     
+    )
+    
 
   )
 )
@@ -259,6 +281,10 @@ server <- function(input, output, session) {
   
   observeEvent(input$btn_press, {message("pressed")})
 
+  
+  observeEvent(input$btn1, {
+    softui::go_to_page("minipage2")
+  })
   
   observeEvent(input$btn_switch, {
     update_tabpanel("front_tabbox", selected = "buttons")
