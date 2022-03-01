@@ -32766,6 +32766,7 @@ ul li.editMode label {
   color: #FFED85;
 }
 
+/*
 .leaflet {
   height: 250px;
 }
@@ -32780,7 +32781,7 @@ ul li.editMode label {
   background: #141727;
 }
 
-/* required styles */
+/* required styles 
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -32796,6 +32797,8 @@ ul li.editMode label {
   top: 0;
 }
 
+
+
 .leaflet-container {
   overflow: hidden;
 }
@@ -32809,17 +32812,17 @@ ul li.editMode label {
   -webkit-user-drag: none;
 }
 
-/* Prevents IE11 from highlighting tiles in blue */
+/* Prevents IE11 from highlighting tiles in blue 
 .leaflet-tile::selection {
   background: transparent;
 }
 
-/* Safari renders non-retina tile on retina better with this, but Chrome is worse */
+/* Safari renders non-retina tile on retina better with this, but Chrome is worse 
 .leaflet-safari .leaflet-tile {
   image-rendering: -webkit-optimize-contrast;
 }
 
-/* hack that prevents hw layers "stretching" when loading new tiles */
+/* hack that prevents hw layers "stretching" when loading new tiles 
 .leaflet-safari .leaflet-tile-container {
   width: 1600px;
   height: 1600px;
@@ -32831,8 +32834,8 @@ ul li.editMode label {
   display: block;
 }
 
-/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
-/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
+/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x 
+/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles 
 .leaflet-container .leaflet-overlay-pane svg,
 .leaflet-container .leaflet-marker-pane img,
 .leaflet-container .leaflet-shadow-pane img,
@@ -32850,7 +32853,7 @@ ul li.editMode label {
 
 .leaflet-container.leaflet-touch-drag {
   -ms-touch-action: pinch-zoom;
-  /* Fallback for FF which doesn't support pinch-zoom */
+  /* Fallback for FF which doesn't support pinch-zoom 
   touch-action: none;
   touch-action: pinch-zoom;
 }
@@ -32885,7 +32888,7 @@ ul li.editMode label {
   z-index: 800;
 }
 
-/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
+/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 
 .leaflet-overlay-pane svg {
   -moz-user-select: none;
 }
@@ -32937,12 +32940,12 @@ ul li.editMode label {
   position: absolute;
 }
 
-/* control positioning */
+/* control positioning 
 .leaflet-control {
   position: relative;
   z-index: 800;
   pointer-events: visiblePainted;
-  /* IE 9-10 doesn't have auto */
+  /* IE 9-10 doesn't have auto 
   pointer-events: auto;
 }
 
@@ -32994,7 +32997,7 @@ ul li.editMode label {
   margin-right: 10px;
 }
 
-/* zoom and fade animations */
+/* zoom and fade animations 
 .leaflet-fade-anim .leaflet-tile {
   will-change: opacity;
 }
@@ -33037,7 +33040,7 @@ ul li.editMode label {
   visibility: hidden;
 }
 
-/* cursors */
+/* cursors 
 .leaflet-interactive {
   cursor: pointer;
 }
@@ -33067,7 +33070,7 @@ ul li.editMode label {
   cursor: grabbing;
 }
 
-/* marker & overlays interactivity */
+/* marker & overlays interactivity 
 .leaflet-marker-icon,
 .leaflet-marker-shadow,
 .leaflet-image-layer,
@@ -33081,11 +33084,11 @@ ul li.editMode label {
 .leaflet-pane > svg path.leaflet-interactive,
 svg.leaflet-image-layer.leaflet-interactive path {
   pointer-events: visiblePainted;
-  /* IE 9-10 doesn't have auto */
+  /* IE 9-10 doesn't have auto 
   pointer-events: auto;
 }
 
-/* visual tweaks */
+/* visual tweaks 
 .leaflet-container {
   background: #ddd;
   outline: 0;
@@ -33104,12 +33107,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* general typography */
+/* general typography 
 .leaflet-container {
   font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-/* general toolbar styles */
+/* general toolbar styles 
 .leaflet-bar {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
   border-radius: 4px;
@@ -33172,7 +33175,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border-bottom-right-radius: 2px;
 }
 
-/* zoom control */
+/* zoom control 
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
   font: bold 18px "Lucida Console", Monaco, monospace;
@@ -33183,7 +33186,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   font-size: 22px;
 }
 
-/* layers control */
+/* layers control 
 .leaflet-control-layers {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
   background: #fff;
@@ -33244,12 +33247,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
   margin: 5px -10px 5px -6px;
 }
 
-/* Default icon URLs */
+/* Default icon URLs 
 .leaflet-default-icon-path {
   background-image: url(images/marker-icon.png);
 }
 
-/* attribution and scale controls */
+/* attribution and scale controls 
 .leaflet-container .leaflet-control-attribution {
   background: #fff;
   background: rgba(255, 255, 255, 0.7);
@@ -33319,7 +33322,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   background-clip: padding-box;
 }
 
-/* popup */
+/* popup 
 .leaflet-popup {
   position: absolute;
   text-align: center;
@@ -33417,14 +33420,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border: 1px solid #999;
 }
 
-/* div icon */
+/* div icon 
 .leaflet-div-icon {
   background: #fff;
   border: 1px solid #666;
 }
 
-/* Tooltip */
-/* Base styles for the element that has a tooltip */
+/* Tooltip 
+/* Base styles for the element that has a tooltip 
 .leaflet-tooltip {
   position: absolute;
   padding: 6px;
@@ -33457,7 +33460,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   content: "";
 }
 
-/* Directions */
+/* Directions 
 .leaflet-tooltip-bottom {
   margin-top: 6px;
 }
@@ -33510,6 +33513,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   margin-left: -12px;
   border-right-color: #fff;
 }
+*/
 
 .multisteps-form__progress {
   display: grid;
