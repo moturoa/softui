@@ -3,17 +3,11 @@
 \name{dashboard_sidebar}
 \alias{dashboard_sidebar}
 \alias{sidebar_menu}
-\alias{menu_item}
-\alias{menu_link}
 \title{Dashboard sidebar}
 \usage{
 dashboard_sidebar(arg)
 
 sidebar_menu(..., id = NULL, .list = NULL)
-
-menu_item(text, ..., icon = bsicon("bar-chart-fill"), tabName = NULL)
-
-menu_link(tabName, icon, text)
 }
 \arguments{
 \item{\dots}{`menu_item`'s}
@@ -26,6 +20,4 @@ menu_link(tabName, icon, text)
 Dashboard sidebar
 
 Sidebar menu
-
-Sidebar menu item
 }

@@ -26,7 +26,7 @@ value_box <- function(value,
                                                         tags$h5(class="font-weight-bolder mb-0",
                                                                 value,
                                                                 tags$span(class = glue::glue("text-{sub_status} text-sm font-weight-bolder"),
-                                                                          sub_value
+                                                                  sub_value
                                                                 )
                                                         )
                                                )

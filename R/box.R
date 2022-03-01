@@ -14,7 +14,7 @@ box <- function(..., width = 12,
                 collapsed = FALSE,
                 header_ui = NULL){
 
-  id_bx <- paste(sample(letters,8),collapse="")
+  id_bx <- random_id()
   
   if(collapsed & is.null(title)){
     stop("Must provide title for collapsed box")
