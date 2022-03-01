@@ -41,6 +41,7 @@ body <- softui::dashboard_body(
                           
                      softui::value_box("1251", "Documenten", "+18",
                                width = 12,
+                               height = "200px",
                                icon = bsicon("file-earmark-bar-graph")),
                      softui::value_box("820", "Personen", "+4",
                                width = 12,
@@ -161,6 +162,7 @@ body <- softui::dashboard_body(
                 softui::box(
                    title = "Box 3",
                    width = 6,
+                   height = 1000,
                    collapsible =TRUE,
                    tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."

@@ -12,7 +12,8 @@ box(
   tag = "",
   collapsible = TRUE,
   collapsed = FALSE,
-  header_ui = NULL
+  header_ui = NULL,
+  height = NULL
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ box(
 \item{tag}{Short label text above the title (in CAPS)}
 
 \item{header_ui}{More UI to place just under the title}
+
+\item{height}{Height of the box (NULL to autosize) (400 or "400px")}
 }
 \description{
 Content box

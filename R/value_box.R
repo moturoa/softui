@@ -3,20 +3,24 @@
 #' @param sub_value A subtitle under the value
 #' @param sub_status "success" or "danger" to color the subtitle
 #' @param icon An icon to place
+#' @param height Height of the value box (NULL to autosize) (400 or "400px")
 #' @export
 value_box <- function(value,
                       title,
                       sub_value = "",
                       sub_status = c("success","danger"),
                       icon = icon("chart-bar"),
-                      width = 4){
+                      width = 4,
+                      height = NULL){
 
   sub_status <- match.arg(sub_status)
-
-  tags$div(class = glue::glue("col-lg-{width} col-sm-{width}"),
+  
+  dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)}"))
+  
+  tags$div(class = glue::glue("col-lg-{width} col-sm-{width}"), 
 
            tags$div(class = "card mb-4",
-                    tags$div(class = "card-body p-3",
+                    tags$div(class = "card-body p-3", style = dvst,
                              tags$div(class = "row",
                                       tags$div(class = "col-8",
                                                tags$div(class = "numbers",

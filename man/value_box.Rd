@@ -10,7 +10,8 @@ value_box(
   sub_value = "",
   sub_status = c("success", "danger"),
   icon = icon("chart-bar"),
-  width = 4
+  width = 4,
+  height = NULL
 )
 }
 \arguments{
@@ -21,6 +22,8 @@ value_box(
 \item{sub_status}{"success" or "danger" to color the subtitle}
 
 \item{icon}{An icon to place}
+
+\item{height}{Height of the value box (NULL to autosize) (400 or "400px")}
 }
 \description{
 Value box

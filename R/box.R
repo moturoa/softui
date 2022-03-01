@@ -5,6 +5,7 @@
 #' @param subtitle Subtitle for the box
 #' @param tag Short label text above the title (in CAPS)
 #' @param header_ui More UI to place just under the title
+#' @param height Height of the box (NULL to autosize) (400 or "400px")
 #' @export
 box <- function(..., width = 12,
                 title = NULL,
@@ -12,7 +13,8 @@ box <- function(..., width = 12,
                 tag = "",
                 collapsible = TRUE,
                 collapsed = FALSE,
-                header_ui = NULL){
+                header_ui = NULL,
+                height = NULL){
 
   id_bx <- paste(sample(letters,8),collapse="")
   
@@ -43,10 +45,11 @@ box <- function(..., width = 12,
     )
   }
   
+  dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)}"))
   
   tags$div(class = glue::glue("col-lg-{width}"), 
     tags$div(class = "card",
-             style = "margin-bottom: 32px !important;",
+             style = paste("margin-bottom: 32px !important;",dvst),
              head_section,        
              tags$div(
                id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),
