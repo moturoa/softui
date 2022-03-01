@@ -13,10 +13,16 @@
 #'@rdname tabbox
 tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
 
+  tab_title <- as.character(title)
+  
   if(!is.null(icon)){
-    tab_title <- paste(icon, title)
-  } else {
-    tab_title <- title
+    tab_title <- paste(as.character(icon), tab_title)
+  }
+  
+  value <- as.character(value)
+  
+  if(nchar(value) == 0){
+    value <- random_id()
   }
 
   tags$div(class = "tab-pane", `data-value` = value, tab_title = HTML(tab_title), style = style, ...)
@@ -36,7 +42,7 @@ tab_box <- function(...,
                     fill = FALSE){
 
   
-  type <- "pills"
+  type <- "pills"  # want tabs is lelijk hier
   
   items <- list(...)
   n_items <- length(items)
@@ -55,6 +61,10 @@ tab_box <- function(...,
 
   lis <- lapply(atr, function(el){
 
+    if(is.null(el$class) || el$class != "tab-pane"){
+      return(NULL)
+    }
+    
     cl <- if(el$`data-value` == selected){
       "nav-link active"
     } else {

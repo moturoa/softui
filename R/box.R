@@ -14,9 +14,13 @@ box <- function(..., width = 12,
                 collapsible = TRUE,
                 collapsed = FALSE,
                 header_ui = NULL,
-                height = NULL){
+                height = NULL,
+                margin_bottom = 32, 
+                class = ""){
 
   id_bx <- random_id()
+  
+  if(length(class) > 1)class <- paste(class, collapse = " ")
   
   if(collapsed & is.null(title)){
     stop("Must provide title for collapsed box")
@@ -30,12 +34,16 @@ box <- function(..., width = 12,
   } else NULL
   
   
+  tag_ui <- if(!is.null(tag) && tag != ""){
+    tags$span(class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2",tag)
+  } else NULL
+  
   if(is.null(title) & is.null(subtitle)){
     head_section <- NULL
   } else {
     head_section <- tags$div(class = "card-header",
                              style = "border-radius: 1rem;",
-                             tags$span(class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2",tag),
+                             tag_ui,
                              tags$div(style = "width: 100% !important; height: 40px !important;",
                                tags$h5(class = "card-title", title, style = "display: inline-block !important; float: left;"),
                                tool_ui,  
@@ -45,11 +53,12 @@ box <- function(..., width = 12,
     )
   }
   
-  dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)}"))
+  dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)};"))
+  mst <- glue::glue("margin-bottom: {shiny::validateCssUnit(margin_bottom)} !important;")
   
   tags$div(class = glue::glue("col-lg-{width}"), 
-    tags$div(class = "card",
-             style = paste("margin-bottom: 32px !important;",dvst),
+    tags$div(class = paste("card",class),
+             style = paste(mst,dvst),
              head_section,        
              tags$div(
                id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),

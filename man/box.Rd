@@ -13,7 +13,9 @@ box(
   collapsible = TRUE,
   collapsed = FALSE,
   header_ui = NULL,
-  height = NULL
+  height = NULL,
+  margin_bottom = 32,
+  class = ""
 )
 }
 \arguments{
