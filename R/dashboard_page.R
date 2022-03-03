@@ -1,4 +1,3 @@
-
 #' Soft UI dashboard page
 #' @description Main function to make the Soft UI dashboard page in shiny.
 #' @param header Made with `softui::dashboard_header`
@@ -10,6 +9,38 @@
 #' @param busybar_color Color of the 'busy bar' when shiny is busy
 #' @param disconnect_message Message to show when session is disconnected (timeout / error)
 #' @export
+#' @examples
+#' sidebar <- softui::dashboard_sidebar(
+#'   softui::sidebar_menu(
+#'     softui::menu_item("Page1", tabName = "page1", icon = bsicon("bar-chart-fill")),
+#'     softui::menu_item("Page2", tabName = "page2", icon = bsicon("tools"))
+#'   )
+#' )
+#' 
+#' body <- softui::dashboard_body(
+#'   
+#'   softui::tab_items(
+#'     softui::tab_item("page1",
+#'                      softui::box(title = "Page 1", width = 12)
+#'     ),
+#'     
+#'     softui::tab_item("page2",
+#'                      softui::box(title = "Page 2", width = 12)
+#'     )
+#'   )
+#' )
+#' 
+#' header <- softui::dashboard_header(
+#'   tag_line = "A tag line"
+#' )
+#' 
+#' ui <- softui::dashboard_page(title = "Shinto App",
+#'                              loadingscreen_time = 1,
+#'                              header = header,
+#'                              sidebar = sidebar,
+#'                              body = body)
+#' 
+#' server <- function(input, output, session) {}
 dashboard_page <- function(header, sidebar, body, title = "", 
                            icon = softui::bsicon("speedometer"),
                            loadingscreen_time = 4,
