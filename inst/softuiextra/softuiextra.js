@@ -1,6 +1,24 @@
 
 
 
+
+// Fix clicking on sub-menu items. 
+// without this, clicking first on a menu_subitem, and then on a menu_item does not remove the 'active'
+// class on the sub_menuitem.
+
+$( document ).ready(function() {
+  $("#sidenav-collapse-main a.nav-link[data-bs-toggle = 'tab']").on("click",
+  function(event) {
+  
+      $("#sidenav-collapse-main a.nav-link[data-bs-toggle = 'tab']").removeClass("active");
+      $(this).addClass("active")
+      
+  });  
+});
+  
+    
+
+
 // Simpler alternative to updateTabItems
 selectMenuItem = function(data){
 
@@ -50,3 +68,14 @@ selectTabItem = function(data){
 };
 
 Shiny.addCustomMessageHandler("selectTabItem", selectTabItem);
+
+
+
+
+    
+    
+    
+    
+    
+
+

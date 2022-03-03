@@ -34,9 +34,10 @@ menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
   if(!is.null(tabName))message("tabName not used in menu_link_with_subitems, only menu_subitem's have tabName's")
   
   collapse_id <- random_id()
+  self_id <- random_id()
   
   tagList(
-    tags$a(class = "nav-link",
+    tags$a(class = "nav-link", id = self_id,
          
          href = paste0("#", collapse_id),
          `data-bs-toggle` = "collapse",
@@ -80,7 +81,7 @@ menu_subitem <- function(text, tabName){
                  `data-bs-target` = tabref,
                  `data-target` = tabName,
                  role = "tab",
-                 #tags$span(class="sidenav-mini-icon", icon),
+                 tags$span(class="sidenav-mini-icon", substr(text,1,1)),
                  tags$span(class="sidenav-normal", text)
           )
   )
@@ -98,8 +99,10 @@ menu_subitem <- function(text, tabName){
 menu_link <- function(tabName, icon, text){
   
   tabref <- glue::glue("#shiny-tab-{tabName}")
+  self_id <- random_id()
   
   tags$a(class = "nav-link",
+         id = self_id,
          href = tabref,
          `data-bs-toggle` = "tab",
          `data-bs-target` = tabref,
