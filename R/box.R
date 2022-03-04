@@ -27,11 +27,16 @@ box <- function(..., width = 12,
     stop("Must provide title for collapsed box")
   }
   
+  icon_ <- tags$div(softui::bsicon("chevron-up")) %>%
+    htmltools::tagAppendAttributes(class = "rotate")
+  if(collapsed)icon_ <- htmltools::tagAppendAttributes(icon_, class = "rotated180")
+  
   tool_ui <- if(collapsible){
     tags$a(style = "float:right;display:inline-block;", 
            `data-bs-toggle` = "collapse",
            href = paste0("#",id_bx),
-           softui::bsicon("chevron-contract"))
+           icon_
+           )
   } else NULL
   
   

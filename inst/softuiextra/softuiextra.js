@@ -7,6 +7,7 @@
 // class on the sub_menuitem.
 
 $( document ).ready(function() {
+  
   $("#sidenav-collapse-main a.nav-link[data-bs-toggle = 'tab']").on("click",
   function(event) {
   
@@ -14,6 +15,12 @@ $( document ).ready(function() {
       $(this).addClass("active")
       
   });  
+  
+  // Icons with class 'rotate' can rotate 180deg on clicking
+  $(".rotate").click(function(){
+    $(this).toggleClass("rotated180"); 
+  });
+  
 });
   
     

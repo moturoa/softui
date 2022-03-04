@@ -40,3 +40,12 @@
 .text-gradient.text-shinto {
   background-image: linear-gradient(310deg, #b82525, #000000);
 }
+
+.rotate{
+    transition: all 0.3s linear;
+}
+
+.rotate.rotated180{
+    transform:rotate(180deg);
+}
+
