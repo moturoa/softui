@@ -10,6 +10,7 @@ box(
   title = NULL,
   subtitle = NULL,
   tag = "",
+  tag_status = "primary",
   collapsible = TRUE,
   collapsed = FALSE,
   header_ui = NULL,

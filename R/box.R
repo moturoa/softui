@@ -11,6 +11,7 @@ box <- function(..., width = 12,
                 title = NULL,
                 subtitle = NULL,
                 tag = "",
+                tag_status = "primary",
                 collapsible = TRUE,
                 collapsed = FALSE,
                 header_ui = NULL,
@@ -35,7 +36,7 @@ box <- function(..., width = 12,
   
   
   tag_ui <- if(!is.null(tag) && tag != ""){
-    tags$span(class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2",tag)
+    tags$span(class=glue::glue("text-gradient text-{tag_status} text-uppercase text-xs font-weight-bold my-2"),tag)
   } else NULL
   
   if(is.null(title) & is.null(subtitle)){
@@ -44,11 +45,12 @@ box <- function(..., width = 12,
     head_section <- tags$div(class = "card-header",
                              style = "border-radius: 1rem;",
                              tag_ui,
+
                              tags$div(style = "width: 100% !important; height: 40px !important;",
                                tags$h5(class = "card-title", title, style = "display: inline-block !important; float: left;"),
                                tool_ui,  
                              ),
-                             tags$h6(class = "card-subtitle text-muted", subtitle), #, style = "display: inline-block !important; float: left;"),
+                             tags$h6(class = "card-subtitle text-muted", subtitle), 
                              header_ui
     )
   }

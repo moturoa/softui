@@ -32,6 +32,11 @@
     background-color: #345483 !important;
 }
 
+
 .modal-title{
   width: 100% !important;
+}
+
+.text-gradient.text-shinto {
+  background-image: linear-gradient(310deg, #b82525, #000000);
 }
