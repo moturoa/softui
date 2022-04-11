@@ -80,6 +80,13 @@ add_softui_dependencies <- function(tag){
       package = "softui"
     ),
     htmltools::htmlDependency(
+      name = "clicksystem", version = "0.1",
+      package = "softui",
+      src = c(file = "clicksystem"),
+      script = "click.js",
+      stylesheet = "click.css"
+    ),
+    htmltools::htmlDependency(
       name = "clock", version = "0.1",
       package = "softui",
       src = "assets",

@@ -229,6 +229,8 @@ sup {
   top: -0.5em;
 }
 
+
+/*
 a {
   color: #1C1C40;
   text-decoration: none;
@@ -242,6 +244,8 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
 }
+*/
+
 
 pre,
 code,
