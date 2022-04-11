@@ -2,12 +2,12 @@
 
 
 
-// Fix clicking on sub-menu items. 
-// without this, clicking first on a menu_subitem, and then on a menu_item does not remove the 'active'
-// class on the sub_menuitem.
 
 $( document ).ready(function() {
   
+  // Fix clicking on sub-menu items. 
+  // without this, clicking first on a menu_subitem, and then on a menu_item does not remove the 'active'
+  // class on the sub_menuitem.
   $("#sidenav-collapse-main a.nav-link[data-bs-toggle = 'tab']").on("click",
   function(event) {
   

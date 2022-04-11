@@ -4,6 +4,7 @@
 
 #' Tab panels
 #' @description Replaces `shiny::tabPanel`, and is used only for placing tabs inside a `softui::tab_box`
+#' @details More details here!
 #' @param title Title for the tab
 #' @param \dots Content for the tab
 #' @param value Name of the tab to refer to when using `softui::update_tabpanel` (defaults to title)

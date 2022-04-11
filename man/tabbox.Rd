@@ -31,3 +31,6 @@ tab_box(..., id = NULL, selected = NULL, width = 12, fill = FALSE)
 \description{
 Replaces `shiny::tabPanel`, and is used only for placing tabs inside a `softui::tab_box`
 }
+\details{
+More details here!
+}

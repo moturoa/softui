@@ -1,4 +1,17 @@
 
+
+#' Softui Dependency for the UI
+#' @description When not using softui::dashboard_page, still load the dependencies.
+#' Place this in your main UI : softui::softui_dependencies()
+#' @export
+softui_dependencies <- function(){
+  
+  add_softui_dependencies(tags$div())
+  
+}
+
+
+
 add_softui_dependencies <- function(tag){
 
 
@@ -86,7 +99,6 @@ add_softui_dependencies <- function(tag){
       stylesheet = "opensans.css",
       package = "softui"
     )
-
 
   )
 

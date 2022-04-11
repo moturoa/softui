@@ -2,8 +2,8 @@
 
 
 
-#devtools::load_all()
-library(softui)
+devtools::load_all()
+#library(softui)
 
 library(shiny)
 library(dplyr)
