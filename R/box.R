@@ -48,7 +48,7 @@ box <- function(..., width = 12,
     head_section <- NULL
   } else {
     head_section <- tags$div(class = "card-header",
-                             style = "border-radius: 1rem; padding-bottom: 4px;",
+                             style = "border-radius: 1rem;",
                              tag_ui,
 
                              tags$div(style = "width: 100% !important; height: 40px !important;",
@@ -69,7 +69,9 @@ box <- function(..., width = 12,
              head_section,        
              tags$div(
                id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),
-               tags$div(class = "card-body", ...)
+               tags$div(class = "card-body", 
+                        style = "padding-top: 4px;",
+                        ...)
              )
              
     )

@@ -158,6 +158,25 @@ body <- softui::dashboard_body(
 
 
             softui::fluid_page(
+              
+              softui::box(width = 6, title = "Timeline", icon = bsicon("alarm-fill", class = "text-info text-gradient"),
+                          
+                timeline(
+                  timeline_block("Geboorte", "1956-6-1", icon_name = "bell-fill", icon_status = "success",
+                                 text = shinipsum::random_text(nwords=20)),
+                  timeline_block("Gebeurtenis 1", "1970-1-6", icon_name = "bag-fill", icon_status = "info",
+                                 text = shinipsum::random_text(nwords=20)),
+                  timeline_block("Gebeurtenis 2", "2002-6-1", icon_name = "bandaid-fill", icon_status = "warning",
+                                 text = shinipsum::random_text(nwords=20)),
+                  timeline_block("Gebeurtenis 3", "2014-7-15", icon_name = "chat-fill", icon_status = "primary",
+                                 text = shinipsum::random_text(nwords=20)),
+                  timeline_block("Overlijden", "2021-4-1", icon_name = "hourglass-bottom", icon_status = "danger",
+                                 text = shinipsum::random_text(nwords=20))
+                )
+                          
+              ),
+              
+              
               softui::fluid_row(
                 softui::box(
                    title = "Box 1",
