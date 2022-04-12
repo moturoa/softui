@@ -41,10 +41,25 @@ body <- softui::dashboard_body(
 
              tags$h2(class="font-weight-bolder mb-0", "SoftUI test app"),
              softui::fluid_row(
+               softui::box(
+                 softui::alert("Dit is een belangrijke tekst!", status = "warning"),
+                 softui::alert("Dit is een belangrijke tekst!", status = "danger"),
+                 softui::alert("Dit is een belangrijke tekst!", status = "primary"),
+                 softui::alert("Dit is een belangrijke tekst!", status = "success"),
+                 softui::alert("Dit is een belangrijke tekst!", status = "info"),
+                 softui::alert("Dit is een belangrijke tekst!", status = "light"),
+                 softui::alert("Dit is een belangrijke tekst!", status = "dark")
+               )
+             ),
+             
+             softui::fluid_row(
                column(8,
 
                  softui::fluid_row(
                    column(6,
+                          
+                    
+                          
                           
                      softui::value_box("1251", "Documenten", "+18",
                                width = 12,
@@ -108,6 +123,7 @@ body <- softui::dashboard_body(
                         ),
                         softui::tab_panel("Buttons", icon = icon("chart-bar"), value = "buttons",
                                           
+
                                           tags$p("Test icon: ", icon("home")),
                                           actionButton("btn1", "Primary", class = "btn-primary", icon = bsicon("check")),
                                           actionButton("btn2", "Secondary", class = "btn-secondary", icon = bsicon("clipboard-data")),

@@ -8,7 +8,7 @@
 \usage{
 dashboard_body(...)
 
-tab_items(...)
+tab_items(..., .list = NULL)
 
 tab_item(tabName, ...)
 }

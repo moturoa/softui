@@ -19,7 +19,7 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
   if(is.null(id)){
     id <- paste0("tabs_", round(stats::runif(1, min = 0, max = 1e+09)))
   }
-
+  
   # First menu item is always selected
   items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
                                                              class = "show active")

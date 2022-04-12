@@ -8,10 +8,10 @@ dashboard_body <- function(...){
 
 #'@export
 #'@rdname dashboard_body
-tab_items <- function(...){
+tab_items <- function(..., .list = NULL){
 
 
-  items <- list(...)
+  items <- c(list(...), .list)
   items[[1]] <- items[[1]] %>% tagAppendAttributes(class = "active")
 
   fluid_page(
