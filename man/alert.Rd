@@ -7,8 +7,7 @@
 alert(
   text,
   status = c("primary", "secondary", "info", "success", "danger", "warning", "light",
-    "dark"),
-  closeable = TRUE
+    "dark")
 )
 }
 \description{
