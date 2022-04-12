@@ -2,10 +2,16 @@
 #' @export
 datatafel <- function (..., dom = "frtip", pageLength = 10, escape = FALSE, 
           rownames = FALSE, ordering = TRUE, extensions = "Responsive", 
-          selection = "single", scrollX = FALSE, options = list()) 
+          selection = "single", scrollX = FALSE, options = list(),
+          class = "row-border hover") 
 {
-  DT::datatable(..., escape = escape, rownames = rownames, 
-                selection = selection, extensions = extensions, style = "bootstrap4", 
+  DT::datatable(..., 
+                escape = escape, 
+                rownames = rownames, 
+                selection = selection, 
+                extensions = extensions, 
+                class = class,
+                style = "bootstrap4", 
                 options = c(options, list(dom = dom, ordering = ordering, 
                              lengthChange = FALSE, 
                              pageLength = pageLength, 

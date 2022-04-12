@@ -14,7 +14,8 @@ datatafel(
   extensions = "Responsive",
   selection = "single",
   scrollX = FALSE,
-  options = list()
+  options = list(),
+  class = "row-border hover"
 )
 }
 \description{
