@@ -17,9 +17,7 @@ time_data <- tibble::tribble(
 )
 
 
-ui <- softui::fluid_page(
-  inlineCSS("body{background-color: #F8F9FA;}"),
-  softui::softui_dependencies(),
+ui <- softui::simple_page(
   
   softui::fluid_row(
     softui::box(title = "Test", width = 6,
