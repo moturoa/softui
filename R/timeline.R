@@ -42,8 +42,9 @@ timeline_block <- function(title, timestamp, text = "",
                            badge_text = NULL, 
                            badge_status = "success"){
   
-  badge_status <- match.arg(badge_status)
-  icon_status <- match.arg(icon_status)
+  
+  validate_status(icon_status)
+  validate_status(badge_status)
   
   tags$div(class="timeline-block mb-3",
         tags$span(class="timeline-step",
