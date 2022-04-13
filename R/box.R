@@ -1,13 +1,52 @@
 
 #' Content box
+#' @description All content in a softui application should be placed inside a `softui::box`. 
+#' Unlike `shinydashboard::box`, the box has a default width of 12, so it fills up the space provided.
+#' Do not usually set the height of the box (but see argument `height`), instead let the components inside decide.
+#' See Example. The margin works a little different too. A `softui::box` has zero margin at the top, and a standard margin
+#' of 32px at the bottom (see argument `margin_bottom`).
+#' @details This is actually a `div` with class `card` (and sub components), 
+#' a standard Bootstrap 5.1 component further styled by softui CSS.
 #' @param width Bootstrap width
 #' @param title Title for the box
 #' @param subtitle Subtitle for the box
 #' @param icon Optional icon (will be placed left of title)
-#' @param tag Short label text above the title (in CAPS)
+#' @param tag Short label text above the title (appears in uppercase letters)
+#' @param tag_status Status color for the tag (see `?valid_statuses`)
+#' @param collapsible If collapsible, allow the box to be minimized (button top-right)
+#' @param collapsed If TRUE (default: FALSE) the box starts in collapsed state.
 #' @param header_ui More UI to place just under the title
 #' @param height Height of the box (NULL to autosize) (400 or "400px")
+#' @param margin_bottom The margin at the bottom of the box (margin to the next box). A box has always zero margin at the top!
+#' @param class Extra CSS class for the `card` (the `div` will get class `card` + provided CSS classes). 
+#' Can be a vector of classes or e.g. "class1 class2". Softui (and Bootstrap 5.1) have a number of interesting classes such as
+#' 'card-plain', 'card-blog', or various margin-modifying classes ('mt-5', 'mt-md-0'). More research needed.
 #' @export
+#' @examples
+#' ui <- softui::simple_page(
+#' softui::fluid_row(
+#'   softui::box(width = 6,
+#'               title = "Box 1", icon = bsicon("archive-fill", status = "warning"),
+#'               tag = "data",
+#'               plotOutput("plot1", height = 400)
+#'   ),
+#'   softui::box(width = 6,
+#'               title = "Box 2", icon = bsicon("boombox-fill", status = "success"),
+#'               tag = "plot",
+#'               plotOutput("plot2", height = 400)
+#'   )
+#' ),
+#' softui::fluid_row(
+#'   softui::box(
+#'     title = "Box 2", 
+#'     tag = "info",
+#'     tag_status = "info",
+#'     plotOutput("plot2", height = 200)
+#'   )
+#' )
+#' )
+#'
+#' shinyApp(ui,function(){})
 box <- function(..., width = 12,
                 title = NULL,
                 subtitle = NULL,
@@ -23,6 +62,7 @@ box <- function(..., width = 12,
 
   id_bx <- random_id()
   
+  validate_status(tag_status)
   
   if(!is.null(icon)){
     title <- tagList(icon, title)

@@ -7,11 +7,13 @@
 sub_box(..., title = NULL, grey_level = 0.1)
 }
 \arguments{
+\item{\dots}{Any HTML (or text) items to appear in the box.}
+
 \item{title}{A title for the box}
 
 \item{grey_level}{Value between 0.1 (standard) and 0.9 (very dark), in steps of 0.1.}
 }
 \description{
 You are not allowed to place a `softui::box` inside another `softui::box`, but you can
-use this `softui::sub_box`
+use this `sub_box`, or `?alert_box` for a message-type box.
 }

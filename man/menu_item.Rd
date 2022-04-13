@@ -2,19 +2,19 @@
 % Please edit documentation in R/menu_item.R
 \name{menu_item}
 \alias{menu_item}
-\alias{menu_link_with_subitems}
 \alias{menu_subitem}
 \alias{menu_link}
-\title{Sidebar menu item}
+\title{Sidebar menu items}
 \usage{
 menu_item(text, ..., icon = bsicon("bar-chart-fill"), tabName = NULL)
-
-menu_link_with_subitems(..., icon, text, tabName = NULL)
 
 menu_subitem(text, tabName)
 
 menu_link(tabName, icon, text)
 }
 \description{
-Sidebar menu item
+Sidebar menu items
+}
+\details{
+Functions to make menu items in the sidebar menu. See `?sidebar_menu`
 }

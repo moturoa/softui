@@ -1,5 +1,4 @@
 
-#' Dashboard sidebar
 #' @export
 #' @rdname sidebar
 dashboard_sidebar <- function(arg){
@@ -8,6 +7,7 @@ dashboard_sidebar <- function(arg){
 
 
 #' Sidebar menu
+#' @details Use in a `dashboard_page` (see Example there). Accepts only `menu_item` and `menu_subitem`
 #' @param \dots `menu_item`'s
 #' @param id Id for the sidebar, currently unused
 #' @param .list Further `menu_item`'s can be passed as a list instead of in \dots.
@@ -27,11 +27,11 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
   shiny::tags$ul(
      class = "navbar-nav sidebar-menu nav navtabs",
      role = "tablist",
-     items,
+     items
      
      # --> this is here for a menuOutput implementation, which we haven't implemented yet
-     shiny::tags$div(id = id, class = "sidebarMenuSelectedTabItem",
-                     `data-value` = "null")
+     # shiny::tags$div(id = id, class = "sidebarMenuSelectedTabItem",
+     #                 `data-value` = "null")
   )
 
 }

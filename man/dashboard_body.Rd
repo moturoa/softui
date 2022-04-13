@@ -12,6 +12,11 @@ tab_items(..., .list = NULL)
 
 tab_item(tabName, ...)
 }
+\arguments{
+\item{\dots}{}
+}
 \description{
-Dashboard body
+Makes the dashboard body of a dashboard page. See `?dashboard_page` for a minimal example.
+Accepts only a `tab_items` object, which has multiple `tab_item`'s in it, each with the UI for a 'page' 
+(typically a shiny module UI function).
 }

@@ -1,6 +1,10 @@
 
 #'Dashboard body
+#'@description Makes the dashboard body of a dashboard page. See `?dashboard_page` for a minimal example.
+#'Accepts only a `tab_items` object, which has multiple `tab_item`'s in it, each with the UI for a 'page' 
+#'(typically a shiny module UI function).
 #'@export
+#'@param \dots 
 #'@rdname dashboard_body
 dashboard_body <- function(...){
   tags$div(...)

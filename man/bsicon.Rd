@@ -6,6 +6,16 @@
 \usage{
 bsicon(iconname, class = NULL, status = NULL, ...)
 }
+\arguments{
+\item{iconname}{Name of the Bootstrap icon [](https://icons.getbootstrap.com/)}
+
+\item{class}{Extra CSS class for the button (for color, use `status` instead)}
+
+\item{status}{Status color (see `?valid_statuses`)}
+
+\item{\dots}{Extra arguments to the `i` tag (will become attributes of the tag)}
+}
 \description{
-These icons look better with Boostrap4 than fontawesome!
+Use `bsicon` instead of `shiny::icon` in a softui application. 
+If status color is set, the icon is colored (with a gradient color).
 }

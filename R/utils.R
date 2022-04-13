@@ -38,3 +38,15 @@ validate_status <- function(status) {
 }
 
 
+
+
+#--- validators
+validate_tab_name <- function(name){
+  if (!is.null(name) && grepl(".", name, fixed = TRUE)) {
+    stop("tabName must not have a '.' in it.")
+  }
+}
+
+
+
+

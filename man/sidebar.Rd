@@ -3,7 +3,7 @@
 \name{dashboard_sidebar}
 \alias{dashboard_sidebar}
 \alias{sidebar_menu}
-\title{Dashboard sidebar}
+\title{Sidebar menu}
 \usage{
 dashboard_sidebar(arg)
 
@@ -17,7 +17,8 @@ sidebar_menu(..., id = NULL, .list = NULL)
 \item{.list}{Further `menu_item`'s can be passed as a list instead of in \dots.}
 }
 \description{
-Dashboard sidebar
-
 Sidebar menu
+}
+\details{
+Use in a `dashboard_page` (see Example there). Accepts only `menu_item` and `menu_subitem`
 }

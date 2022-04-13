@@ -1,10 +1,12 @@
 
-#' Sidebar menu item
+#' Sidebar menu items
+#' @details Functions to make menu items in the sidebar menu. See `?sidebar_menu`
 #' @export
 #' @rdname menu_item
 menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
                       tabName = NULL){
   
+  validate_tab_name(tabName)
   subitems <- list(...)
   
   if(length(subitems) == 0){
@@ -29,7 +31,29 @@ menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
 
 #' @export
 #' @rdname menu_item
+menu_subitem <- function(text, tabName){
+  
+  validate_tab_name(tabName)
+  tabref <- glue::glue("#shiny-tab-{tabName}")
+  
+  tags$li(class="nav-item ", 
+          tags$a(class="nav-link ", 
+                 href = tabref,
+                 `data-bs-toggle` = "tab",
+                 `data-bs-target` = tabref,
+                 `data-target` = tabName,
+                 role = "tab",
+                 tags$span(class="sidenav-mini-icon", substr(text,1,1)),
+                 tags$span(class="sidenav-normal", text)
+          )
+  )
+  
+}
+
+#--- Internal functions
 menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
+  
+  validate_tab_name(tabName)
   
   if(!is.null(tabName))message("tabName not used in menu_link_with_subitems, only menu_subitem's have tabName's")
   
@@ -68,25 +92,7 @@ menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
 }
 
 
-#' @export
-#' @rdname menu_item
-menu_subitem <- function(text, tabName){
-  
-  tabref <- glue::glue("#shiny-tab-{tabName}")
-  
-  tags$li(class="nav-item ", 
-          tags$a(class="nav-link ", 
-                 href = tabref,
-                 `data-bs-toggle` = "tab",
-                 `data-bs-target` = tabref,
-                 `data-target` = tabName,
-                 role = "tab",
-                 tags$span(class="sidenav-mini-icon", substr(text,1,1)),
-                 tags$span(class="sidenav-normal", text)
-          )
-  )
-  
-}
+
 
 
 

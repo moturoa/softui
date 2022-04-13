@@ -28,3 +28,7 @@ value_box(
 \description{
 Value box
 }
+\details{
+Makes a softui 'value box' with icon, value, title, and badge (e.g. +12, -80) with a status color. 
+Use in a `uiOutput`.
+}

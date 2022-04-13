@@ -4,8 +4,18 @@
 \alias{iconActionButton}
 \title{Icon only button}
 \usage{
-iconActionButton(id, icon, status = "success")
+iconActionButton(id, icon, status = "success", class = "", ...)
+}
+\arguments{
+\item{id}{The shiny input id}
+
+\item{icon}{A `softui::bsicon` or `shiny::icon`.}
+
+\item{status}{The status color (see `?valid_statuses`).}
+
+\item{\dots}{Additional arguments to `shiny::actionButton`}
 }
 \description{
-Icon only button
+A 'softui' round button with only an icon. Simple wrapper around `shiny::actionButton`. 
+Uses various softui CSS classes for styling.
 }
