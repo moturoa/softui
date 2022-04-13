@@ -4,12 +4,14 @@
 \alias{action_button}
 \title{Simple wrapper around actionButton with softui CSS classes}
 \usage{
-action_button(
-  ...,
-  class = "",
-  status = c("primary", "secondary", "info", "success", "danger", "warning", "light",
-    "dark")
-)
+action_button(..., class = "", status = NULL)
+}
+\arguments{
+\item{\dots}{Arguments sent to `shiny::actionButton`}
+
+\item{class}{Extra CSS classes}
+
+\item{status}{Status color (see `?valid_statuses`)}
 }
 \description{
 Simple wrapper around actionButton with softui CSS classes

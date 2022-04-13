@@ -1,8 +1,15 @@
 #' Bootstrap Icons
 #' @description These icons look better with Boostrap4 than fontawesome!
 #' @export
-bsicon <- function(iconname, class = NULL, ...){
+bsicon <- function(iconname, 
+                   class = NULL, 
+                   status = NULL,
+                   ...){
 
+  if(!is.null(status)){
+    class <- paste(class, glue("text-{status} text-gradient"))
+  }
+  
   if(iconname == "refresh")iconname <- "arrow-clockwise"
   if(iconname == "home")iconname <- "house"
 

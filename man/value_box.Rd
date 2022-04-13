@@ -8,7 +8,7 @@ value_box(
   value,
   title,
   sub_value = "",
-  sub_status = c("success", "danger"),
+  sub_status = NULL,
   icon = icon("chart-bar"),
   width = 4,
   height = NULL
@@ -19,7 +19,7 @@ value_box(
 
 \item{sub_value}{A subtitle under the value}
 
-\item{sub_status}{"success" or "danger" to color the subtitle}
+\item{sub_status}{Status color of the badge (best: "success" for positive, "danger" for negative, or see `?valid_statuses`)}
 
 \item{icon}{An icon to place}
 

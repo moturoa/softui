@@ -12,15 +12,46 @@ timeline_block(
   timestamp,
   text = "",
   icon_name = "bell-fill",
-  icon_status = c("primary", "secondary", "info", "success", "danger", "warning",
-    "light", "dark"),
+  icon_status = NULL,
   badge_text = NULL,
-  badge_status = c("primary", "secondary", "info", "success", "danger", "warning",
-    "light", "dark")
+  badge_status = NULL
 )
+}
+\arguments{
+\item{title}{Title for the timeline block}
+
+\item{timestamp}{Date or time for the block (format yourself!)}
+
+\item{text}{More text to describe the block}
+
+\item{icon_name}{Name of the `bsicon` for this block (character)}
+
+\item{icon_status}{color of the icon (see `?valid_statuses`)}
+
+\item{badge_text}{Text for a badge to appear at the bottom of the timeline block}
+
+\item{badge_status}{Status color for the badge (see `?valid_statuses`)}
 }
 \description{
 Softui Timeline
 
 Softui Timeline
+}
+\details{
+The `timeline` function makes a timeline consisting of `timeline_block`'s
+}
+\examples{
+
+timeline(
+  timeline_block("Geboorte", "1956-6-1", icon_name = "bell-fill", icon_status = "success",
+               text = shinipsum::random_text(nwords=20)),
+  timeline_block("Gebeurtenis 1", "1970-1-6", icon_name = "bag-fill", icon_status = "info",
+               text = shinipsum::random_text(nwords=20)),
+  timeline_block("Gebeurtenis 2", "2002-6-1", icon_name = "bandaid-fill", icon_status = "warning",
+               text = shinipsum::random_text(nwords=20)),
+  timeline_block("Gebeurtenis 3", "2014-7-15", icon_name = "chat-fill", icon_status = "primary",
+               text = shinipsum::random_text(nwords=20)),
+  timeline_block("Overlijden", "2021-4-1", icon_name = "hourglass-bottom", icon_status = "danger",
+               text = shinipsum::random_text(nwords=20))
+)
 }

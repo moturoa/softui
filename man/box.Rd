@@ -9,6 +9,7 @@ box(
   width = 12,
   title = NULL,
   subtitle = NULL,
+  icon = NULL,
   tag = "",
   tag_status = "primary",
   collapsible = TRUE,
@@ -25,6 +26,8 @@ box(
 \item{title}{Title for the box}
 
 \item{subtitle}{Subtitle for the box}
+
+\item{icon}{Optional icon (will be placed left of title)}
 
 \item{tag}{Short label text above the title (in CAPS)}
 

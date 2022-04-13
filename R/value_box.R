@@ -1,19 +1,19 @@
 #' Value box
 #' @param value A value to display
 #' @param sub_value A subtitle under the value
-#' @param sub_status "success" or "danger" to color the subtitle
+#' @param sub_status Status color of the badge (best: "success" for positive, "danger" for negative, or see `?valid_statuses`)
 #' @param icon An icon to place
 #' @param height Height of the value box (NULL to autosize) (400 or "400px")
 #' @export
 value_box <- function(value,
                       title,
                       sub_value = "",
-                      sub_status = c("success","danger"),
+                      sub_status = NULL,
                       icon = icon("chart-bar"),
                       width = 4,
                       height = NULL){
 
-  sub_status <- match.arg(sub_status)
+  validate_status(sub_status)
   
   dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)}"))
   

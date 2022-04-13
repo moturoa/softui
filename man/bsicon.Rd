@@ -4,7 +4,7 @@
 \alias{bsicon}
 \title{Bootstrap Icons}
 \usage{
-bsicon(iconname, class = NULL, ...)
+bsicon(iconname, class = NULL, status = NULL, ...)
 }
 \description{
 These icons look better with Boostrap4 than fontawesome!

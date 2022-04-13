@@ -3,6 +3,7 @@
 #' @param width Bootstrap width
 #' @param title Title for the box
 #' @param subtitle Subtitle for the box
+#' @param icon Optional icon (will be placed left of title)
 #' @param tag Short label text above the title (in CAPS)
 #' @param header_ui More UI to place just under the title
 #' @param height Height of the box (NULL to autosize) (400 or "400px")
@@ -10,6 +11,7 @@
 box <- function(..., width = 12,
                 title = NULL,
                 subtitle = NULL,
+                icon = NULL,
                 tag = "",
                 tag_status = "primary",
                 collapsible = TRUE,
@@ -20,6 +22,11 @@ box <- function(..., width = 12,
                 class = ""){
 
   id_bx <- random_id()
+  
+  
+  if(!is.null(icon)){
+    title <- tagList(icon, title)
+  }
   
   if(length(class) > 1)class <- paste(class, collapse = " ")
   
