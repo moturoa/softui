@@ -1,12 +1,15 @@
 #' Shiny module for logout menu
 #' @param id Input id
-#' @param username Use \code{\link{get_user}} to get the current user.
+#' @param username Use e.g. `shintoshiny::get_user` to get the current user.
+#' @param input Shiny input object
+#' @param output Shiny output object
+#' @param session Shiny session object
 #' @rdname userLogoutModule
 #' @export
 userLogoutUI <- function(id){
   
-  ns <- NS(id)
-  uiOutput(ns("user_content"))
+  ns <- shiny::NS(id)
+  shiny::uiOutput(ns("user_content"))
                         
   
 }
@@ -16,9 +19,9 @@ userLogoutUI <- function(id){
 userLogoutModule <- function(input, output, session, username = "unknown"){
   
   # --> expand
-  output$user_content <- renderUI({
+  output$user_content <- shiny::renderUI({
     
-    tags$p(glue::glue("Ingelogd als {username}"))
+    shiny::tags$p(glue::glue("Ingelogd als {username}"))
     
   })
   
