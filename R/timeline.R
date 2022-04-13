@@ -5,6 +5,8 @@
 #' @rdname timeline
 #' @examples
 #' 
+#' # Manual timeline
+#' # (only works in a softui page!)
 #' timeline(
 #'   timeline_block("Geboorte", "1956-6-1", icon_name = "bell-fill", icon_status = "success",
 #'                text = shinipsum::random_text(nwords=20)),
@@ -17,6 +19,17 @@
 #'   timeline_block("Overlijden", "2021-4-1", icon_name = "hourglass-bottom", icon_status = "danger",
 #'                text = shinipsum::random_text(nwords=20))
 #' )
+#' 
+#' # Timeline from dataframe
+#' time_data <- tibble::tribble(
+#'    ~timestamp, ~title, ~text, ~icon_name, ~icon_status, 
+#'    "1956-6-1","Geboorte", shinipsum::random_text(nwords=20),"bell-fill","success",
+#'    "1970-1-6","Gebeurtenis 1",shinipsum::random_text(nwords=20),"bag-fill", "info",
+#'    "2002-6-1","Gebeurtenis 2",shinipsum::random_text(nwords=20),"bandaid-fill", "warning",
+#'    "2014-7-15","Gebeurtenis 3",shinipsum::random_text(nwords=20),"chat-fill", "primary",
+#'    "2021-4-1", "Overlijden",shinipsum::random_text(nwords=20), "hourglass-bottom", "danger"
+#'  )
+#'  timeline_from_data(time_data)
 timeline <- function(..., .list = NULL){
   
   items <- c(list(...), .list)
