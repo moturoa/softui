@@ -3,14 +3,14 @@
 #' @param id_out Name of the input ID to set when clicked on a link (namespacing in modules is done automatically)
 #' @param label Label to appear in the link
 #' @param input Shiny input object
-#' @param session Shiny session object
+#' @param session Shiny session object (no need to set)
 #' @param class CSS class of the text in the link
 #' @param tabName Which page to jump to on clicking the link
 #' @export
 #' @rdname page_link
 page_link <- function(id, label, 
                       id_out = "click_id",
-                      session = getDefaultReactiveDomain(), 
+                      session = shiny::getDefaultReactiveDomain(), 
                       class = "page_link"){
   
   
@@ -30,7 +30,9 @@ page_link <- function(id, label,
 route_page_link <- function(id, 
                             tabName,
                             input,
-                            session = getDefaultReactiveDomain()){
+                            session = shiny::getDefaultReactiveDomain()){
+  
+  validate_tab_name(tabName)
   
   observeEvent(input[[id]],  {
     
@@ -47,9 +49,9 @@ route_page_link <- function(id,
 }
 
 #' @export
-clicked_link_id <- function(id, input, session = getDefaultReactiveDomain()){
+clicked_link_id <- function(id, input, session = shiny::getDefaultReactiveDomain()){
   
-  reactive({
+  shiny::reactive({
     
     if(!is.null(session$userData[[id]])){
       session$userData[[id]]()

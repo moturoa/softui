@@ -2,6 +2,8 @@
 #' @export
 #' @rdname sidebar
 dashboard_sidebar <- function(arg){
+  
+  # should really do some validating here. maybe.
   arg
 }
 
@@ -30,6 +32,7 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
      items
      
      # --> this is here for a menuOutput implementation, which we haven't implemented yet
+     # Need to include to know which menu is active (via input$...). 
      # shiny::tags$div(id = id, class = "sidebarMenuSelectedTabItem",
      #                 `data-value` = "null")
   )

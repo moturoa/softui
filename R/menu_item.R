@@ -1,6 +1,6 @@
 
 #' Sidebar menu items
-#' @details Functions to make menu items in the sidebar menu. See `?sidebar_menu`
+#' @description Functions to make menu items in the sidebar menu. See `?sidebar_menu`
 #' @export
 #' @rdname menu_item
 menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),

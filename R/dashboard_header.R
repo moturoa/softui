@@ -1,7 +1,7 @@
 #' The dashboard header
 #' @param tag_line A short statement to appear in the header (italic text)
 #' @param left_content UI to place on the left (just right of the tagline). Untested.
-#' @param \dots Any header items, usually made with `softui::dropdown_item`
+#' @param \dots Any header items, usually made with `softui::dropdown_item`. 
 #' @export
 #' @rdname dashboard_header
 dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
@@ -17,6 +17,7 @@ dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
              style = "height: 96px !important;",
 
 
+             # toggler (minimize sidebar menu). Works but CSS problems / conflict with tag.
              # tags$div(
              #   class = "sidenav-toggler sidenav-toggler-inner d-xl-block d-none ",
              # 
