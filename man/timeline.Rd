@@ -3,9 +3,10 @@
 \name{timeline}
 \alias{timeline}
 \alias{timeline_block}
+\alias{timeline_from_data}
 \title{Softui Timeline}
 \usage{
-timeline(...)
+timeline(..., .list = NULL)
 
 timeline_block(
   title,
@@ -16,6 +17,8 @@ timeline_block(
   badge_text = NULL,
   badge_status = "success"
 )
+
+timeline_from_data(data)
 }
 \arguments{
 \item{title}{Title for the timeline block}
@@ -31,6 +34,8 @@ timeline_block(
 \item{badge_text}{Text for a badge to appear at the bottom of the timeline block}
 
 \item{badge_status}{Status color for the badge (see `?valid_statuses`)}
+
+\item{data}{A dataframe with columns: "timestamp","title","text","icon_name","icon_status"}
 }
 \description{
 Softui Timeline
@@ -38,7 +43,8 @@ Softui Timeline
 Softui Timeline
 }
 \details{
-The `timeline` function makes a timeline consisting of `timeline_block`'s
+The `timeline` function makes a timeline consisting of `timeline_block`'s.
+Use the `timeline_from_data` function to make a timeline from a dataframe. Can be used in a `uiOutput`.
 }
 \examples{
 

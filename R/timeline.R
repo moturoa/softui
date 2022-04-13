@@ -1,5 +1,6 @@
 #' Softui Timeline
-#' @details The `timeline` function makes a timeline consisting of `timeline_block`'s
+#' @details The `timeline` function makes a timeline consisting of `timeline_block`'s.
+#' Use the `timeline_from_data` function to make a timeline from a dataframe. Can be used in a `uiOutput`.
 #' @export
 #' @rdname timeline
 #' @examples
@@ -16,11 +17,13 @@
 #'   timeline_block("Overlijden", "2021-4-1", icon_name = "hourglass-bottom", icon_status = "danger",
 #'                text = shinipsum::random_text(nwords=20))
 #' )
-timeline <- function(...){
+timeline <- function(..., .list = NULL){
+  
+  items <- c(list(...), .list)
   
   tags$div(class="timeline timeline-one-side", `data-timeline-axis-style` = "dotted", 
            
-      ...
+      items
            
   )
   
@@ -62,5 +65,34 @@ timeline_block <- function(title, timestamp, text = "",
         )
   )
 }
+
+
+#' @rdname timeline
+#' @param data A dataframe with columns: "timestamp","title","text","icon_name","icon_status"
+#' @export
+timeline_from_data <- function(data){
+
+  validate_timeline_data(data)
+  
+  data <- data %>% 
+    dplyr::rowwise() %>%
+    mutate(block = list(timeline_block(title, timestamp, text, icon_name, icon_status)))
+  
+  timeline(.list = data$block)
+}
+
+
+validate_timeline_data <- function(data){
+  
+  nms <- c("timestamp","title","text","icon_name","icon_status")
+  if(!all(nms %in% names(data))){
+    
+    stop(paste("Must provide dataframe with columns:", paste(nms, collapse=", ")))
+    
+  }
+  return(TRUE)
+  
+}
+
 
 

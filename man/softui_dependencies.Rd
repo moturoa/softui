@@ -10,3 +10,9 @@ softui_dependencies()
 When not using softui::dashboard_page, still load the dependencies.
 Place this in your main UI : softui::softui_dependencies()
 }
+\examples{
+ui <- softui::fluid_page(
+  softui::softui_dependencies(),
+  softui::box(title = "Hallo")
+)
+}
