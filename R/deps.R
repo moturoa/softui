@@ -11,7 +11,7 @@
 #' @export
 softui_dependencies <- function(){
   
-  add_softui_dependencies(tags$div())
+  add_softui_dependencies(shiny::tags$div())
   
 }
 

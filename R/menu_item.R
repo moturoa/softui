@@ -13,7 +13,7 @@ menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
     
     stopifnot(!is.null(tabName))
     return(
-      tags$li(
+      shiny::tags$li(
         class = "nav-item",
         
         menu_link(tabName, icon, text)
@@ -22,7 +22,7 @@ menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
     
   }
   
-  tags$li(
+  shiny::tags$li(
     class = "nav-item",
     menu_link_with_subitems(..., icon = icon, text = text, tabName = NULL)
   )
@@ -36,15 +36,15 @@ menu_subitem <- function(text, tabName){
   validate_tab_name(tabName)
   tabref <- glue::glue("#shiny-tab-{tabName}")
   
-  tags$li(class="nav-item ", 
-          tags$a(class="nav-link ", 
+  shiny::tags$li(class="nav-item ", 
+          shiny::tags$a(class="nav-link ", 
                  href = tabref,
                  `data-bs-toggle` = "tab",
                  `data-bs-target` = tabref,
                  `data-target` = tabName,
                  role = "tab",
-                 tags$span(class="sidenav-mini-icon", substr(text,1,1)),
-                 tags$span(class="sidenav-normal", text)
+                 shiny::tags$span(class="sidenav-mini-icon", substr(text,1,1)),
+                 shiny::tags$span(class="sidenav-normal", text)
           )
   )
   
@@ -60,25 +60,25 @@ menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
   collapse_id <- random_id()
   self_id <- random_id()
   
-  tagList(
-    tags$a(class = "nav-link", id = self_id,
+  htmltools::tagList(
+    shiny::tags$a(class = "nav-link", id = self_id,
          
          href = paste0("#", collapse_id),
          `data-bs-toggle` = "collapse",
          role = "button",
          
-         tags$div(
+         shiny::tags$div(
            class = "icon icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center",
-           tags$span(icon, class = "sidebar-icon")
+           shiny::tags$span(icon, class = "sidebar-icon")
          ),
-         tags$span(class = "nav-link-text ms-1",  text)
+         shiny::tags$span(class = "nav-link-text ms-1",  text)
     ),
     
-    tags$div(
+    shiny::tags$div(
       class = "collapse", 
       id = collapse_id,
       
-      tags$ul(
+      shiny::tags$ul(
         class="nav ms-4 ps-3",
         
         
@@ -107,7 +107,7 @@ menu_link <- function(tabName, icon, text){
   tabref <- glue::glue("#shiny-tab-{tabName}")
   self_id <- random_id()
   
-  tags$a(class = "nav-link",
+  shiny::tags$a(class = "nav-link",
          id = self_id,
          href = tabref,
          `data-bs-toggle` = "tab",
@@ -115,11 +115,11 @@ menu_link <- function(tabName, icon, text){
          `data-target` = tabName,
          role = "tab",
          
-         tags$div(
+         shiny::tags$div(
            class = "icon icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center",
-           tags$span(icon, class = "sidebar-icon")
+           shiny::tags$span(icon, class = "sidebar-icon")
          ),
-         tags$span(class = "nav-link-text ms-1",  text)
+         shiny::tags$span(class = "nav-link-text ms-1",  text)
   )
   
 }

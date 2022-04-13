@@ -14,11 +14,11 @@ sub_box <- function(..., title = NULL, grey_level = 0.1){
   }
   stopifnot(grey_level >= 0.1 & grey_level <= 0.9)
   
-  tags$ul(class = "list-group",
-    tags$li(class = glue::glue("list-group-item border-0 d-flex p-4 mb-2 bg-gray-{1000*grey_level} border-radius-lg"),
-      tags$div(class="d-flex flex-column",
+  shiny::tags$ul(class = "list-group",
+    shiny::tags$li(class = glue::glue("list-group-item border-0 d-flex p-4 mb-2 bg-gray-{1000*grey_level} border-radius-lg"),
+      shiny::tags$div(class="d-flex flex-column",
           if(!is.null(title)){
-            tags$h6(class="mb-3 text-sm", title)
+            shiny::tags$h6(class="mb-3 text-sm", title)
           }, ...
       )
     )

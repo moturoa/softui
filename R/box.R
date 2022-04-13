@@ -65,7 +65,7 @@ box <- function(..., width = 12,
   validate_status(tag_status)
   
   if(!is.null(icon)){
-    title <- tagList(icon, title)
+    title <- htmltools::tagList(icon, title)
   }
   
   if(length(class) > 1)class <- paste(class, collapse = " ")
@@ -74,12 +74,15 @@ box <- function(..., width = 12,
     stop("Must provide title for collapsed box")
   }
   
-  icon_ <- tags$div(softui::bsicon("chevron-up")) %>%
-    htmltools::tagAppendAttributes(class = "rotate")
+  icon_ <- htmltools::tagAppendAttributes(
+    shiny::tags$div(softui::bsicon("chevron-up")),
+    class = "rotate"
+  )
+  
   if(collapsed)icon_ <- htmltools::tagAppendAttributes(icon_, class = "rotated180")
   
   tool_ui <- if(collapsible){
-    tags$a(style = "float:right;display:inline-block;", 
+    shiny::tags$a(style = "float:right;display:inline-block;", 
            `data-bs-toggle` = "collapse",
            href = paste0("#",id_bx),
            icon_
@@ -88,21 +91,21 @@ box <- function(..., width = 12,
   
   
   tag_ui <- if(!is.null(tag) && tag != ""){
-    tags$span(class=glue::glue("text-gradient text-{tag_status} text-uppercase text-xs font-weight-bold my-2"),tag)
+    shiny::tags$span(class=glue::glue("text-gradient text-{tag_status} text-uppercase text-xs font-weight-bold my-2"),tag)
   } else NULL
   
   if(is.null(title) & is.null(subtitle)){
     head_section <- NULL
   } else {
-    head_section <- tags$div(class = "card-header",
+    head_section <- shiny::tags$div(class = "card-header",
                              style = "border-radius: 1rem;",
                              tag_ui,
 
-                             tags$div(style = "width: 100% !important; height: 40px !important;",
-                               tags$h5(class = "card-title", title, style = "display: inline-block !important; float: left;"),
+                             shiny::tags$div(style = "width: 100% !important; height: 40px !important;",
+                               shiny::tags$h5(class = "card-title", title, style = "display: inline-block !important; float: left;"),
                                tool_ui,  
                              ),
-                             tags$h6(class = "card-subtitle text-muted", subtitle), 
+                             shiny::tags$h6(class = "card-subtitle text-muted", subtitle), 
                              header_ui
     )
   }
@@ -110,13 +113,13 @@ box <- function(..., width = 12,
   dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)};"))
   mst <- glue::glue("margin-bottom: {shiny::validateCssUnit(margin_bottom)} !important;")
   
-  tags$div(class = glue::glue("col-lg-{width}"), 
-    tags$div(class = paste("card",class),
+  shiny::tags$div(class = glue::glue("col-lg-{width}"), 
+    shiny::tags$div(class = paste("card",class),
              style = paste(mst,dvst),
              head_section,        
-             tags$div(
+             shiny::tags$div(
                id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),
-               tags$div(class = "card-body", 
+               shiny::tags$div(class = "card-body", 
                         style = "padding-top: 4px;",
                         ...)
              )
@@ -130,12 +133,12 @@ box <- function(..., width = 12,
 
 
 # 
-# tags$a(class = "btn btn-primary", 
+# shiny::tags$a(class = "btn btn-primary", 
 #        `data-bs-toggle`="collapse", 
 #        href="#collapseExample"),
-# tags$div(
+# shiny::tags$div(
 #   class = "collapse", id = "collapseExample",
-#   tags$div(class = "card card-body",
+#   shiny::tags$div(class = "card card-body",
 #            "Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."
 #            
 #   )

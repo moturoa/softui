@@ -5,9 +5,9 @@
 #' @importFrom shintoshiny appInfoModule
 populate_header <- function(username){
   
-  callModule(softui::userLogoutModule, "user", username = username)
+  shiny::callModule(softui::userLogoutModule, "user", username = username)
   
-  callModule(shintoshiny::appInfoModule, "appinfo")
+  shiny::callModule(shintoshiny::appInfoModule, "appinfo")
   
 }
 

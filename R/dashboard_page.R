@@ -71,11 +71,11 @@ dashboard_page <- function(header, sidebar, body, title = "",
       class = "sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3",
       id="sidenav-main",
 
-      tags$div(class = "sidenav-header", #style = "height: 36px !important;",
+      shiny::tags$div(class = "sidenav-header", #style = "height: 36px !important;",
 
-               tags$a(class = "navbar-brand m-0", #style = "height: 36px !important; box-sizing: border-box;",
+               shiny::tags$a(class = "navbar-brand m-0", #style = "height: 36px !important; box-sizing: border-box;",
 
-                      tags$span(class = "ms-1 font-weight-bold",
+                      shiny::tags$span(class = "ms-1 font-weight-bold",
                                 style = "font-size: 1.3em;",
                                 icon,
                                 title)
@@ -83,16 +83,16 @@ dashboard_page <- function(header, sidebar, body, title = "",
 
       ),
 
-      tags$hr(class="horizontal dark mt-0"),
+      shiny::tags$hr(class="horizontal dark mt-0"),
 
       shiny::tags$div(class="collapse navbar-collapse w-auto h-auto max-height-vh-100 h-100",
                       id="sidenav-collapse-main",
                       sidebar,
                       
                       if(shinto_logo){
-                        tags$div(
+                        shiny::tags$div(
                           style = "position: fixed; bottom: 24px; left: 24px;",
-                          tags$img(src = "shintologo/logoshintolabs96.png",
+                          shiny::tags$img(src = "shintologo/logoshintolabs96.png",
                                    width = "24px")
                         )  
                       } else NULL
@@ -101,7 +101,7 @@ dashboard_page <- function(header, sidebar, body, title = "",
     )
 
 
-  dependency_tag <- tagList(
+  dependency_tag <- htmltools::tagList(
     shinyjs::useShinyjs(),
     
     shinytoastr::useToastr(),
@@ -115,7 +115,7 @@ dashboard_page <- function(header, sidebar, body, title = "",
   
 
 
-  main_tag <- tags$main(
+  main_tag <- shiny::tags$main(
     class = "main-content position-relative max-height-vh-100 h-100 border-radius-lg ",
     header,
     dependency_tag,
@@ -131,7 +131,7 @@ dashboard_page <- function(header, sidebar, body, title = "",
   )
   
 
-  tagList(
+  htmltools::tagList(
     head_tag,
     out_tag
   )

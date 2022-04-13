@@ -8,7 +8,7 @@ badge <- function(text, status = "info"){
   
   validate_status(status)
   
-  tags$span(
+  shiny::tags$span(
     class = glue::glue("badge badge-{status}"),
     text
   )

@@ -26,7 +26,7 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
     value <- random_id()
   }
 
-  tags$div(class = "tab-pane", `data-value` = value, tab_title = HTML(tab_title), style = style, ...)
+  shiny::tags$div(class = "tab-pane", `data-value` = value, tab_title = HTML(tab_title), style = style, ...)
 
 }
 
@@ -72,8 +72,8 @@ tab_box <- function(...,
       "nav-link"
     }
 
-    tags$li(class = "nav-item",
-            tags$a(class = cl, href = glue::glue("#tab-{idnr}-{el$index}"),
+    shiny::tags$li(class = "nav-item",
+            shiny::tags$a(class = cl, href = glue::glue("#tab-{idnr}-{el$index}"),
                    `data-toggle`="tab", 
                    `data-bs-toggle`="tab", 
                    `data-value`=el$`data-value`,
@@ -85,7 +85,7 @@ tab_box <- function(...,
   cont <- lapply(items, function(el){
 
     a <- el$attribs
-    tags$div(class = "tab-pane", `data-value`=a$`data-value`, id = glue::glue("tab-{idnr}-{a$index}"),
+    shiny::tags$div(class = "tab-pane", `data-value`=a$`data-value`, id = glue::glue("tab-{idnr}-{a$index}"),
              el$children
              )
 
@@ -100,17 +100,17 @@ tab_box <- function(...,
   if(fill)nav_cl <- paste(nav_cl, "nav-fill")
 
 
-  tags$div(class = glue::glue("col-lg-{width}"),
+  shiny::tags$div(class = glue::glue("col-lg-{width}"),
               
-    tags$div(class = "card", id = id,
-      tags$div(class = "card-header",
-        tags$ul(class = nav_cl,
+    shiny::tags$div(class = "card", id = id,
+      shiny::tags$div(class = "card-header",
+        shiny::tags$ul(class = nav_cl,
                 `data-tabsetid`= glue::glue("{idnr}"),
                 lis
         )
       ),
-      tags$div(class = "card-body",
-            tags$div(class = "tab-content", `data-tabsetid` = idnr,
+      shiny::tags$div(class = "card-body",
+            shiny::tags$div(class = "tab-content", `data-tabsetid` = idnr,
                      cont
             )
 

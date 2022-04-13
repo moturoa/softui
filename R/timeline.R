@@ -3,6 +3,8 @@
 #' Use the `timeline_from_data` function to make a timeline from a dataframe. Can be used in a `uiOutput`.
 #' @export
 #' @rdname timeline
+#' @importFrom shinipsum random_text
+#' @importFrom tibble tribble
 #' @examples
 #' 
 #' # Manual timeline
@@ -34,7 +36,7 @@ timeline <- function(..., .list = NULL){
   
   items <- c(list(...), .list)
   
-  tags$div(class="timeline timeline-one-side", `data-timeline-axis-style` = "dotted", 
+  shiny::tags$div(class="timeline timeline-one-side", `data-timeline-axis-style` = "dotted", 
            
       items
            
@@ -62,18 +64,18 @@ timeline_block <- function(title, timestamp, text = "",
   validate_status(icon_status)
   validate_status(badge_status)
   
-  tags$div(class="timeline-block mb-3",
-        tags$span(class="timeline-step",
-          #tags$i(class="ni ni-bell-55 text-success text-gradient"),
-          bsicon(icon_name, class = glue("text-{icon_status} text-gradient"))
+  shiny::tags$div(class="timeline-block mb-3",
+        shiny::tags$span(class="timeline-step",
+          #shiny::tags$i(class="ni ni-bell-55 text-success text-gradient"),
+          bsicon(icon_name, class = glue::glue("text-{icon_status} text-gradient"))
         ),
-        tags$div(class="timeline-content",
-            tags$h6(class="text-dark text-sm font-weight-bold mb-0", title),
-            tags$p(class="text-secondary font-weight-bold text-xs mt-1 mb-0", timestamp),
-            tags$p(class="text-sm mt-3 mb-2", text),
+        shiny::tags$div(class="timeline-content",
+            shiny::tags$h6(class="text-dark text-sm font-weight-bold mb-0", title),
+            shiny::tags$p(class="text-secondary font-weight-bold text-xs mt-1 mb-0", timestamp),
+            shiny::tags$p(class="text-sm mt-3 mb-2", text),
             
             if(!is.null(badge_text)){
-              tags$span(class="badge badge-sm bg-gradient-{badge_status}", badge_text)
+              shiny::tags$span(class="badge badge-sm bg-gradient-{badge_status}", badge_text)
             }
         )
   )
@@ -89,7 +91,11 @@ timeline_from_data <- function(data){
   
   data <- data %>% 
     dplyr::rowwise() %>%
-    mutate(block = list(timeline_block(title, timestamp, text, icon_name, icon_status)))
+    dplyr::mutate(block = list(timeline_block(.data$title, 
+                                       .data$timestamp, 
+                                       .data$text, 
+                                       .data$icon_name, 
+                                       .data$icon_status)))
   
   timeline(.list = data$block)
 }
@@ -103,7 +109,6 @@ validate_timeline_data <- function(data){
     stop(paste("Must provide dataframe with columns:", paste(nms, collapse=", ")))
     
   }
-  return(TRUE)
   
 }
 

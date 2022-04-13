@@ -14,7 +14,7 @@ bsicon <- function(iconname,
   
   if(!is.null(status)){
     validate_status(status)
-    class <- paste(class, glue("text-{status} text-gradient"))
+    class <- paste(class, glue::glue("text-{status} text-gradient"))
   }
   
   # These are for laziness and backwards comp.
@@ -27,7 +27,7 @@ bsicon <- function(iconname,
     iconClass <- paste(iconClass, class)
   }
 
-  tags$i(class = iconClass, role = "presentation",
+  shiny::tags$i(class = iconClass, role = "presentation",
          `aria-label` = paste(iconname, "icon"), ...)
 }
 

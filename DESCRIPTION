@@ -7,7 +7,7 @@ Maintainer: Remko Duursma <remko@shintolabs.nl>
 Description: A shiny dashboard template with Soft UI styling. 
     Opinionated framework for Shinto Labs.
 License: GPL (>= 3)
-Imports: DT, shinybusy, shinydisconnect, shinyjs, shinytoastr, shintoshiny
+Imports: DT, shinybusy, shinydisconnect, shinyjs, shinytoastr, shintoshiny, shinipsum, tibble
 Depends: shiny, glue, htmltools, dplyr
 Encoding: UTF-8
 LazyData: true

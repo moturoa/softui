@@ -19,22 +19,22 @@ modal <- function(..., title = "", easyClose = TRUE,
   # see zzz.R; inst/logo is available under logo/
   img <- "shintologo/logoshintolabs.png"
   
-  modalDialog(
+  shiny::modalDialog(
     easyClose = TRUE,
-    title = tags$div(title, 
-                    tags$span(
-                      tags$img(src=img, width = 70), 
+    title = shiny::tags$div(title, 
+                    shiny::tags$span(
+                      shiny::tags$img(src=img, width = 70), 
                       style = "display:inline-block; float:right;")
             ),
     
     ...,
     footer = list(
-      actionButton(random_id(), 
+      shiny::actionButton(random_id(), 
                    close_txt, 
                    icon = close_icon,
                    class= "btn-danger",
                    `data-bs-dismiss` = "modal"),
-      actionButton(session$ns(id_confirm), 
+      shiny::actionButton(session$ns(id_confirm), 
                    confirm_txt, 
                    icon = confirm_icon, 
                    class= "btn-success")

@@ -6,27 +6,27 @@
 #' @export
 #' @rdname dashboard_header_image
 dashboard_header_image <- function(..., height = 150, image = NULL, icon_color = "white"){
-  tags$div(
-    tags$nav(  # mt-4  mx-4 position-sticky 
+  shiny::tags$div(
+    shiny::tags$nav(  # mt-4  mx-4 position-sticky 
       class = "navbar navbar-main navbar-expand-lg bg-transparent shadow-none postition-absolute px-4 w-100 z-index-2",
       
       id="navbarBlur", `data-scroll`="true",
       style = "height: 96px !important; position: absolute !important",
       
-      tags$div(class = "container-fluid py-1",   #  px-3
+      shiny::tags$div(class = "container-fluid py-1",   #  px-3
                #style = "height: 96px !important;",
                
                
-               tags$div(
+               shiny::tags$div(
                  class = "collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4",
                  id="navbar-right",
                  
-                 tags$div(
+                 shiny::tags$div(
                    class="ms-md-auto pe-md-3 d-flex align-items-center",
                    
                    # 
                    # content on the right (usually dropdowns)
-                   tags$ul(
+                   shiny::tags$ul(
                      class = "navbar-nav justify-content-end",
                      ...,
                      
@@ -58,8 +58,8 @@ dashboard_header_image <- function(..., height = 150, image = NULL, icon_color =
       
     ),
     
-    tags$div(class = "container-fluid",
-      tags$div(  # mt-4  mx-4 position-sticky 
+    shiny::tags$div(class = "container-fluid",
+      shiny::tags$div(  # mt-4  mx-4 position-sticky 
         class = glue::glue("page-header min-height-{height} border-radius-xl mt-4"),
         style = glue::glue("background-image: url('{image}'); background-position-x: left;")
         
@@ -76,11 +76,11 @@ dashboard_header_image <- function(..., height = 150, image = NULL, icon_color =
 #' @rdname dashboard_header_image
 header_item <- function(...){
   
-  tags$li(
+  shiny::tags$li(
     class = "nav-item d-flex align-items-center",
     #bsicon("person-circle"),
     
-    tags$a(
+    shiny::tags$a(
       class = "nav-link",
       ...
     )
@@ -101,21 +101,21 @@ dropdown_item_color <- function(icon, ...,
   
   dclass <- ifelse(align_right, "dropdown-menu dropdown-menu-end", "dropdown-menu")
   
-  # tags$li(
+  # shiny::tags$li(
   #   class = "nav-item d-flex dropdown",
   
-  tags$div(class = "dropdown",
-           tags$a(
-             class = glue("nav-link text-{icon_color}"),
+  shiny::tags$div(class = "dropdown",
+           shiny::tags$a(
+             class = glue::glue("nav-link text-{icon_color}"),
              icon,
              `data-bs-toggle` = "dropdown", href = "#",
              `aria-expanded` = "false"
            ),
-           tags$div(class = dclass,
+           shiny::tags$div(class = dclass,
                     if(!is.null(header)){
-                      tags$h6(header, class = "dropdown-header")
+                      shiny::tags$h6(header, class = "dropdown-header")
                     } else NULL,
-                    tags$div(
+                    shiny::tags$div(
                       class = "dropdown-item", ...
                     )
            )

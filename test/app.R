@@ -39,7 +39,7 @@ body <- softui::dashboard_body(
   softui::tab_items(
     softui::tab_item("analyse",
 
-             tags$h2(class="font-weight-bolder mb-0", "SoftUI test app"),
+             shiny::tags$h2(class="font-weight-bolder mb-0", "SoftUI test app"),
              softui::fluid_row(
                softui::box(
                  softui::alert("Dit is een belangrijke tekst!", status = "warning"),
@@ -124,7 +124,7 @@ body <- softui::dashboard_body(
                         softui::tab_panel("Buttons", icon = icon("chart-bar"), value = "buttons",
                                           
 
-                                          tags$p("Test icon: ", icon("home")),
+                                          shiny::tags$p("Test icon: ", icon("home")),
                                           actionButton("btn1", "Primary", class = "btn-primary", icon = bsicon("check")),
                                           actionButton("btn2", "Secondary", class = "btn-secondary", icon = bsicon("clipboard-data")),
                                           actionButton("btn3", "Warning", class = "btn-warning", icon = bsicon("alarm-fill")),
@@ -144,7 +144,7 @@ body <- softui::dashboard_body(
                      subtitle = "Meer informatie over deze analyse",
                      tag = "info",
 
-                     tags$p(
+                     shiny::tags$p(
                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                      )
 
@@ -184,7 +184,7 @@ body <- softui::dashboard_body(
                    width = 6,
                    collapsible =TRUE,
                    collapsed=FALSE,
-                   tags$p(
+                   shiny::tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                    )
                  ),
@@ -195,7 +195,7 @@ body <- softui::dashboard_body(
                    width = 6,
                    collapsible =TRUE,
                    collapsed=TRUE,
-                   tags$p(
+                   shiny::tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                    )
                  )
@@ -206,14 +206,14 @@ body <- softui::dashboard_body(
                    width = 6,
                    height = 1000,
                    collapsible =TRUE,
-                   tags$p(
+                   shiny::tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                    )
                  ),
                 softui::box(
                    title = "Box 4",
                    width = 6,
-                   tags$p(
+                   shiny::tags$p(
                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tortor ut libero finibus dictum bibendum ut lorem. Ut nisi arcu, feugiat vitae tortor at, iaculis venenatis metus. Morbi dui elit, aliquam at sem molestie, dignissim malesuada dui. Vivamus cursus a dolor et laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra lectus ac ex hendrerit, in cursus nulla eleifend. Pellentesque ut velit fringilla, pulvinar nisl non, mollis purus. Etiam blandit augue quis augue congue fringilla. Pellentesque rutrum, tellus a venenatis porta, nisl augue tincidunt nisl, at tempor elit nisl ac massa. Praesent finibus, nibh vehicula euismod malesuada, diam nunc pellentesque ipsum, ac tempus tellus mauris sit amet ligula. Nullam euismod eget velit ac consequat. Integer finibus blandit diam, nec sollicitudin neque viverra eu."
                    )
                  )
@@ -231,7 +231,7 @@ body <- softui::dashboard_body(
                        softui::fluid_row(
                          softui::box(width = 6,
                                      title = "Extra!",
-                                     tags$p("Extra, extra, read all about it")
+                                     shiny::tags$p("Extra, extra, read all about it")
                          )
                        )
                      )
@@ -242,21 +242,21 @@ body <- softui::dashboard_body(
     softui::tab_item("administratie", 
                      
                      
-                     tags$p("Found me!")
+                     shiny::tags$p("Found me!")
                      
                      ),
     
     softui::tab_item("minipage1", 
                      
                      
-                     tags$p("Minipage 1 !!")
+                     shiny::tags$p("Minipage 1 !!")
                      
     ),
     
     softui::tab_item("minipage2", 
                      
                      
-                     tags$p("Minipage 2 !!")
+                     shiny::tags$p("Minipage 2 !!")
                      
     )
     
@@ -268,14 +268,14 @@ body <- softui::dashboard_body(
 header <- softui::dashboard_header(
 
   softui::dropdown_item(bsicon("gear-fill"), 
-                        tags$p("Version: 0.1"),
-                        tags$p("More information here"),
+                        shiny::tags$p("Version: 0.1"),
+                        shiny::tags$p("More information here"),
                         header = "App Info",
                         align_right = TRUE
                         ),
   softui::dropdown_item(bsicon("person-circle"), 
                         header = "Gebruiker",
-                        tags$p("Ingelogd als Remko"),
+                        shiny::tags$p("Ingelogd als Remko"),
                         align_right = TRUE
   ),
   
@@ -294,7 +294,7 @@ ui <- softui::dashboard_page(title = "Shinto App",
 server <- function(input, output, session) {
 
 
-  callModule(restricted_menu_item_module, "superuser_menu", 
+  shiny::callModule(restricted_menu_item_module, "superuser_menu", 
              text = "Superuser", 
              tabName = "superuser",
              icon = bsicon("incognito"),
@@ -331,10 +331,10 @@ server <- function(input, output, session) {
       modalDialog(
         title = "Dit is een test model",
         size = "l",
-        tags$h2("Tekst in h2"),
-        tags$h3("Tekst in h3"),
-        tags$h4("Tekst in h4"),
-        tags$h5("Tekst in h5")
+        shiny::tags$h2("Tekst in h2"),
+        shiny::tags$h3("Tekst in h3"),
+        shiny::tags$h4("Tekst in h4"),
+        shiny::tags$h5("Tekst in h5")
       )
     )
   })
@@ -347,7 +347,7 @@ server <- function(input, output, session) {
 
   
   
-  out <- callModule(picker_select_module, "test", 
+  out <- shiny::callModule(picker_select_module, "test", 
                     choices = sort(readRDS("ehv_projecten.rds")$projectnaam))
   
   

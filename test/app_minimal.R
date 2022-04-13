@@ -18,8 +18,8 @@ body <- softui::dashboard_body(
                      column(7, class = "mx-auto",
                       softui::box(title = "Page 1", width = 12,
                                   
-                                  tags$a("Dit een een klikbare link", href = "https://www.google.com"),
-                                  tags$a(tags$span("Dit een een klikbare link", class = "page_link")),
+                                  shiny::tags$a("Dit een een klikbare link", href = "https://www.google.com"),
+                                  shiny::tags$a(shiny::tags$span("Dit een een klikbare link", class = "page_link")),
                                   
                                   
                                   
@@ -30,7 +30,7 @@ body <- softui::dashboard_body(
                                   actionButton("btn1", "Button", class = "bg-gradient-danger"),
                                   actionButton("btn1", "Button", class = "bg-gradient-info"),
                                   
-                                  tags$br(),
+                                  shiny::tags$br(),
                                   
                                   actionButton("btn1", "Button", class = "btn-primary"),
                                   actionButton("btn1", "Button", class = "btn-success"),

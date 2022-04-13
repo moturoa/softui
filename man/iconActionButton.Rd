@@ -28,9 +28,9 @@ ui <- softui::simple_page(
               
               iconActionButton("id2", icon = bsicon("exclamation-circle-fill"), 
                                status = "primary"),
-              tags$br(),
+              shiny::tags$br(),
               iconActionButton("id1", icon = bsicon("award-fill"), status = "success"),
-              tags$br(),
+              shiny::tags$br(),
               iconActionButton("id2", icon = bsicon("stop-circle-fill"), 
                                status = "danger", class = "btn-lg")
   )

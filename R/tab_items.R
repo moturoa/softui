@@ -7,7 +7,7 @@
 #'@param \dots A `tab_items` object, and maybe other HTML.
 #'@rdname dashboard_body
 dashboard_body <- function(...){
-  tags$div(...)
+  shiny::tags$div(...)
 }
 
 #'@export
@@ -16,11 +16,11 @@ tab_items <- function(..., .list = NULL){
 
 
   items <- c(list(...), .list)
-  items[[1]] <- items[[1]] %>% tagAppendAttributes(class = "active")
+  items[[1]] <- htmltools::tagAppendAttributes(items[[1]], class = "active") 
 
   fluid_page(
 
-    tags$div(
+    shiny::tags$div(
     class = "tab-content",
 
     items
@@ -34,7 +34,7 @@ tab_items <- function(..., .list = NULL){
 #'@rdname dashboard_body
 tab_item <- function(tabName, ...){
 
-  tags$div(class = "tab-pane fade show",
+  shiny::tags$div(class = "tab-pane fade show",
            id = glue::glue("shiny-tab-{tabName}"),
            ...
   )

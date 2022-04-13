@@ -28,7 +28,8 @@ ui <- fluidPage(theme = bs_theme(version = 5),
 
 server <- function(input, output, session) {
   
-  out <- callModule(picker_select_module, "test", choices = sort(readRDS("../test/ehv_projecten.rds")$projectnaam), update = test_update)
+  out <- shiny::callModule(picker_select_module, "test", 
+                           choices = sort(readRDS("../test/ehv_projecten.rds")$projectnaam), update = test_update)
   test_update <- reactiveVal()
   
   observeEvent(input$btn_update, {

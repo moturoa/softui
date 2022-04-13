@@ -37,7 +37,7 @@ route_page_link <- function(id,
   observeEvent(input[[id]],  {
     
     if(is.null(session$userData[[id]])){
-      session$userData[[id]] <- reactiveVal()
+      session$userData[[id]] <- shiny::reactiveVal()
     }
     
     session$userData[[id]](input[[id]])

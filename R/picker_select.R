@@ -19,30 +19,30 @@ picker_select_ui <- function(id,
   
   drop_style <- paste(glue::glue("padding: 18px; overflow-y: auto; height: {h_css}; width: {w_css};"), dropdown_style)
   
-  tags$div(class = "dropdown",
+  shiny::tags$div(class = "dropdown",
            
-           tags$label(label, class = "control-label"),
-           tags$div(
-             actionButton(ns("btn_drop"), 
-                          uiOutput(ns("dropdown_label"), container = span, inline = TRUE), 
+           shiny::tags$label(label, class = "control-label"),
+           shiny::tags$div(
+             shiny::actionButton(ns("btn_drop"), 
+                                 shiny::uiOutput(ns("dropdown_label"), container = span, inline = TRUE), 
                           class = paste(btn_class, "dropdown-toggle"),
                           `data-bs-toggle`="dropdown", 
                           `data-bs-auto-close` = "outside", 
                           style = button_style),
            
-            tags$div(class = "dropdown-menu", 
-                    tags$div(style = drop_style,
+            shiny::tags$div(class = "dropdown-menu", 
+                    shiny::tags$div(style = drop_style,
                              
                              if(search){
-                              tagList(
+                               htmltools::tagList(
                                 softui::fluid_row(
-                                  column(10, 
+                                  shiny::column(10, 
                                     textInput(ns("txt_search"), NULL, width = "100%", placeholder = "Zoek")
                                   ),
-                                  column(2, 
-                                      tags$div(style = "padding-top: 8px;",
-                                          actionButton(ns("btn_reset_search"), 
-                                                        label = tags$span(style = "font-size: 1.3em;", bsicon("x")), 
+                                  shiny::column(2, 
+                                      shiny::tags$div(style = "padding-top: 8px;",
+                                                      shiny::actionButton(ns("btn_reset_search"), 
+                                                        label = shiny::tags$span(style = "font-size: 1.3em;", bsicon("x")), 
                                                         class = "btn-light", 
                                                         style = "background: none; border: none; box-shadow: none; width: 30px; padding:0; margin: 0;")
                                       )
@@ -53,18 +53,18 @@ picker_select_ui <- function(id,
                              } else NULL,
                              
                              if(buttons_select){
-                              tagList(
-                                actionButton(ns("btn_all_on"), "Alles aan", class = "btn-light btn-sm"),
-                                actionButton(ns("btn_all_off"), "Alles uit", class = "btn-light btn-sm")   
+                              htmltools::tagList(
+                                shiny::actionButton(ns("btn_all_on"), "Alles aan", class = "btn-light btn-sm"),
+                                shiny::actionButton(ns("btn_all_off"), "Alles uit", class = "btn-light btn-sm")   
                               ) 
                              } else NULL,
                              
                              if(buttons_select | search){
-                               tags$hr()  
+                               shiny::tags$hr()  
                              } else NULL,
                              
-                             checkboxGroupInput(ns("chk1"), NULL, choices = NULL),
-                             uiOutput(ns("ui_end_choices"))
+                             shiny::checkboxGroupInput(ns("chk1"), NULL, choices = NULL),
+                             shiny::uiOutput(ns("ui_end_choices"))
                     )
            )
            
@@ -86,16 +86,16 @@ picker_select_module <- function(input, output, session,
   
   
   # reactive for the search
-  txt_searched_instant <- reactive({
+  txt_searched_instant <- shiny::reactive({
     input$txt_search
   })
   
   # debounced search (avoid searches while typing)
-  txt_searched <- debounce(txt_searched_instant, millis = debounce, domain = session)
+  txt_searched <- shiny::debounce(txt_searched_instant, millis = debounce, domain = session)
   
   
   # choices that remain after doing a search (an empty search or 1 char means the provided choices)
-  choices_searched <- reactive({
+  choices_searched <- shiny::reactive({
     
     val <- txt_searched()
     
@@ -116,16 +116,16 @@ picker_select_module <- function(input, output, session,
   }
   
   # nr times clicked on 'show more rows'
-  n_extra_clicked <- reactiveVal(0)
+  n_extra_clicked <- shiny::reactiveVal(0)
   
-  n_choices_show <- reactive({
+  n_choices_show <- shiny::reactive({
     max_choices + n_extra_clicked() * max_choices
   })
   
-  output$ui_end_choices <- renderUI({
+  output$ui_end_choices <- shiny::renderUI({
     req(length(choices_searched()) > n_choices_show())
     
-    actionLink(session$ns("lnk_show_more_choices"), 
+    shiny::actionLink(session$ns("lnk_show_more_choices"), 
                glue::glue("{n_choices_show()} van {length(choices)} - toon meer..."))
   })
   
@@ -134,52 +134,52 @@ picker_select_module <- function(input, output, session,
   })
   
   # selected choices
-  selection <- reactiveVal()
+  selection <- shiny::reactiveVal()
   
-  observeEvent(input$chk1, {
+  shiny::observeEvent(input$chk1, {
     selection(input$chk1)
   })
   
-  output$dropdown_label <- renderUI({
+  output$dropdown_label <- shiny::renderUI({
     n_sel <- length(selection())
     if(n_sel == 0){
       "Maak een selectie"
     } else {
-      glue("{n_sel} geselecteerd")
+      glue::glue("{n_sel} geselecteerd")
     }
     
   })
   
   
   # select all
-  observeEvent(input$btn_all_on, {
-    updateCheckboxGroupInput(session, "chk1", selected = choices)
+  shiny::observeEvent(input$btn_all_on, {
+    shiny::updateCheckboxGroupInput(session, "chk1", selected = choices)
     selection(choices())
   })
   
   # unselect all
-  observeEvent(input$btn_all_off, {
-    updateCheckboxGroupInput(session, "chk1", selected = character(0))
+  shiny:: observeEvent(input$btn_all_off, {
+    shiny::updateCheckboxGroupInput(session, "chk1", selected = character(0))
     selection(NULL)
   })
   
   # update selected or choices
-  observeEvent(update(), {
+  shiny::observeEvent(update(), {
     
     u <- update()
-    updateCheckboxGroupInput(session, "chk1", selected = u$selected, choices = u$choices)
+    shiny::updateCheckboxGroupInput(session, "chk1", selected = u$selected, choices = u$choices)
     
   })
   
   # reset search
-  observeEvent(input$btn_reset_search, {
-    updateTextInput(session, "txt_search", value = "")  
+  shiny::observeEvent(input$btn_reset_search, {
+    shiny::updateTextInput(session, "txt_search", value = "")  
     n_extra_clicked(0)
     selection(NULL)
   })
   
   
-  observe({
+  shiny::observe({
     
     vals <- choices_searched()
     
@@ -188,7 +188,7 @@ picker_select_module <- function(input, output, session,
       vals <- vals[1:n_choices_show()]
     }
     
-    updateCheckboxGroupInput(session, "chk1", choices = vals)  
+    shiny::updateCheckboxGroupInput(session, "chk1", choices = vals)  
     
   })
   

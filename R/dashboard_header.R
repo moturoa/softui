@@ -7,45 +7,45 @@
 #' @importFrom shintoshiny appInfoUI userLogoutUI
 dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
 
-  tag_line <- tags$h6(class = "header_tagline fw-light", tag_line)
+  tag_line <- shiny::tags$h6(class = "header_tagline fw-light", tag_line)
   
-  tags$nav(  # mt-4  mx-4 position-sticky 
+  shiny::tags$nav(  # mt-4  mx-4 position-sticky 
     class = "navbar navbar-main navbar-expand-lg top-1 px-0 shadow-none border-radius-xl z-index-sticky",
     id="navbarBlur", `data-scroll`="true",
     style = "height: 96px !important;",
 
-    tags$div(class = "container-fluid",   # py-1 px-3
+    shiny::tags$div(class = "container-fluid",   # py-1 px-3
              style = "height: 96px !important;",
 
 
              # toggler (minimize sidebar menu). Works but CSS problems / conflict with tag.
-             # tags$div(
+             # shiny::tags$div(
              #   class = "sidenav-toggler sidenav-toggler-inner d-xl-block d-none ",
              # 
-             #   tags$a(href="javascript:;", class="nav-link text-body p-0",
-             #          tags$div(
+             #   shiny::tags$a(href="javascript:;", class="nav-link text-body p-0",
+             #          shiny::tags$div(
              #            class="sidenav-toggler-inner",
-             #            tags$i(class="sidenav-toggler-line"),
-             #            tags$i(class="sidenav-toggler-line"),
-             #            tags$i(class="sidenav-toggler-line")
+             #            shiny::tags$i(class="sidenav-toggler-line"),
+             #            shiny::tags$i(class="sidenav-toggler-line"),
+             #            shiny::tags$i(class="sidenav-toggler-line")
              #          )
              #   )
              # ),
              
-             tags$nav(
+             shiny::tags$nav(
                c(list(tag_line), left_content)
              ),
              
-             tags$div(
+             shiny::tags$div(
                class = "collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4",
                id="navbar-right",
 
-               tags$div(
+               shiny::tags$div(
                  class="ms-md-auto pe-md-3 d-flex align-items-center",
                  
                  # 
                  # content on the right (usually dropdowns)
-                 tags$ul(
+                 shiny::tags$ul(
                    class = "navbar-nav justify-content-end",
                    ...,
                    
@@ -82,11 +82,11 @@ dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
 #' @rdname dashboard_header
 header_item <- function(...){
 
-  tags$li(
+  shiny::tags$li(
     class = "nav-item d-flex align-items-center",
     #bsicon("person-circle"),
 
-    tags$a(
+    shiny::tags$a(
       class = "nav-link",
       ...
     )
@@ -105,21 +105,21 @@ dropdown_item <- function(icon, ...,
 
   dclass <- ifelse(align_right, "dropdown-menu dropdown-menu-end", "dropdown-menu")
   
-  # tags$li(
+  # shiny::tags$li(
   #   class = "nav-item d-flex dropdown",
 
-  tags$div(class = "dropdown",
-    tags$a(
+  shiny::tags$div(class = "dropdown",
+    shiny::tags$a(
       class = "nav-link",
       icon,
       `data-bs-toggle` = "dropdown", href = "#",
       `aria-expanded` = "false"
     ),
-    tags$div(class = dclass,
+    shiny::tags$div(class = dclass,
       if(!is.null(header)){
-        tags$h6(header, class = "dropdown-header")
+        shiny::tags$h6(header, class = "dropdown-header")
       } else NULL,
-      tags$div(
+      shiny::tags$div(
         class = "dropdown-item", ...
       )
     )

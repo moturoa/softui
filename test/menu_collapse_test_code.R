@@ -1,46 +1,46 @@
 
-tags$li(
+shiny::tags$li(
   class = "nav-item",
   
-  tags$a(class = "nav-link",
+  shiny::tags$a(class = "nav-link",
          href = "#shiny-tab-testtab",
          `data-bs-toggle` = "tab",
          `data-bs-target` = "#shiny-tab-testtab",
          `data-target` = "testtab",
          role = "tab",
          
-         tags$div(
+         shiny::tags$div(
            class = "icon icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center",
-           tags$span(bsicon("tools"), class = "sidebar-icon")
+           shiny::tags$span(bsicon("tools"), class = "sidebar-icon")
          ),
-         tags$span(class = "nav-link-text ms-1",  "Dit is nog een tab")
+         shiny::tags$span(class = "nav-link-text ms-1",  "Dit is nog een tab")
   )
 ),
 
-tags$li(
+shiny::tags$li(
   class = "nav-item",
   
-  tags$a(class = "nav-link",
+  shiny::tags$a(class = "nav-link",
          href = "#collapseExamples",
          `data-bs-toggle` = "collapse",
          # `data-bs-target` = "#shiny-tab-testtab",
          # `data-target` = "testtab",
          role = "button",
          
-         tags$div(
+         shiny::tags$div(
            class = "icon icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center",
-           tags$span(bsicon("tools"), class = "sidebar-icon")
+           shiny::tags$span(bsicon("tools"), class = "sidebar-icon")
          ),
          
-         tags$span(class = "nav-link-text ms-1",  "Collapse tab")
+         shiny::tags$span(class = "nav-link-text ms-1",  "Collapse tab")
   ),
   
-  tags$div(class = "collapse", id = "collapseExamples",
+  shiny::tags$div(class = "collapse", id = "collapseExamples",
            
-           tags$ul(
+           shiny::tags$ul(
              class="nav ms-4 ps-3",
              
-             tags$li(class="nav-item ", 
+             shiny::tags$li(class="nav-item ", 
                      tags$a(class="nav-link ", 
                             href = "#shiny-tab-minipage1",
                             `data-bs-toggle` = "tab",
