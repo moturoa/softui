@@ -5,7 +5,7 @@
 #' @param title A title for the box
 #' @param grey_level Value between 0.1 (standard) and 0.9 (very dark), in steps of 0.1.
 #' @export
-sub_box <- function(title = NULL, grey_level = 0.1, ...){
+sub_box <- function(..., title = NULL, grey_level = 0.1){
   
   if((10 *grey_level) %% 1 > 0){
     stop("provide grey_level in steps of 0.1")

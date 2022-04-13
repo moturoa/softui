@@ -4,7 +4,7 @@
 \alias{sub_box}
 \title{Box within a box}
 \usage{
-sub_box(title = NULL, grey_level = 0.1, ...)
+sub_box(..., title = NULL, grey_level = 0.1)
 }
 \arguments{
 \item{title}{A title for the box}
