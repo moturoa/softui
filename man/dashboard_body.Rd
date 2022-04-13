@@ -13,7 +13,7 @@ tab_items(..., .list = NULL)
 tab_item(tabName, ...)
 }
 \arguments{
-\item{\dots}{}
+\item{\dots}{A `tab_items` object, and maybe other HTML.}
 }
 \description{
 Makes the dashboard body of a dashboard page. See `?dashboard_page` for a minimal example.
