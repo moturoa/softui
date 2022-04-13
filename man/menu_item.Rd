@@ -13,8 +13,5 @@ menu_subitem(text, tabName)
 menu_link(tabName, icon, text)
 }
 \description{
-Sidebar menu items
-}
-\details{
 Functions to make menu items in the sidebar menu. See `?sidebar_menu`
 }

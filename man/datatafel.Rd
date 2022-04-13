@@ -2,7 +2,7 @@
 % Please edit documentation in R/datatafel.R
 \name{datatafel}
 \alias{datatafel}
-\title{Datatable, NL voor BS5}
+\title{Datatable, with NL and softui / Bootstrap 5.1 specific settings.}
 \usage{
 datatafel(
   ...,
@@ -18,6 +18,29 @@ datatafel(
   class = "row-border hover"
 )
 }
+\arguments{
+\item{\dots}{Further arguments to `datatable`, especially a dataframe as first argument (unnamed).}
+
+\item{dom}{DOM elements for the datatable ("t" for just the table)}
+
+\item{pageLength}{Number of rows to show}
+
+\item{escape}{Default TRUE, allow HTML content in the table}
+
+\item{rownames}{Default FALSE, suppresses row names.}
+
+\item{ordering}{Default TRUE, whether to allow column ordering}
+
+\item{extensions}{Default 'Responsive' to show long rows in a collapsible.}
+
+\item{selection}{Rows to select (single or multiple)}
+
+\item{scrollX}{If TRUE, allows scrolling for very wide tables (then set extensions = NULL!)}
+
+\item{options}{Passed to datatable `options` argument}
+
+\item{class}{Datatable CSS classes.}
+}
 \description{
-Datatable, NL voor BS5
+Datatable, with NL and softui / Bootstrap 5.1 specific settings.
 }

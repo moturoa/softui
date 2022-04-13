@@ -12,9 +12,6 @@ badge(text, status = "info")
 \item{status}{Status color (see `?valid_statuses`)}
 }
 \description{
-SoftUI badges
-}
-\details{
 Short label (badge) to be placed before or above text, for example `badge("Informatie", status = "info")`
 Font is always uppercase.
 }

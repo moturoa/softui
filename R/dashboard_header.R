@@ -4,6 +4,7 @@
 #' @param \dots Any header items, usually made with `softui::dropdown_item`. 
 #' @export
 #' @rdname dashboard_header
+#' @importFrom shintoshiny appInfoUI userLogoutUI
 dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
 
   tag_line <- tags$h6(class = "header_tagline fw-light", tag_line)

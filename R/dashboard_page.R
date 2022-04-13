@@ -41,6 +41,10 @@
 #'                              body = body)
 #' 
 #' server <- function(input, output, session) {}
+#' @importFrom shinybusy add_busy_bar
+#' @importFrom shinytoastr useToastr
+#' @importFrom shintoshiny disconnect_message shintoshiny_dependencies loadingscreen
+#' @importFrom shinyjs useShinyjs
 dashboard_page <- function(header, sidebar, body, title = "", 
                            icon = softui::bsicon("speedometer"),
                            loadingscreen_time = 4,

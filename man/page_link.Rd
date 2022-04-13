@@ -9,11 +9,16 @@ page_link(
   id,
   label,
   id_out = "click_id",
-  session = getDefaultReactiveDomain(),
+  session = shiny::getDefaultReactiveDomain(),
   class = "page_link"
 )
 
-route_page_link(id, tabName, input, session = getDefaultReactiveDomain())
+route_page_link(
+  id,
+  tabName,
+  input,
+  session = shiny::getDefaultReactiveDomain()
+)
 }
 \arguments{
 \item{id}{Value of the ID that will be sent as link information (e.g. person ID, location ID)}
@@ -22,7 +27,7 @@ route_page_link(id, tabName, input, session = getDefaultReactiveDomain())
 
 \item{id_out}{Name of the input ID to set when clicked on a link (namespacing in modules is done automatically)}
 
-\item{session}{Shiny session object}
+\item{session}{Shiny session object (no need to set)}
 
 \item{class}{CSS class of the text in the link}
 

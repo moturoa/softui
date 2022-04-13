@@ -19,3 +19,23 @@ iconActionButton(id, icon, status = "success", class = "", ...)
 A 'softui' round button with only an icon. Simple wrapper around `shiny::actionButton`. 
 Uses various softui CSS classes for styling.
 }
+\examples{
+
+ui <- softui::simple_page(
+  
+  softui::box(width = 4,
+              title = "iconActionButton",
+              
+              iconActionButton("id2", icon = bsicon("exclamation-circle-fill"), 
+                               status = "primary"),
+              tags$br(),
+              iconActionButton("id1", icon = bsicon("award-fill"), status = "success"),
+              tags$br(),
+              iconActionButton("id2", icon = bsicon("stop-circle-fill"), 
+                               status = "danger", class = "btn-lg")
+  )
+  
+  
+)
+shinyApp(ui,server = function(input,output){})
+}

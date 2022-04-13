@@ -18,6 +18,25 @@ restricted_menu_item_module(
   allowed_groups
 )
 }
+\arguments{
+\item{id}{Shiny input id}
+
+\item{input}{Shiny input object}
+
+\item{output}{Shiny output object}
+
+\item{session}{Shiny session object}
+
+\item{text}{Text for the `menu_item`}
+
+\item{tabName}{Name for the tab to refer to from the `menuitem`}
+
+\item{icon}{A `softui::bsicon`}
+
+\item{user_group}{Current groups the user belongs to (read with `shintousers`)}
+
+\item{allowed_groups}{Groups that have access to this menu item. Usually read from config.}
+}
 \description{
 Menu item with restricted access
 }

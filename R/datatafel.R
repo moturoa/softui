@@ -1,5 +1,17 @@
-#' Datatable, NL voor BS5
+#' Datatable, with NL and softui / Bootstrap 5.1 specific settings.
+#' @param \dots Further arguments to `datatable`, especially a dataframe as first argument (unnamed).
+#' @param dom DOM elements for the datatable ("t" for just the table)
+#' @param pageLength Number of rows to show
+#' @param escape Default TRUE, allow HTML content in the table
+#' @param rownames Default FALSE, suppresses row names.
+#' @param ordering Default TRUE, whether to allow column ordering
+#' @param extensions Default 'Responsive' to show long rows in a collapsible.
+#' @param selection Rows to select (single or multiple)
+#' @param scrollX If TRUE, allows scrolling for very wide tables (then set extensions = NULL!)
+#' @param options Passed to datatable `options` argument
+#' @param class Datatable CSS classes.
 #' @export
+#' @importFrom DT datatable
 datatafel <- function (..., dom = "frtip", pageLength = 10, escape = FALSE, 
           rownames = FALSE, ordering = TRUE, extensions = "Responsive", 
           selection = "single", scrollX = FALSE, options = list(),
