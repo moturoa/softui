@@ -4,7 +4,7 @@
 #' @param text Text for the box (bold, white)
 #' @param status Status color (see `?valid_statuses`)
 #' @export
-alert_box <- function(text, status = NULL){
+alert_box <- function(text, status = "warning"){
   
   validate_status(status)
   

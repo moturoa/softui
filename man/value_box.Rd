@@ -8,7 +8,7 @@ value_box(
   value,
   title,
   sub_value = "",
-  sub_status = NULL,
+  sub_status = "success",
   icon = icon("chart-bar"),
   width = 4,
   height = NULL

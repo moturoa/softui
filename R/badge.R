@@ -4,7 +4,7 @@
 #' @param text Text for the badge (only short text field is recommended!)
 #' @param status Status color (see `?valid_statuses`)
 #' @export
-badge <- function(text, status = NULL){
+badge <- function(text, status = "info"){
   
   validate_status(status)
   

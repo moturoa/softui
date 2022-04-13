@@ -4,7 +4,7 @@
 \alias{badge}
 \title{SoftUI badges}
 \usage{
-badge(text, status = NULL)
+badge(text, status = "info")
 }
 \arguments{
 \item{text}{Text for the badge (only short text field is recommended!)}

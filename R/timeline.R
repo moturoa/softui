@@ -38,9 +38,9 @@ timeline <- function(...){
 #' @rdname timeline
 timeline_block <- function(title, timestamp, text = "", 
                            icon_name = "bell-fill",
-                           icon_status = NULL,
+                           icon_status = "primary",
                            badge_text = NULL, 
-                           badge_status = NULL){
+                           badge_status = "success"){
   
   badge_status <- match.arg(badge_status)
   icon_status <- match.arg(icon_status)

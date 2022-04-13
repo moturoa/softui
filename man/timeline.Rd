@@ -12,9 +12,9 @@ timeline_block(
   timestamp,
   text = "",
   icon_name = "bell-fill",
-  icon_status = NULL,
+  icon_status = "primary",
   badge_text = NULL,
-  badge_status = NULL
+  badge_status = "success"
 )
 }
 \arguments{
