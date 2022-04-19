@@ -4,7 +4,13 @@
 \alias{sub_box}
 \title{Box within a box}
 \usage{
-sub_box(..., title = NULL, grey_level = 0.1)
+sub_box(
+  ...,
+  title = NULL,
+  grey_level = 0.1,
+  collapsible = TRUE,
+  collapsed = FALSE
+)
 }
 \arguments{
 \item{\dots}{Any HTML (or text) items to appear in the box.}
