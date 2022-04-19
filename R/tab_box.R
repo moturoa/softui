@@ -30,17 +30,19 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
 
 }
 
-#'@export
 #'@param id Optional id for the tab_box
 #'@param selected Which tab is selected initially? Defaults to the first tab
 #'@param width Width of tab_box in bootstrap units (default = 12)
 #'@param fill If TRUE, makes the tab panel titles fill the entire available width
+#'@param style Extra CSS for the `card` class.
 #'@rdname tabbox
+#'@export
 tab_box <- function(..., 
                     id = NULL,
                     selected = NULL, 
                     width = 12,
-                    fill = FALSE){
+                    fill = FALSE,
+                    style = ""){
 
   
   type <- "pills"  # want tabs is lelijk hier
@@ -85,12 +87,15 @@ tab_box <- function(...,
   cont <- lapply(items, function(el){
 
     a <- el$attribs
-    shiny::tags$div(class = "tab-pane", `data-value`=a$`data-value`, id = glue::glue("tab-{idnr}-{a$index}"),
+    shiny::tags$div(class = "tab-pane", 
+                    `data-value`=a$`data-value`, 
+                    id = glue::glue("tab-{idnr}-{a$index}"),
              el$children
              )
 
   })
 
+  # Add 'active' class to selected tab panel
   vals <- sapply(cont, function(x)x$attrib$`data-value`)
   i_act <- which(vals == selected)
   cont[[i_act]] <- cont[[i_act]] %>% tagAppendAttributes(class = "active")
@@ -102,7 +107,7 @@ tab_box <- function(...,
 
   shiny::tags$div(class = glue::glue("col-lg-{width}"),
               
-    shiny::tags$div(class = "card", id = id,
+    shiny::tags$div(class = "card", id = id, style = style,
       shiny::tags$div(class = "card-header",
         shiny::tags$ul(class = nav_cl,
                 `data-tabsetid`= glue::glue("{idnr}"),

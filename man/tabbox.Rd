@@ -7,7 +7,7 @@
 \usage{
 tab_panel(title = "", ..., value = title, icon = NULL, style = "")
 
-tab_box(..., id = NULL, selected = NULL, width = 12, fill = FALSE)
+tab_box(..., id = NULL, selected = NULL, width = 12, fill = FALSE, style = "")
 }
 \arguments{
 \item{title}{Title for the tab}
@@ -18,7 +18,7 @@ tab_box(..., id = NULL, selected = NULL, width = 12, fill = FALSE)
 
 \item{icon}{An icon, with `shiny::icon` or `softui::bsicon`}
 
-\item{style}{Extra CSS string to send to the body of the tabpanel}
+\item{style}{Extra CSS for the `card` class.}
 
 \item{id}{Optional id for the tab_box}
 

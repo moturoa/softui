@@ -42,13 +42,13 @@ body <- softui::dashboard_body(
              shiny::tags$h2(class="font-weight-bolder mb-0", "SoftUI test app"),
              softui::fluid_row(
                softui::box(
-                 softui::alert("Dit is een belangrijke tekst!", status = "warning"),
-                 softui::alert("Dit is een belangrijke tekst!", status = "danger"),
-                 softui::alert("Dit is een belangrijke tekst!", status = "primary"),
-                 softui::alert("Dit is een belangrijke tekst!", status = "success"),
-                 softui::alert("Dit is een belangrijke tekst!", status = "info"),
-                 softui::alert("Dit is een belangrijke tekst!", status = "light"),
-                 softui::alert("Dit is een belangrijke tekst!", status = "dark")
+                 softui::alert_box("Dit is een belangrijke tekst!", status = "warning"),
+                 softui::alert_box("Dit is een belangrijke tekst!", status = "danger"),
+                 softui::alert_box("Dit is een belangrijke tekst!", status = "primary"),
+                 softui::alert_box("Dit is een belangrijke tekst!", status = "success"),
+                 softui::alert_box("Dit is een belangrijke tekst!", status = "info"),
+                 softui::alert_box("Dit is een belangrijke tekst!", status = "light"),
+                 softui::alert_box("Dit is een belangrijke tekst!", status = "dark")
                )
              ),
              
@@ -135,7 +135,20 @@ body <- softui::dashboard_body(
                                           ),
                         softui::tab_panel("Analyse",
                                  icon = bsicon("graph-up"),
-                                 plotOutput("plot1")
+                                 
+                                 
+                                 softui::tabset_panel(
+                                   softui::tab_panel(
+                                     title = "Test tab 1",
+                                     tags$p("content tab 1")
+                                   ),
+                                   softui::tab_panel(
+                                     title = "Test tab 2",
+                                     tags$p("content tab 2")
+                                   )
+                                 )
+                                 
+                                 
                        )
                ),
                column(6,

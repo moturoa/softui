@@ -15,6 +15,7 @@
 datatafel <- function (..., dom = "frtip", pageLength = 10, escape = FALSE, 
           rownames = FALSE, ordering = TRUE, extensions = "Responsive", 
           selection = "single", scrollX = FALSE, options = list(),
+          lengthChange = FALSE,
           class = "row-border hover") 
 {
   DT::datatable(..., 
@@ -25,7 +26,7 @@ datatafel <- function (..., dom = "frtip", pageLength = 10, escape = FALSE,
                 class = class,
                 style = "bootstrap4", 
                 options = c(options, list(dom = dom, ordering = ordering, 
-                             lengthChange = FALSE, 
+                             lengthChange = lengthChange, 
                              pageLength = pageLength, 
                              language = list(search = "Zoek", 
                                              emptyTable = "Geen resultaten.", 

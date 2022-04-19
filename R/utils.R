@@ -29,7 +29,7 @@ valid_statuses <- c("primary", "secondary", "success", "info", "warning", "dange
 
 validate_status <- function(status) {
   
-  if (status %in% valid_statuses) {
+  if (all(status %in% valid_statuses)) {
     return(TRUE)
   }
   

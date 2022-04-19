@@ -8,10 +8,14 @@
 #' @param close_icon Icon on 'Close' icon
 #' @param session Shiny session object (no need to set)
 #' @export
-modal <- function(..., title = "", easyClose = TRUE,
+modal <- function(..., 
+                  title = "", 
+                  easyClose = TRUE,
+                  confirm_button = TRUE,
                   id_confirm = "btn_confirm_modal",
                   confirm_txt = "OK", 
                   confirm_icon = softui::bsicon("check-lg"),
+                  close_button = TRUE,
                   close_txt = "Sluiten", 
                   close_icon = softui::bsicon("x-lg"),
                   session = shiny::getDefaultReactiveDomain()){
@@ -20,7 +24,7 @@ modal <- function(..., title = "", easyClose = TRUE,
   img <- "shintologo/logoshintolabs.png"
   
   shiny::modalDialog(
-    easyClose = TRUE,
+    easyClose = easyClose,
     title = shiny::tags$div(title, 
                     shiny::tags$span(
                       shiny::tags$img(src=img, width = 70), 
@@ -29,15 +33,21 @@ modal <- function(..., title = "", easyClose = TRUE,
     
     ...,
     footer = list(
-      shiny::actionButton(random_id(), 
-                   close_txt, 
-                   icon = close_icon,
-                   class= "btn-danger",
-                   `data-bs-dismiss` = "modal"),
-      shiny::actionButton(session$ns(id_confirm), 
-                   confirm_txt, 
-                   icon = confirm_icon, 
-                   class= "btn-success")
+      if(close_button){
+        action_button(random_id(), 
+                      close_txt, 
+                      icon = close_icon,
+                      status = "danger",
+                      `data-bs-dismiss` = "modal")
+      },
+      
+      if(confirm_button){
+        action_button(session$ns(id_confirm), 
+                     confirm_txt, 
+                     icon = confirm_icon, 
+                     status = "success",
+                     `data-bs-dismiss` = "modal")
+      }
     )
   )  
   

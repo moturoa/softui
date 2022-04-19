@@ -8,9 +8,11 @@ modal(
   ...,
   title = "",
   easyClose = TRUE,
+  confirm_button = TRUE,
   id_confirm = "btn_confirm_modal",
   confirm_txt = "OK",
   confirm_icon = softui::bsicon("check-lg"),
+  close_button = TRUE,
   close_txt = "Sluiten",
   close_icon = softui::bsicon("x-lg"),
   session = shiny::getDefaultReactiveDomain()

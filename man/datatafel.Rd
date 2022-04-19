@@ -15,6 +15,7 @@ datatafel(
   selection = "single",
   scrollX = FALSE,
   options = list(),
+  lengthChange = FALSE,
   class = "row-border hover"
 )
 }

@@ -110,6 +110,8 @@ validate_timeline_data <- function(data){
     
   }
   
+  # validate status kolom hier...
+  
 }
 
 
