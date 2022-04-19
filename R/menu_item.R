@@ -81,7 +81,6 @@ menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
       shiny::tags$ul(
         class="nav ms-4 ps-3",
         
-        
           ...
     
       )

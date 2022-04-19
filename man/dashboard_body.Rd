@@ -6,7 +6,7 @@
 \alias{tab_item}
 \title{Dashboard body}
 \usage{
-dashboard_body(...)
+dashboard_body(..., .list = NULL)
 
 tab_items(..., .list = NULL)
 

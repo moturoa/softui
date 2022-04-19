@@ -6,8 +6,11 @@
 #'@export
 #'@param \dots A `tab_items` object, and maybe other HTML.
 #'@rdname dashboard_body
-dashboard_body <- function(...){
-  shiny::tags$div(...)
+dashboard_body <- function(..., .list = NULL){
+  
+  items <- c(list(...),.list)
+  
+  shiny::tags$div(items)
 }
 
 #'@export
