@@ -4,7 +4,10 @@
 #' @export
 #' @rdname menu_item
 menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
-                      tabName = NULL){
+                      tabName = NULL,
+                      separator_above = FALSE,
+                      separator_below = FALSE
+                      ){
   
   validate_tab_name(tabName)
   subitems <- list(...)
@@ -24,7 +27,13 @@ menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
   
   shiny::tags$li(
     class = "nav-item",
-    menu_link_with_subitems(..., icon = icon, text = text, tabName = NULL)
+    if(separator_above){
+      shiny::tags$hr(class = "horizontal dark")
+    },
+    menu_link_with_subitems(..., icon = icon, text = text, tabName = NULL),
+    if(separator_below){
+      shiny::tags$hr(class = "horizontal dark")
+    }
   )
   
 }
@@ -37,13 +46,13 @@ menu_subitem <- function(text, tabName){
   tabref <- glue::glue("#shiny-tab-{tabName}")
   
   shiny::tags$li(class="nav-item ", 
-          shiny::tags$a(class="nav-link ", 
+          shiny::tags$a(class="nav-link show", 
                  href = tabref,
                  `data-bs-toggle` = "tab",
                  `data-bs-target` = tabref,
                  `data-target` = tabName,
                  role = "tab",
-                 shiny::tags$span(class="sidenav-mini-icon", substr(text,1,1)),
+                 shiny::tags$span(class="sidenav-mini-icon", substr(text,1,1)),  # ??
                  shiny::tags$span(class="sidenav-normal", text)
           )
   )
@@ -61,7 +70,7 @@ menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
   self_id <- random_id()
   
   htmltools::tagList(
-    shiny::tags$a(class = "nav-link", id = self_id,
+    shiny::tags$a(class = "nav-link show", id = self_id,
          
          href = paste0("#", collapse_id),
          `data-bs-toggle` = "collapse",
