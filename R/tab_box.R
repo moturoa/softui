@@ -62,7 +62,7 @@ tab_box <- function(...,
     selected <- atr[[1]]$`data-value`
   }
 
-  lis <- lapply(atr, function(el){
+  tab_links <- lapply(atr, function(el){
 
     if(is.null(el$class) || el$class != "tab-pane"){
       return(NULL)
@@ -104,14 +104,13 @@ tab_box <- function(...,
   nav_cl <- glue::glue("nav nav-{type} card-header-tabs")
   if(fill)nav_cl <- paste(nav_cl, "nav-fill")
 
-
   shiny::tags$div(class = glue::glue("col-lg-{width}"),
               
     shiny::tags$div(class = "card", id = id, style = style,
       shiny::tags$div(class = "card-header",
         shiny::tags$ul(class = nav_cl,
                 `data-tabsetid`= glue::glue("{idnr}"),
-                lis
+                tab_links
         )
       ),
       shiny::tags$div(class = "card-body",

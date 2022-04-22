@@ -25,7 +25,7 @@
 #'   
 #' )
 #' shinyApp(ui,server = function(input,output){})
-iconActionButton <- function(id, icon, status = "success", class = "", ...){
+icon_action_button <- function(id, icon, status = "success", class = "", ...){
   
   
   validate_status(status)
