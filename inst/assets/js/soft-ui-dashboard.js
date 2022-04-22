@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //
 // Widget Calendar
 //
+/*
 
 if (document.querySelector('[data-toggle="widget-calendar"]')) {
   var calendarEl = document.querySelector('[data-toggle="widget-calendar"]');
@@ -168,7 +169,7 @@ if (document.querySelector('[data-toggle="widget-calendar"]')) {
     ]
   });
   calendar.render();
-}
+}*/
 
 // when input is focused add focused class for style
 function focused(el) {
@@ -329,6 +330,7 @@ function sidebarType(a) {
   sidebar.classList.add(color);
 }
 
+/*
 // Set Navbar Fixed
 function navbarFixed(el) {
   let classes = ['position-sticky', 'blur', 'shadow-blur', 'mt-4', 'left-auto', 'top-1', 'z-index-sticky'];
@@ -347,6 +349,7 @@ function navbarFixed(el) {
   }
 };
 
+/*
 // Set Navbar Minimized
 function navbarMinimize(el) {
   var sidenavShow = document.getElementsByClassName('g-sidenav-show')[0];
@@ -362,6 +365,7 @@ function navbarMinimize(el) {
   }
 }
 
+/*
 // Navbar blur on scroll
 function navbarBlurOnScroll(id) {
   const navbar = document.getElementById(id);
@@ -386,6 +390,7 @@ function navbarBlurOnScroll(id) {
 
   var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
+/*
   if (isWindows) {
     var content = document.querySelector('.main-content');
     if (navbarScrollActive == 'true') {
@@ -401,7 +406,7 @@ function navbarBlurOnScroll(id) {
         transparentNavbar();
       }, 10));
     }
-  }
+  }*/
 
   function blurNavbar() {
     navbar.classList.add(...classes)
