@@ -6,7 +6,14 @@
 \alias{menu_link}
 \title{Sidebar menu items}
 \usage{
-menu_item(text, ..., icon = bsicon("bar-chart-fill"), tabName = NULL)
+menu_item(
+  text,
+  ...,
+  icon = bsicon("bar-chart-fill"),
+  tabName = NULL,
+  separator_above = FALSE,
+  separator_below = FALSE
+)
 
 menu_subitem(text, tabName)
 
