@@ -97,7 +97,7 @@ box <- function(..., width = 12,
   if(is.null(title) & is.null(subtitle)){
     head_section <- NULL
   } else {
-    head_section <- shiny::tags$div(class = "card-header",
+    head_section <- shiny::tags$div(class = paste("card-header",class),
                              style = "border-radius: 1rem;",
                              tag_ui,
 

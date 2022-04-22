@@ -6,7 +6,9 @@
 #' @param grey_level Value between 0.1 (standard) and 0.9 (very dark), in steps of 0.1.
 #' @param \dots Any HTML (or text) items to appear in the box.
 #' @export
-sub_box <- function(..., title = NULL, 
+sub_box <- function(..., 
+                    title = NULL, 
+                    icon = NULL,
                     grey_level = 0.1,
                     collapsible = TRUE,
                     collapsed = FALSE){
@@ -16,6 +18,10 @@ sub_box <- function(..., title = NULL,
     stop("provide grey_level in steps of 0.1")
   }
   stopifnot(grey_level >= 0.1 & grey_level <= 0.9)
+  
+  if(!is.null(icon)){
+    title <- htmltools::tagList(icon, title)
+  }
   
   id_bx <- random_id()
   
@@ -40,14 +46,17 @@ sub_box <- function(..., title = NULL,
                    
       shiny::tags$div(style = "width: 100%;",  #class="d-flex flex-column",
           if(!is.null(title)){
-            shiny::tags$div(style = "width: 100% !important; height: 32px !important;",
-                            shiny::tags$h6(class="mb-3 text-sm", 
-                                           title, 
-                                           style = "display: inline-block !important; float: left;"),
-                            tags$div(tool_ui, style = "float: right;")
+            shiny::tagList(
+              shiny::tags$div(style = "width: 100% !important; height: 32px !important;",
+                              shiny::tags$h6(class="mb-3 text-sm", 
+                                             title, 
+                                             style = "display: inline-block !important; float: left;"),
+                              tags$div(tool_ui, style = "float: right;")
+              ),
+              tags$br()
             )
           }, 
-          tags$br(),
+          
           shiny::tags$div(
             id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),
             ...

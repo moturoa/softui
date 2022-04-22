@@ -7,6 +7,7 @@
 sub_box(
   ...,
   title = NULL,
+  icon = NULL,
   grey_level = 0.1,
   collapsible = TRUE,
   collapsed = FALSE

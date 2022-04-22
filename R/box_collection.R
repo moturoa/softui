@@ -1,9 +1,9 @@
-#'  Indexed boxes
-#'  @description Works like a tab_box, except a menu appears on the left (in a box), 
-#'  and content appears in boxes on the right.
-#'  @rdname box_collection
-#'  @export
-#'  @examples
+#'Indexed boxes
+#'@description Works like a tab_box, except a menu appears on the left (in a box), 
+#'and content appears in boxes on the right.
+#'@rdname box_collection
+#'@export
+#'@examples
 #'  ui <- softui::simple_page(
 #' box_collection(
 #'
@@ -17,7 +17,7 @@
 #')
 #'
 #'shinyApp(ui, function(input,output){})
-box_panel <- function(title = "", ..., value = title, icon = NULL, style = "", width = NULL){
+box_panel <- function(title = "", ..., value = title, icon = NULL, class = "", width = NULL){
   
   if(!is.null(width)){
     warning("width ignored; sized by box_collection")
@@ -34,11 +34,13 @@ box_panel <- function(title = "", ..., value = title, icon = NULL, style = "", w
   if(nchar(value) == 0){
     value <- random_id()
   }
-  
+
   shiny::tags$div(class = "tab-pane", 
-                  `data-value` = value, tab_title = HTML(tab_title), style = style, 
+                  `data-value` = value, tab_title = HTML(tab_title), 
                   
-                  softui::box(title = title, icon = icon, width = 12, ...)
+                  softui::box(title = title, icon = icon, width = 12, 
+                              class = class,
+                              ...)
   )
                   
   
@@ -46,10 +48,10 @@ box_panel <- function(title = "", ..., value = title, icon = NULL, style = "", w
 
 
 
-#'  @rdname box_collection
-#'  @param width_nav Width of the menu on the left (bootstrap units)
-#'  @param width_boxes Width of the boxes on the right
-#'  @export
+#'@rdname box_collection
+#'@param width_nav Width of the menu on the left (bootstrap units)
+#'@param width_boxes Width of the boxes on the right
+#'@export
 box_collection <- function(..., 
                           id = NULL,
                           selected = NULL, 
