@@ -15,6 +15,21 @@
   background: #ECECEC;
 }
 
+/* hide scroll bar in sidenav when minimized */
+.sidenav{
+  overflow: hidden;
+}
+
+#sidenav-collapse-main{
+  overflow: hidden;
+}
+
+/* sidenav toggler fix */
+.sidenav-toggler{
+  padding-top: 0.95rem !important;
+  margin-right: 1rem !important;
+}
+
 
 .header_tagline{
   font-style: italic;

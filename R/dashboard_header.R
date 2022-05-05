@@ -18,19 +18,19 @@ dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
              style = "height: 96px !important;",
 
 
-             # toggler (minimize sidebar menu). Works but CSS problems / conflict with tag.
-             # shiny::tags$div(
-             #   class = "sidenav-toggler sidenav-toggler-inner d-xl-block d-none ",
-             # 
-             #   shiny::tags$a(href="javascript:;", class="nav-link text-body p-0",
-             #          shiny::tags$div(
-             #            class="sidenav-toggler-inner",
-             #            shiny::tags$i(class="sidenav-toggler-line"),
-             #            shiny::tags$i(class="sidenav-toggler-line"),
-             #            shiny::tags$i(class="sidenav-toggler-line")
-             #          )
-             #   )
-             # ),
+            # toggler (minimize sidebar menu).
+             shiny::tags$div(
+               class = "sidenav-toggler sidenav-toggler-inner d-xl-block d-none ",
+
+               shiny::tags$a(href="javascript:;", class="nav-link text-body p-0",
+                      shiny::tags$div(
+                        class="sidenav-toggler-inner",
+                        shiny::tags$i(class="sidenav-toggler-line"),
+                        shiny::tags$i(class="sidenav-toggler-line"),
+                        shiny::tags$i(class="sidenav-toggler-line")
+                      )
+               )
+             ),
              
              shiny::tags$nav(
                c(list(tag_line), left_content)

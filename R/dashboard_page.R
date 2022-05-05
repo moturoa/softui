@@ -75,9 +75,12 @@ dashboard_page <- function(header, sidebar, body, title = "",
 
                shiny::tags$a(class = "navbar-brand m-0", #style = "height: 36px !important; box-sizing: border-box;",
 
-                      shiny::tags$span(class = "ms-1 font-weight-bold",
+                      shiny::tags$span(class = "ms-1 font-weight-bold brand-icon",
+                                       style = "font-size: 1.3em;",
+                                       icon),
+                      
+                      shiny::tags$span(class = "ms-1 font-weight-bold brand-title",
                                 style = "font-size: 1.3em;",
-                                icon,
                                 title)
                )
 
@@ -124,7 +127,7 @@ dashboard_page <- function(header, sidebar, body, title = "",
 
 
   out_tag <- add_softui_dependencies(
-      shiny::tags$body(class = "g-sidenav-show  bg-gray-100",
+      shiny::tags$body(class = "g-sidenav-show bg-gray-100",
                        shintoshiny::loadingscreen(time = loadingscreen_time),
                        sidebar_and_title_tag,
                        main_tag)

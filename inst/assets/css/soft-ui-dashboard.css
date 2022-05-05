@@ -20882,10 +20882,10 @@ hr.horizontal.gray-light {
   .g-sidenav-hidden .navbar-vertical.fixed-start + .main-content {
     margin-left: 7.5rem;
   }
-  .g-sidenav-hidden .navbar-vertical .navbar-brand img {
+  .g-sidenav-hidden .navbar-vertical .navbar-brand .brand-icon {
     width: auto !important;
   }
-  .g-sidenav-hidden .navbar-vertical .navbar-brand span {
+  .g-sidenav-hidden .navbar-vertical .navbar-brand .brand-title {
     opacity: 0;
   }
   .g-sidenav-hidden .navbar-vertical .nav-item .nav-link .icon {
