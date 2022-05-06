@@ -1,13 +1,23 @@
 
 #' Sidebar menu items
 #' @description Functions to make menu items in the sidebar menu. See `?sidebar_menu`
+#' @param text Title of the menu item
+#' @param icon Icon (made with `bsicon`) for the menu item. No icon can be provided for `menu_subitem`.
+#' @param tabName Name of the tab. Must be provided, except when the `menu_item` has `menu_subitem`'s.
+#' @param separator_above Add a separator above this menu item
+#' @param separator_below Add a separator below this menu item
+#' @param id Id of the `li` tag (optional)
+#' @param \dots Any number of `menu_subitem`'s to appear under this menu item.
 #' @export
 #' @rdname menu_item
 menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
                       tabName = NULL,
                       separator_above = FALSE,
-                      separator_below = FALSE
+                      separator_below = FALSE,
+                      id = NULL
                       ){
+  
+  if(is.null(id))id <- random_id()
   
   validate_tab_name(tabName)
   subitems <- list(...)
@@ -26,6 +36,7 @@ menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
   }
   
   shiny::tags$li(
+    id = id,
     class = "nav-item",
     if(separator_above){
       shiny::tags$hr(class = "horizontal dark")
@@ -98,14 +109,6 @@ menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
   )
   
 }
-
-
-
-
-
-
-
-
 
 
 #' @export
