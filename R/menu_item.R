@@ -27,6 +27,7 @@ menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
     stopifnot(!is.null(tabName))
     return(
       shiny::tags$li(
+        id = id,
         class = "nav-item",
         
         menu_link(tabName, icon, text)
