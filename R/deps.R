@@ -105,6 +105,13 @@ add_softui_dependencies <- function(tag){
       package = "softui"
     ),
     htmltools::htmlDependency(
+      name = "icofont",
+      version = "0.1",   # downloaded 2022/2/1
+      src = c(file = "icofont"),
+      stylesheet = "icofont.min.css",
+      package = "softui"
+    ),
+    htmltools::htmlDependency(
       name = "opensans",
       version = "1.0",   # downloaded 2022/2/25
       src = c(file = "opensans"),
