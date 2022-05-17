@@ -5,6 +5,8 @@
 #' @param session Not required
 #' @export
 update_tabpanel <- function(id, selected, session = shiny::getDefaultReactiveDomain()){
+  
+  id <- session$ns(id)
   session$sendCustomMessage("selectTabItem", list(id = id, selected = selected))
 }
 

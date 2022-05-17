@@ -70,7 +70,7 @@ tabset_panel <- function(...,
   if(fill)nav_cl <- paste(nav_cl, "nav-fill")
   
   
-  shiny::column(width = width,
+  shiny::column(width = width, id = id, 
       shiny::tags$div(class = "card-header",
                       shiny::tags$ul(class = nav_cl,
                                      `data-tabsetid`= glue::glue("{idnr}"),
