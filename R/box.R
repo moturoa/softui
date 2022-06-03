@@ -68,7 +68,18 @@ box <- function(..., width = 12,
     title <- htmltools::tagList(icon, title)
   }
   
+  # CSS class can be a vector
   if(length(class) > 1)class <- paste(class, collapse = " ")
+  
+  # niet aan te raden vanwege de box shadow
+  # if(!is.null(grey_level)){
+  #   grey_level <- as.numeric(grey_level)
+  #   if((10 *grey_level) %% 1 > 0){
+  #     stop("provide grey_level in steps of 0.1")
+  #   }
+  #   class <- paste(class, glue::glue("bg-gray-{1000*grey_level}"))
+  # }
+  # 
   
   if(collapsed & is.null(title)){
     stop("Must provide title for collapsed box")

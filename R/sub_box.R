@@ -42,18 +42,19 @@ sub_box <- function(...,
   
   # shiny::tags$ul(class = "list-group",
   #   shiny::tags$li(class = glue::glue("list-group-item border-0  p-4 mb-2 bg-gray-{1000*grey_level} border-radius-lg"), #d-flex
-    tags$div(class = glue::glue("border-0  p-4 mb-2 bg-gray-{1000*grey_level} border-radius-lg"),               
+    tags$div(class = glue::glue("border-0 p-4 bg-gray-{1000*grey_level} border-radius-lg"),   #  mb-2     
                    
-      shiny::tags$div(style = "width: 100%;",  #class="d-flex flex-column",
+      #shiny::tags$div(style = "width: 100%;",  #class="d-flex flex-column",
           if(!is.null(title)){
             shiny::tagList(
               shiny::tags$div(style = "width: 100% !important; height: 32px !important;",
-                              shiny::tags$h6(class="mb-3 text-sm", 
+                              shiny::tags$h6(class="text-sm", 
                                              title, 
-                                             style = "display: inline-block !important; float: left;"),
+                                             style = paste("display: inline-block !important;",
+                                                           "float: left;")),
                               tags$div(tool_ui, style = "float: right;")
-              ),
-              tags$br()
+              ) #,
+              #tags$br()
             )
           }, 
           
@@ -62,7 +63,7 @@ sub_box <- function(...,
             ...
           )
       )
-    )
+    #)
   
   
 }
