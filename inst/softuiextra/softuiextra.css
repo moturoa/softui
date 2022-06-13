@@ -64,3 +64,8 @@
     transform:rotate(180deg);
 }
 
+
+.material-switch>input[type=checkbox]:checked+label:after {
+  background-color: #345483 !important; 
+}  
+  
