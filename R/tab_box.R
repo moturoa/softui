@@ -47,7 +47,7 @@ tab_box <- function(...,
   
   type <- "pills"  # want tabs is lelijk hier
   
-  items <- list(...)
+  items <- dropNulls(list(...))
   n_items <- length(items)
   idnr <- as.character(sample(1000:9999,1))
 

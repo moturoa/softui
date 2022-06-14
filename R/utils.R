@@ -3,6 +3,11 @@ random_id <- function(){
 }
 
 
+dropNulls <- function (x){
+  x[!vapply(x, is.null, FUN.VALUE = logical(1))]
+}
+
+
 #' Valid statuses
 #'
 #' These status strings correspond to colors as defined in Bootstrap's CSS.
@@ -46,6 +51,7 @@ validate_tab_name <- function(name){
     stop("tabName must not have a '.' in it.")
   }
 }
+
 
 
 
