@@ -69,3 +69,16 @@
   background-color: #345483 !important; 
 }  
   
+  
+label {
+  font-size: 0.9rem;
+}
+
+.checkbox label, .radio label {
+    min-height: 20px;
+    padding-left: 2px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
