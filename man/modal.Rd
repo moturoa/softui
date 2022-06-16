@@ -15,6 +15,7 @@ modal(
   close_button = TRUE,
   close_txt = "Sluiten",
   close_icon = softui::bsicon("x-lg"),
+  remove_modal_on_confirm = TRUE,
   session = shiny::getDefaultReactiveDomain()
 )
 }
@@ -32,6 +33,10 @@ modal(
 \item{close_txt}{Text on 'Close' button}
 
 \item{close_icon}{Icon on 'Close' icon}
+
+\item{remove_modal_on_confirm}{If TRUE, always removes the modal on OK click. 
+Otherwise, call `removeModal` yourself. This may be needed when some input 
+validation is done before the modal can be removed.}
 
 \item{session}{Shiny session object (no need to set)}
 }

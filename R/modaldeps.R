@@ -6,6 +6,9 @@
 #' @param confirm_icon Icon on 'OK' button
 #' @param close_txt Text on 'Close' button
 #' @param close_icon Icon on 'Close' icon
+#' @param remove_modal_on_confirm If TRUE, always removes the modal on OK click. 
+#' Otherwise, call `removeModal` yourself. This may be needed when some input 
+#' validation is done before the modal can be removed.
 #' @param session Shiny session object (no need to set)
 #' @export
 modal <- function(..., 
@@ -18,6 +21,7 @@ modal <- function(...,
                   close_button = TRUE,
                   close_txt = "Sluiten", 
                   close_icon = softui::bsicon("x-lg"),
+                  remove_modal_on_confirm = TRUE,
                   session = shiny::getDefaultReactiveDomain()){
   
   # see zzz.R; inst/logo is available under logo/
@@ -42,11 +46,16 @@ modal <- function(...,
       },
       
       if(confirm_button){
-        action_button(session$ns(id_confirm), 
+        btn <- action_button(session$ns(id_confirm), 
                      confirm_txt, 
                      icon = confirm_icon, 
-                     status = "success",
-                     `data-bs-dismiss` = "modal")
+                     status = "success")
+        if(remove_modal_on_confirm){
+          btn <- htmltools::tagAppendAttributes(
+            btn, `data-bs-dismiss` = "modal"
+          )
+        }
+        btn 
       }
     )
   )  
