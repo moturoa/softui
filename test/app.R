@@ -25,6 +25,13 @@ sidebar <- softui::dashboard_sidebar(
                       
                       ),
     
+    softui::menu_item("Submenu2", icon = bsicon("cloud-moon-fill"),
+                      
+                      softui::menu_subitem("Kleine pagina 3", "minipage3"),
+                      softui::menu_subitem("Kleine pagina 4", "minipage4")
+                      
+    ),
+    
     softui::menu_output("extra_menu"),  # typical menuoutput
     softui::restricted_menu_item("superuser_menu")    # more integrated / experimental
 
@@ -277,6 +284,20 @@ body <- softui::dashboard_body(
                      
                      
                      shiny::tags$p("Minipage 2 !!")
+                     
+    ),
+    
+    softui::tab_item("minipage3", 
+                     
+                     
+                     shiny::tags$p("Minipage 3 !!")
+                     
+    ),
+    
+    softui::tab_item("minipage4", 
+                     
+                     
+                     shiny::tags$p("Minipage 4 !!")
                      
     )
     
