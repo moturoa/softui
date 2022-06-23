@@ -79,6 +79,7 @@ label {
   font-size: 0.9rem;
 }
 
+/* checkbox labels, sizing */
 .checkbox label, .radio label, .radio-inline label {
     min-height: 20px;
     padding-left: 2px;
@@ -86,4 +87,15 @@ label {
     font-weight: 400;
     cursor: pointer;
 }
+
+/* daterangeinput fixes */
+.input-daterange .input-group-addon{
+  border: 1px solid #A2A2A2;
+  background: #ECECEC;
+}
+.input-group .input-group-text{
+  border: none;
+  background: #ECECEC;
+}
+
 
