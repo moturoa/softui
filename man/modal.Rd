@@ -16,6 +16,8 @@ modal(
   close_txt = "Sluiten",
   close_icon = softui::bsicon("x-lg"),
   remove_modal_on_confirm = TRUE,
+  size = c("m", "s", "l", "xl", "fullscreen"),
+  fullscreen_up_to = c("always", "sm", "md", "lg", "xl", "xxl"),
   session = shiny::getDefaultReactiveDomain()
 )
 }
