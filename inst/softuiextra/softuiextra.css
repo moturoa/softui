@@ -99,3 +99,10 @@ label {
 }
 
 
+/* for disable_link and others */
+.inactivelink{
+  pointer-events: none;
+  cursor: default;
+  color: #bbbbbb !important;
+}
+

@@ -50,12 +50,7 @@ body <- softui::dashboard_body(
              softui::fluid_row(
                softui::box(
                  softui::alert_box("Dit is een belangrijke tekst!", status = "warning"),
-                 softui::alert_box("Dit is een belangrijke tekst!", status = "danger"),
-                 softui::alert_box("Dit is een belangrijke tekst!", status = "primary"),
-                 softui::alert_box("Dit is een belangrijke tekst!", status = "success"),
-                 softui::alert_box("Dit is een belangrijke tekst!", status = "info"),
-                 softui::alert_box("Dit is een belangrijke tekst!", status = "light"),
-                 softui::alert_box("Dit is een belangrijke tekst!", status = "dark")
+                 softui::action_button("btn_disable", "Test disable", status = "warning")
                )
              ),
              
@@ -353,6 +348,10 @@ server <- function(input, output, session) {
       geom_point(size=4) +
       theme_minimal()
 
+  })
+  
+  observeEvent(input$btn_disable, {
+    disable_link("administratie")
   })
   
   observeEvent(input$btn_press, {message("pressed")})

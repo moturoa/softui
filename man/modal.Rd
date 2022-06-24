@@ -17,7 +17,6 @@ modal(
   close_icon = softui::bsicon("x-lg"),
   remove_modal_on_confirm = TRUE,
   size = c("m", "s", "l", "xl", "fullscreen"),
-  fullscreen_up_to = c("always", "sm", "md", "lg", "xl", "xxl"),
   session = shiny::getDefaultReactiveDomain()
 )
 }
@@ -39,6 +38,8 @@ modal(
 \item{remove_modal_on_confirm}{If TRUE, always removes the modal on OK click. 
 Otherwise, call `removeModal` yourself. This may be needed when some input 
 validation is done before the modal can be removed.}
+
+\item{size}{As in `?modalDialog` but also has a 'fullscreen' option.}
 
 \item{session}{Shiny session object (no need to set)}
 }
