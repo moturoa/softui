@@ -1,6 +1,6 @@
 #' Simple page without sidebar or header
 #' @description Make a simple page with the correct background color, and all of `softui`'s dependencies.
-#' Useful for testing or simple applications
+#' Useful for testing or simple applications without a sidebar menu.
 #' @export
 #' @importFrom shinyjs inlineCSS
 simple_page <- function(...){
