@@ -127,3 +127,23 @@ add_softui_dependencies <- function(tag){
 }
 
 
+# runtime package UI dependencies (curated list of always-used packages)
+# adds JS,CSS deps.
+package_ui_dependencies <- function(busybar_color, disconnect_message){
+  
+  htmltools::tagList(
+    shinyjs::useShinyjs(),
+    
+    shinytoastr::useToastr(),
+    shintoshiny::shintoshiny_dependencies(),
+    
+    prompter::use_prompt(),
+    
+    # Loading bar, loading screen
+    shinybusy::add_busy_bar(color = busybar_color, height = "6px"),
+    
+    shintoshiny::disconnect_message(disconnect_message),
+  )
+  
+}
+

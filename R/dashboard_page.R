@@ -45,6 +45,7 @@
 #' @importFrom shinytoastr useToastr
 #' @importFrom shintoshiny disconnect_message shintoshiny_dependencies loadingscreen
 #' @importFrom shinyjs useShinyjs
+#' @importFrom prompter use_prompt
 dashboard_page <- function(header, sidebar, body, title = "", 
                            icon = softui::bsicon("speedometer"),
                            loadingscreen_time = 4,
@@ -104,20 +105,8 @@ dashboard_page <- function(header, sidebar, body, title = "",
     )
 
 
-  dependency_tag <- htmltools::tagList(
-    shinyjs::useShinyjs(),
+  dependency_tag <- package_ui_dependencies(busybar_color, disconnect_message)
     
-    shinytoastr::useToastr(),
-    shintoshiny::shintoshiny_dependencies(),
-    
-    # Loading bar, loading screen
-    shinybusy::add_busy_bar(color = busybar_color, height = "6px"),
-    
-    shintoshiny::disconnect_message(disconnect_message),
-  )
-  
-
-
   main_tag <- shiny::tags$main(
     class = "main-content position-relative max-height-vh-100 h-100 border-radius-lg ",
     header,
