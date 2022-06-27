@@ -8,6 +8,7 @@
 #' @param position Position of the tooltip, default 'top' (see `?prompter::add_prompt` for options)
 #' @param \dots Further arguments passed to [prompter::add_prompt()]
 #' @importFrom prompter add_prompt
+#' @export
 with_tooltip <- function(label = NULL, tooltip, icon = bsicon("info-circle-fill"), 
                          position = "top", ...){
   

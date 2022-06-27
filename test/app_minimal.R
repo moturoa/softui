@@ -23,7 +23,7 @@ body <- softui::dashboard_body(
                                   
                                   
                                   
-                                  actionButton("btn1", "Button", class = "bg-gradient-primary"),
+                                  actionButton("btn1", softui::with_tooltip("Button","Can you read this or what?!?!"), class = "bg-gradient-primary"),
                                   actionButton("btn1", "Button", class = "bg-gradient-secondary"),
                                   actionButton("btn1", "Button", class = "bg-gradient-success"),
                                   actionButton("btn1", "Button", class = "bg-gradient-warning"),
