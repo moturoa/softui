@@ -16,7 +16,8 @@ Imports:
     shintoshiny,
     shinipsum,
     tibble,
-    rlang
+    rlang,
+    prompter
 Depends: shiny, glue, htmltools, dplyr
 Encoding: UTF-8
 LazyData: true
