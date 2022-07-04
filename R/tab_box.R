@@ -35,6 +35,9 @@ tab_panel <- function(title = "", ..., value = title, icon = NULL, style = ""){
 #'@param width Width of tab_box in bootstrap units (default = 12)
 #'@param fill If TRUE, makes the tab panel titles fill the entire available width
 #'@param style Extra CSS for the `card` class.
+#'@param ui_above_nav Extra UI to place in the box *above* the nav links (i.e. tab names)
+#'@param ui_below_nav Extra UI to place below the nav links, this is UI that will appear at the top
+#'of each tab (so you don't have to repeat identical content within each `tab_panel` in `tab_box`).
 #'@rdname tabbox
 #'@export
 tab_box <- function(..., 
@@ -42,6 +45,8 @@ tab_box <- function(...,
                     selected = NULL, 
                     width = 12,
                     fill = FALSE,
+                    ui_above_nav = NULL,
+                    ui_below_nav = NULL,
                     style = ""){
 
   
@@ -108,12 +113,14 @@ tab_box <- function(...,
               
     shiny::tags$div(class = "card", id = id, style = style,
       shiny::tags$div(class = "card-header",
+                      ui_above_nav,
         shiny::tags$ul(class = nav_cl,
                 `data-tabsetid`= glue::glue("{idnr}"),
                 tab_links
         )
       ),
       shiny::tags$div(class = "card-body",
+                      ui_below_nav,
             shiny::tags$div(class = "tab-content", `data-tabsetid` = idnr,
                      cont
             )

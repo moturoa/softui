@@ -7,7 +7,16 @@
 \usage{
 tab_panel(title = "", ..., value = title, icon = NULL, style = "")
 
-tab_box(..., id = NULL, selected = NULL, width = 12, fill = FALSE, style = "")
+tab_box(
+  ...,
+  id = NULL,
+  selected = NULL,
+  width = 12,
+  fill = FALSE,
+  ui_above_nav = NULL,
+  ui_below_nav = NULL,
+  style = ""
+)
 }
 \arguments{
 \item{title}{Title for the tab}
@@ -27,6 +36,11 @@ tab_box(..., id = NULL, selected = NULL, width = 12, fill = FALSE, style = "")
 \item{width}{Width of tab_box in bootstrap units (default = 12)}
 
 \item{fill}{If TRUE, makes the tab panel titles fill the entire available width}
+
+\item{ui_above_nav}{Extra UI to place in the box *above* the nav links (i.e. tab names)}
+
+\item{ui_below_nav}{Extra UI to place below the nav links, this is UI that will appear at the top
+of each tab (so you don't have to repeat identical content within each `tab_panel` in `tab_box`).}
 }
 \description{
 Replaces `shiny::tabPanel`, and is used only for placing tabs inside a `softui::tab_box`
