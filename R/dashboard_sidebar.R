@@ -17,7 +17,7 @@ dashboard_sidebar <- function(arg){
 #' @rdname sidebar
 sidebar_menu <- function(..., id = NULL, .list = NULL){
 
-  items <- c(list(...), .list)
+  items <- dropNulls(c(list(...), .list))
   if(is.null(id)){
     id <- paste0("tabs_", round(stats::runif(1, min = 0, max = 1e+09)))
   }

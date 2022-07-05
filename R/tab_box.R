@@ -54,7 +54,7 @@ tab_box <- function(...,
   
   items <- dropNulls(list(...))
   n_items <- length(items)
-  idnr <- as.character(sample(1000:9999,1))
+  idnr <- as.character(sample(1000:9999,1))  # andere random ID's werken niet altijd (iets met BS5).
 
   for(i in seq_along(items)){
     items[[i]] <- items[[i]] %>% tagAppendAttributes(index = i)
