@@ -28,8 +28,8 @@ ui <- softui::simple_page(
   softui::box(width = 5,
               title = "Progress bars",
               progressbar(20, status = "success", style = "margin-bottom: 30px;"),
-              progressbar(30, status = "info", style = "margin-bottom: 30px;"),
-              progressbar(40, status = "warning", style = "margin-bottom: 30px;"),
+              progressbar(32, status = "info", style = "margin-bottom: 30px;"),
+              progressbar(49, status = "warning", style = "margin-bottom: 30px;"),
               progressbar(60, status = "danger", style = "margin-bottom: 30px;")
   )
 )
