@@ -15,6 +15,7 @@
 #' @param tag_status Status color for the tag (see `?valid_statuses`)
 #' @param collapsible If collapsible, allow the box to be minimized (button top-right)
 #' @param collapsed If TRUE (default: FALSE) the box starts in collapsed state.
+#' @param closable If TRUE, box can be closed (removed permanently)
 #' @param header_ui More UI to place just under the title
 #' @param height Height of the box (NULL to autosize) (400 or "400px")
 #' @param margin_bottom The margin at the bottom of the box (margin to the next box). A box has always zero margin at the top!
@@ -55,6 +56,7 @@ box <- function(..., width = 12,
                 tag_status = "primary",
                 collapsible = TRUE,
                 collapsed = FALSE,
+                closable = FALSE,
                 header_ui = NULL,
                 height = NULL,
                 margin_bottom = 32, 
@@ -71,34 +73,39 @@ box <- function(..., width = 12,
   # CSS class can be a vector
   if(length(class) > 1)class <- paste(class, collapse = " ")
   
-  # niet aan te raden vanwege de box shadow
-  # if(!is.null(grey_level)){
-  #   grey_level <- as.numeric(grey_level)
-  #   if((10 *grey_level) %% 1 > 0){
-  #     stop("provide grey_level in steps of 0.1")
-  #   }
-  #   class <- paste(class, glue::glue("bg-gray-{1000*grey_level}"))
-  # }
-  # 
-  
   if(collapsed & is.null(title)){
     stop("Must provide title for collapsed box")
   }
   
-  icon_ <- htmltools::tagAppendAttributes(
+  collapse_tool <- htmltools::tagAppendAttributes(
     shiny::tags$div(softui::bsicon("chevron-up")),
     class = "rotate"
   )
   
-  if(collapsed)icon_ <- htmltools::tagAppendAttributes(icon_, class = "rotated180")
+  if(collapsed)collapse_tool <- htmltools::tagAppendAttributes(collapse_tool, class = "rotated180")
   
-  tool_ui <- if(collapsible){
-    shiny::tags$a(style = "float:right;display:inline-block;", 
-           `data-bs-toggle` = "collapse",
-           href = paste0("#",id_bx),
-           icon_
-           )
-  } else NULL
+  tool_ui <- tags$div(style = "float:right;display:inline-block;", 
+                      
+              if(collapsible){
+                shiny::tags$a(style = "display: inline-block;",
+                  `data-bs-toggle` = "collapse",
+                  href = paste0("#",id_bx),
+                  collapse_tool
+                )
+              },
+              
+              if(closable){
+                tags$button(type = "button", class = "btn-close", onclick = "$(this).closest('.card').fadeOut();",
+                            style = glue::glue("display: inline-block;",
+                                               "color: black !important;",
+                                               "margin-left: 8px;",
+                                               "opacity: 0.9;",
+                                               "background: none;"),
+                  bsicon("x-lg")
+                )
+              }
+
+  )
   
   
   tag_ui <- if(!is.null(tag) && tag != ""){
