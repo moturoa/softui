@@ -7,13 +7,14 @@
 #' @param icon The icon to show next to the label
 #' @param position Position of the tooltip, default 'top' (see `?prompter::add_prompt` for options)
 #' @param \dots Further arguments passed to [prompter::add_prompt()]
-#' @importFrom prompter add_prompt
+#' @importFrom tippy with_tippy
 #' @export
 with_tooltip <- function(label = NULL, tooltip, icon = bsicon("info-circle-fill"), 
                          position = "top", ...){
   
-  tags$span(label, prompter::add_prompt(tags$span(icon), 
-                                      position = position,
-                                      message = tooltip, ...))
+  tags$span(label, tippy::with_tippy(element = tags$span(icon), 
+                                     tooltip = htmltools::HTML(tooltip),
+                                     placement = position, arrow = TRUE,
+                                     ...))
   
 }
