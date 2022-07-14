@@ -17,7 +17,15 @@ sub_box <- function(...,
   if((10 *grey_level) %% 1 > 0){
     stop("provide grey_level in steps of 0.1")
   }
-  stopifnot(grey_level >= 0.1 & grey_level <= 0.9)
+  stopifnot(grey_level >= 0 & grey_level <= 0.9)
+  
+  bg_css <- if(grey_level == 0){
+    ""  
+  } else {
+    glue::glue("bg-gray-{1000*grey_level}")
+  }
+  
+  
   
   if(!is.null(icon)){
     title <- htmltools::tagList(icon, title)
@@ -40,31 +48,27 @@ sub_box <- function(...,
     )
   } else NULL
   
-  # shiny::tags$ul(class = "list-group",
-  #   shiny::tags$li(class = glue::glue("list-group-item border-0  p-4 mb-2 bg-gray-{1000*grey_level} border-radius-lg"), #d-flex
-    tags$div(class = glue::glue("border-0 p-4 bg-gray-{1000*grey_level} border-radius-lg"),   #  mb-2     
-                   
-      #shiny::tags$div(style = "width: 100%;",  #class="d-flex flex-column",
-          if(!is.null(title)){
-            shiny::tagList(
-              shiny::tags$div(style = "width: 100% !important; height: 32px !important;",
-                              shiny::tags$h6(class="text-sm", 
-                                             title, 
-                                             style = paste("display: inline-block !important;",
-                                                           "float: left;")),
-                              tags$div(tool_ui, style = "float: right;")
-              ) #,
-              #tags$br()
-            )
-          }, 
-          
-          shiny::tags$div(
-            id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),
-            ...
-          )
-      )
-    #)
   
+  tags$div(class = glue::glue("border-0 p-4 {bg_css} border-radius-lg"),
+                 
+        if(!is.null(title)){
+          shiny::tagList(
+            shiny::tags$div(style = "width: 100% !important; height: 32px !important;",
+                            shiny::tags$h6(class="text-sm", 
+                                           title, 
+                                           style = paste("display: inline-block !important;",
+                                                         "float: left;")),
+                            tags$div(tool_ui, style = "float: right;")
+            ) 
+          )
+        }, 
+        
+        shiny::tags$div(
+          id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),
+          ...
+        )
+    )
+    
   
 }
 
