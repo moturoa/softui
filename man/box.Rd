@@ -14,6 +14,7 @@ box(
   tag_status = "primary",
   collapsible = TRUE,
   collapsed = FALSE,
+  closable = FALSE,
   header_ui = NULL,
   height = NULL,
   margin_bottom = 32,
@@ -36,6 +37,8 @@ box(
 \item{collapsible}{If collapsible, allow the box to be minimized (button top-right)}
 
 \item{collapsed}{If TRUE (default: FALSE) the box starts in collapsed state.}
+
+\item{closable}{If TRUE, box can be closed (removed permanently)}
 
 \item{header_ui}{More UI to place just under the title}
 
