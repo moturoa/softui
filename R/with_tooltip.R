@@ -1,5 +1,5 @@
 #' Add a tooltip next to a label
-#' @desciption Adds an icon right of a label, on hover shows help text. 
+#' @description Adds an icon right of a label, on hover shows help text. 
 #' Uses the `prompter` package. For this to work, add `use_prompter()` in the UI function of
 #' your app, this is already loaded by `dashboard_page` and `simple_page`. 
 #' @param label Label, the text to appear left of the icon. If you want only the icon, do not set.

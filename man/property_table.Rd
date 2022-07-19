@@ -27,6 +27,9 @@ property_table(
 Each column in `data` will be a row in this table, with the column name
 **bold** in the left column, and the value in the right column.
 }
+\details{
+Replaces old function `bold_table_row` in use in many applications.
+}
 \examples{
 
 # Use tibble() instead of data.frame() so the names do not get changed:

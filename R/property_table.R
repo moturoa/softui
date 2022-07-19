@@ -7,7 +7,7 @@
 #' @param css_value CSS for the 'value' column in the table
 #' @description Each column in `data` will be a row in this table, with the column name
 #' **bold** in the left column, and the value in the right column.
-#' @detail Replaces old function `bold_table_row` in use in many applications.
+#' @details Replaces old function `bold_table_row` in use in many applications.
 #' @export
 #' @importFrom kableExtra kbl kable_styling column_spec
 #' @importFrom htmltools HTML
