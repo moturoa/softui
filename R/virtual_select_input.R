@@ -20,10 +20,12 @@ virtual_select_input <- function(inputId, label, choices,
                                  searchPlaceholderText = "Zoeken ...",
                                  optionsSelectedText = "Geselecteerd",
                                  allOptionsSelectedText = "Alles geselecteerd",
+                                 zIndex = 10,
                                  ...){
   
   shinyWidgets::virtualSelectInput(inputId, label, choices, search = search, ..., 
     hideClearButton = hideClearButton,
+    zIndex = zIndex,  # https://github.com/dreamRs/shinyWidgets/issues/507
     placeholder = placeholder,
     noOptionsText = noOptionsText,
     noSearchResultsText = noSearchResultsText,

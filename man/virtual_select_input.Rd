@@ -17,6 +17,7 @@ virtual_select_input(
   searchPlaceholderText = "Zoeken ...",
   optionsSelectedText = "Geselecteerd",
   allOptionsSelectedText = "Alles geselecteerd",
+  zIndex = 10,
   ...
 )
 }
