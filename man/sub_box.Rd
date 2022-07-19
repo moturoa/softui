@@ -21,6 +21,6 @@ sub_box(
 \item{grey_level}{Value between 0.1 (standard) and 0.9 (very dark), in steps of 0.1.}
 }
 \description{
-You are not allowed to place a `softui::box` inside another `softui::box`, but you can
-use this `sub_box`, or `?alert_box` for a message-type box.
+You are not allowed to place a \code{softui::box} inside another \code{softui::box}, but you can
+use this \code{sub_box}, or \code{?alert_box} for a message-type box.
 }

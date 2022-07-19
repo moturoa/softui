@@ -26,14 +26,14 @@ virtual_select_input(
 
 \item{label}{Label above the select input}
 
-\item{choices}{Vector or list, see [shinywidgets::prepare_choices()] for 
+\item{choices}{Vector or list, see \code{\link[shinyWidgets:prepare_choices]{shinyWidgets::prepare_choices()}} for
 more advanced setting of choices in this select input (descriptions, grouping).}
 
 \item{search}{If TRUE, adds a search menu above the choices (default TRUE)}
 
-\item{\dots}{More arguments to [shinywidgets::virtualSelectInput()]}
+\item{\dots}{More arguments to \code{\link[shinyWidgets:virtualSelectInput]{shinyWidgets::virtualSelectInput()}}}
 }
 \description{
-Wrapper around [shinywidgets::virtualSelectInput()] with Dutch 
+Wrapper around \code{\link[shinyWidgets:virtualSelectInput]{shinyWidgets::virtualSelectInput()}} with Dutch
 language settings and a better default for the z-index.
 }

@@ -19,7 +19,7 @@ value_box(
 
 \item{sub_value}{A subtitle under the value}
 
-\item{sub_status}{Status color of the badge (best: "success" for positive, "danger" for negative, or see `?valid_statuses`)}
+\item{sub_status}{Status color of the badge (best: "success" for positive, "danger" for negative, or see \code{?valid_statuses})}
 
 \item{icon}{An icon to place}
 
@@ -29,6 +29,6 @@ value_box(
 Value box
 }
 \details{
-Makes a softui 'value box' with icon, value, title, and badge (e.g. +12, -80) with a status color. 
-Use in a `uiOutput`.
+Makes a softui 'value box' with icon, value, title, and badge (e.g. +12, -80) with a status color.
+Use in a \code{uiOutput}.
 }

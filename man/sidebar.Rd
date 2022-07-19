@@ -10,15 +10,15 @@ dashboard_sidebar(arg)
 sidebar_menu(..., id = NULL, .list = NULL)
 }
 \arguments{
-\item{\dots}{`menu_item`'s}
+\item{\dots}{\code{menu_item}'s}
 
 \item{id}{Id for the sidebar, currently unused}
 
-\item{.list}{Further `menu_item`'s can be passed as a list instead of in \dots.}
+\item{.list}{Further \code{menu_item}'s can be passed as a list instead of in \dots.}
 }
 \description{
 Sidebar menu
 }
 \details{
-Use in a `dashboard_page` (see Example there). Accepts only `menu_item` and `menu_subitem`
+Use in a \code{dashboard_page} (see Example there). Accepts only \code{menu_item} and \code{menu_subitem}
 }

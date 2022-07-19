@@ -28,5 +28,5 @@ picker_select_module(
 )
 }
 \description{
-Replacement for `shinyWidgets::pickerInput`, which is somehow not compatible with this (bootstrap 5.1 / softui) framework.
+Replacement for \code{shinyWidgets::pickerInput}, which is somehow not compatible with this (bootstrap 5.1 / softui) framework.
 }

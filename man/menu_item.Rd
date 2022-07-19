@@ -23,18 +23,18 @@ menu_link(tabName, icon, text)
 \arguments{
 \item{text}{Title of the menu item}
 
-\item{\dots}{Any number of `menu_subitem`'s to appear under this menu item.}
+\item{\dots}{Any number of \code{menu_subitem}'s to appear under this menu item.}
 
-\item{icon}{Icon (made with `bsicon`) for the menu item. No icon can be provided for `menu_subitem`.}
+\item{icon}{Icon (made with \code{bsicon}) for the menu item. No icon can be provided for \code{menu_subitem}.}
 
-\item{tabName}{Name of the tab. Must be provided, except when the `menu_item` has `menu_subitem`'s.}
+\item{tabName}{Name of the tab. Must be provided, except when the \code{menu_item} has \code{menu_subitem}'s.}
 
 \item{separator_above}{Add a separator above this menu item}
 
 \item{separator_below}{Add a separator below this menu item}
 
-\item{id}{Id of the `li` tag (optional)}
+\item{id}{Id of the \code{li} tag (optional)}
 }
 \description{
-Functions to make menu items in the sidebar menu. See `?sidebar_menu`
+Functions to make menu items in the sidebar menu. See \code{?sidebar_menu}
 }

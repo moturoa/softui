@@ -19,12 +19,12 @@ with_tooltip(
 
 \item{icon}{The icon to show next to the label}
 
-\item{position}{Position of the tooltip, default 'top' (see `?prompter::add_prompt` for options)}
+\item{position}{Position of the tooltip, default 'top' (see \code{?prompter::add_prompt} for options)}
 
-\item{\dots}{Further arguments passed to [prompter::add_prompt()]}
+\item{\dots}{Further arguments passed to \code{\link[prompter:add_prompt]{prompter::add_prompt()}}}
 }
 \description{
-Adds an icon right of a label, on hover shows help text. 
-Uses the `prompter` package. For this to work, add `use_prompter()` in the UI function of
-your app, this is already loaded by `dashboard_page` and `simple_page`.
+Adds an icon right of a label, on hover shows help text.
+Uses the \code{prompter} package. For this to work, add \code{use_prompter()} in the UI function of
+your app, this is already loaded by \code{dashboard_page} and \code{simple_page}.
 }

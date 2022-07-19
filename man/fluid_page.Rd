@@ -10,11 +10,11 @@ fluid_page(...)
 fluid_row(..., margin = 4)
 }
 \arguments{
-\item{margin}{Margin unitsm for elements placed in the row. Optimized for `softui::box`es next to each other.}
+\item{margin}{Margin unitsm for elements placed in the row. Optimized for \code{softui::box}es next to each other.}
 }
 \description{
-Make layout for the content on a page or in a `softui::box` with `fluid_page` and `fluid_row`. 
-A fluid page can have multiple `fluid_row`'s, and each `fluid_row` contains `column()`'s.
+Make layout for the content on a page or in a \code{softui::box} with \code{fluid_page} and \code{fluid_row}.
+A fluid page can have multiple \code{fluid_row}'s, and each \code{fluid_row} contains \code{column()}'s.
 }
 \examples{
 # content in e.g. a box

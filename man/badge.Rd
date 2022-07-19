@@ -9,9 +9,9 @@ badge(text, status = "info")
 \arguments{
 \item{text}{Text for the badge (only short text field is recommended!)}
 
-\item{status}{Status color (see `?valid_statuses`)}
+\item{status}{Status color (see \code{?valid_statuses})}
 }
 \description{
-Short label (badge) to be placed before or above text, for example `badge("Informatie", status = "info")`
+Short label (badge) to be placed before or above text, for example \code{badge("Informatie", status = "info")}
 Font is always uppercase.
 }

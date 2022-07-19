@@ -7,7 +7,7 @@
 go_to_page(selected, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{selected}{The page to go to, corresponds to `tabName` in `menu_item` in the main UI}
+\item{selected}{The page to go to, corresponds to \code{tabName} in \code{menu_item} in the main UI}
 }
 \description{
 Go to other 'page' (main menu item)

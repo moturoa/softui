@@ -9,10 +9,10 @@ update_tabpanel(id, selected, session = shiny::getDefaultReactiveDomain())
 \arguments{
 \item{id}{id of the tab_box (required)}
 
-\item{selected}{Which tab to select (using 'value' of the `tab_panel`)}
+\item{selected}{Which tab to select (using 'value' of the \code{tab_panel})}
 
 \item{session}{Not required}
 }
 \description{
-Simulates a click on a tab inside a `softui::tab_box` (replaces updateTabsetpanel)
+Simulates a click on a tab inside a \code{softui::tab_box} (replaces updateTabsetpanel)
 }

@@ -9,14 +9,14 @@ icon_action_button(id, icon, status = "success", class = "", ...)
 \arguments{
 \item{id}{The shiny input id}
 
-\item{icon}{A `softui::bsicon` or `shiny::icon`.}
+\item{icon}{A \code{softui::bsicon} or \code{shiny::icon}.}
 
-\item{status}{The status color (see `?valid_statuses`).}
+\item{status}{The status color (see \code{?valid_statuses}).}
 
-\item{\dots}{Additional arguments to `shiny::actionButton`}
+\item{\dots}{Additional arguments to \code{shiny::actionButton}}
 }
 \description{
-A 'softui' round button with only an icon. Simple wrapper around `shiny::actionButton`. 
+A 'softui' round button with only an icon. Simple wrapper around \code{shiny::actionButton}.
 Uses various softui CSS classes for styling.
 }
 \examples{

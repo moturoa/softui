@@ -13,9 +13,9 @@ progressbar(value, min = 0, max = 100, status = "info", ...)
 
 \item{max}{Maximum value (default 100)}
 
-\item{status}{Status color, see [valid_statuses()]}
+\item{status}{Status color, see \code{\link[=valid_statuses]{valid_statuses()}}}
 
-\item{\dots}{Further arguments to the containing div, for example `style = "padding:30px;`}
+\item{\dots}{Further arguments to the containing div, for example \verb{style = "padding:30px;}}
 }
 \description{
 Progress bar

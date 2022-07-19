@@ -13,10 +13,10 @@ tab_items(..., .list = NULL)
 tab_item(tabName, ...)
 }
 \arguments{
-\item{\dots}{A `tab_items` object, and maybe other HTML.}
+\item{\dots}{A \code{tab_items} object, and maybe other HTML.}
 }
 \description{
-Makes the dashboard body of a dashboard page. See `?dashboard_page` for a minimal example.
-Accepts only a `tab_items` object, which has multiple `tab_item`'s in it, each with the UI for a 'page' 
+Makes the dashboard body of a dashboard page. See \code{?dashboard_page} for a minimal example.
+Accepts only a \code{tab_items} object, which has multiple \code{tab_item}'s in it, each with the UI for a 'page'
 (typically a shiny module UI function).
 }

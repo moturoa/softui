@@ -27,13 +27,13 @@ restricted_menu_item_module(
 
 \item{session}{Shiny session object}
 
-\item{text}{Text for the `menu_item`}
+\item{text}{Text for the \code{menu_item}}
 
-\item{tabName}{Name for the tab to refer to from the `menuitem`}
+\item{tabName}{Name for the tab to refer to from the \code{menuitem}}
 
-\item{icon}{A `softui::bsicon`}
+\item{icon}{A \code{softui::bsicon}}
 
-\item{user_group}{Current groups the user belongs to (read with `shintousers`)}
+\item{user_group}{Current groups the user belongs to (read with \code{shintousers})}
 
 \item{allowed_groups}{Groups that have access to this menu item. Usually read from config.}
 }

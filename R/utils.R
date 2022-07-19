@@ -15,14 +15,14 @@ dropNulls <- function (x){
 #' generally appear as follows:
 #'
 #' \itemize{
-#'   \item \code{primary} Dark blue
-#'   \item \code{secondary} Grey / blue
-#'   \item \code{success} Green
-#'   \item \code{info} Lighter blue
-#'   \item \code{warning} Orange
-#'   \item \code{danger} Red
-#'   \item \code{light} Light grey
-#'   \item \code{dark} Dark grey / black
+#'   \item `primary` Dark blue
+#'   \item `secondary` Grey / blue
+#'   \item `success` Green
+#'   \item `info` Lighter blue
+#'   \item `warning` Orange
+#'   \item `danger` Red
+#'   \item `light` Light grey
+#'   \item `dark` Dark grey / black
 #' }
 #'
 #' @usage NULL

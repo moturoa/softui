@@ -7,6 +7,6 @@
 simple_page(...)
 }
 \description{
-Make a simple page with the correct background color, and all of `softui`'s dependencies.
+Make a simple page with the correct background color, and all of \code{softui}'s dependencies.
 Useful for testing or simple applications without a sidebar menu.
 }

@@ -23,11 +23,11 @@ tab_box(
 
 \item{\dots}{Content for the tab}
 
-\item{value}{Name of the tab to refer to when using `softui::update_tabpanel` (defaults to title)}
+\item{value}{Name of the tab to refer to when using \code{softui::update_tabpanel} (defaults to title)}
 
-\item{icon}{An icon, with `shiny::icon` or `softui::bsicon`}
+\item{icon}{An icon, with \code{shiny::icon} or \code{softui::bsicon}}
 
-\item{style}{Extra CSS for the `card` class.}
+\item{style}{Extra CSS for the \code{card} class.}
 
 \item{id}{Optional id for the tab_box}
 
@@ -37,13 +37,13 @@ tab_box(
 
 \item{fill}{If TRUE, makes the tab panel titles fill the entire available width}
 
-\item{ui_above_nav}{Extra UI to place in the box *above* the nav links (i.e. tab names)}
+\item{ui_above_nav}{Extra UI to place in the box \emph{above} the nav links (i.e. tab names)}
 
 \item{ui_below_nav}{Extra UI to place below the nav links, this is UI that will appear at the top
-of each tab (so you don't have to repeat identical content within each `tab_panel` in `tab_box`).}
+of each tab (so you don't have to repeat identical content within each \code{tab_panel} in \code{tab_box}).}
 }
 \description{
-Replaces `shiny::tabPanel`, and is used only for placing tabs inside a `softui::tab_box`
+Replaces \code{shiny::tabPanel}, and is used only for placing tabs inside a \code{softui::tab_box}
 }
 \details{
 More details here!

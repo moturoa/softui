@@ -19,7 +19,7 @@ dropdown_item_color(
 )
 }
 \arguments{
-\item{\dots}{Any header items, usually made with `softui::dropdown_item`}
+\item{\dots}{Any header items, usually made with \code{softui::dropdown_item}}
 
 \item{height}{Height of the image}
 

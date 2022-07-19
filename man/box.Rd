@@ -32,7 +32,7 @@ box(
 
 \item{tag}{Short label text above the title (appears in uppercase letters)}
 
-\item{tag_status}{Status color for the tag (see `?valid_statuses`)}
+\item{tag_status}{Status color for the tag (see \code{?valid_statuses})}
 
 \item{collapsible}{If collapsible, allow the box to be minimized (button top-right)}
 
@@ -46,19 +46,19 @@ box(
 
 \item{margin_bottom}{The margin at the bottom of the box (margin to the next box). A box has always zero margin at the top!}
 
-\item{class}{Extra CSS class for the `card` (the `div` will get class `card` + provided CSS classes). 
+\item{class}{Extra CSS class for the \code{card} (the \code{div} will get class \code{card} + provided CSS classes).
 Can be a vector of classes or e.g. "class1 class2". Softui (and Bootstrap 5.1) have a number of interesting classes such as
 'card-plain', 'card-blog', or various margin-modifying classes ('mt-5', 'mt-md-0'). More research needed.}
 }
 \description{
-All content in a softui application should be placed inside a `softui::box`. 
-Unlike `shinydashboard::box`, the box has a default width of 12, so it fills up the space provided.
-Do not usually set the height of the box (but see argument `height`), instead let the components inside decide.
-See Example. The margin works a little different too. A `softui::box` has zero margin at the top, and a standard margin
-of 32px at the bottom (see argument `margin_bottom`).
+All content in a softui application should be placed inside a \code{softui::box}.
+Unlike \code{shinydashboard::box}, the box has a default width of 12, so it fills up the space provided.
+Do not usually set the height of the box (but see argument \code{height}), instead let the components inside decide.
+See Example. The margin works a little different too. A \code{softui::box} has zero margin at the top, and a standard margin
+of 32px at the bottom (see argument \code{margin_bottom}).
 }
 \details{
-This is actually a `div` with class `card` (and sub components), 
+This is actually a \code{div} with class \code{card} (and sub components),
 a standard Bootstrap 5.1 component further styled by softui CSS.
 }
 \examples{

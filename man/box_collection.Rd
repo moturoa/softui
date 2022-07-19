@@ -31,7 +31,7 @@ box_collection(
 \item{width_boxes}{Width of the boxes on the right}
 }
 \description{
-Works like a tab_box, except a menu appears on the left (in a box), 
+Works like a tab_box, except a menu appears on the left (in a box),
 and content appears in boxes on the right.
 }
 \examples{

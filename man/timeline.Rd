@@ -27,13 +27,13 @@ timeline_from_data(data)
 
 \item{text}{More text to describe the block}
 
-\item{icon_name}{Name of the `bsicon` for this block (character)}
+\item{icon_name}{Name of the \code{bsicon} for this block (character)}
 
-\item{icon_status}{color of the icon (see `?valid_statuses`)}
+\item{icon_status}{color of the icon (see \code{?valid_statuses})}
 
 \item{badge_text}{Text for a badge to appear at the bottom of the timeline block}
 
-\item{badge_status}{Status color for the badge (see `?valid_statuses`)}
+\item{badge_status}{Status color for the badge (see \code{?valid_statuses})}
 
 \item{data}{A dataframe with columns: "timestamp","title","text","icon_name","icon_status"}
 }
@@ -43,8 +43,8 @@ Softui Timeline
 Softui Timeline
 }
 \details{
-The `timeline` function makes a timeline consisting of `timeline_block`'s.
-Use the `timeline_from_data` function to make a timeline from a dataframe. Can be used in a `uiOutput`.
+The \code{timeline} function makes a timeline consisting of \code{timeline_block}'s.
+Use the \code{timeline_from_data} function to make a timeline from a dataframe. Can be used in a \code{uiOutput}.
 }
 \examples{
 

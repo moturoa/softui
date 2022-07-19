@@ -15,7 +15,7 @@ property_table(
 \arguments{
 \item{data}{A dataframe with one row.}
 
-\item{full_width}{If TRUE, fills the container 100%}
+\item{full_width}{If TRUE, fills the container 100\%}
 
 \item{bold_property}{Whether the property column is in bold font (default)}
 
@@ -24,11 +24,11 @@ property_table(
 \item{css_value}{CSS for the 'value' column in the table}
 }
 \description{
-Each column in `data` will be a row in this table, with the column name
-**bold** in the left column, and the value in the right column.
+Each column in \code{data} will be a row in this table, with the column name
+\strong{bold} in the left column, and the value in the right column.
 }
 \details{
-Replaces old function `bold_table_row` in use in many applications.
+Replaces old function \code{bold_table_row} in use in many applications.
 }
 \examples{
 

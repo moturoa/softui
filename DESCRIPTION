@@ -15,6 +15,7 @@ Imports:
     shinytoastr,
     shintoshiny,
     shinipsum,
+    shinyWidgets,
     tibble,
     rlang,
     prompter,
@@ -26,3 +27,4 @@ Suggests: tibble
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.0
+Roxygen: list(markdown = TRUE)

@@ -35,11 +35,11 @@ modal(
 
 \item{close_icon}{Icon on 'Close' icon}
 
-\item{remove_modal_on_confirm}{If TRUE, always removes the modal on OK click. 
-Otherwise, call `removeModal` yourself. This may be needed when some input 
+\item{remove_modal_on_confirm}{If TRUE, always removes the modal on OK click.
+Otherwise, call \code{removeModal} yourself. This may be needed when some input
 validation is done before the modal can be removed.}
 
-\item{size}{As in `?modalDialog` but also has a 'fullscreen' option.}
+\item{size}{As in \code{?modalDialog} but also has a 'fullscreen' option.}
 
 \item{session}{Shiny session object (no need to set)}
 }

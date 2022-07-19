@@ -17,11 +17,11 @@ dashboard_page(
 )
 }
 \arguments{
-\item{header}{Made with `softui::dashboard_header`}
+\item{header}{Made with \code{softui::dashboard_header}}
 
-\item{sidebar}{Made with `softui::dashboard_sidebar`}
+\item{sidebar}{Made with \code{softui::dashboard_sidebar}}
 
-\item{body}{Made with `softui::dashboard_body`}
+\item{body}{Made with \code{softui::dashboard_body}}
 
 \item{title}{App title (shown topleft)}
 

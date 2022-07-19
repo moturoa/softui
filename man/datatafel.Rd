@@ -20,7 +20,7 @@ datatafel(
 )
 }
 \arguments{
-\item{\dots}{Further arguments to `datatable`, especially a dataframe as first argument (unnamed).}
+\item{\dots}{Further arguments to \code{datatable}, especially a dataframe as first argument (unnamed).}
 
 \item{dom}{DOM elements for the datatable ("t" for just the table)}
 
@@ -38,7 +38,7 @@ datatafel(
 
 \item{scrollX}{If TRUE, allows scrolling for very wide tables (then set extensions = NULL!)}
 
-\item{options}{Passed to datatable `options` argument}
+\item{options}{Passed to datatable \code{options} argument}
 
 \item{class}{Datatable CSS classes.}
 }

@@ -16,7 +16,7 @@ modalize(
 )
 }
 \arguments{
-\item{trigger_open}{A reactive used to trigger the modal (often: `reactive(input$btn_open_modal)`)}
+\item{trigger_open}{A reactive used to trigger the modal (often: \code{reactive(input$btn_open_modal)})}
 
 \item{ui_module}{The module UI function}
 
@@ -30,11 +30,11 @@ modalize(
 
 \item{footer_ui}{Extra UI to place below the module UI (in the modal)}
 
-\item{\dots}{Further arguments passed to [softui::modal()] (such as `title = "Title!"` or `size = "fullscreen"`)}
+\item{\dots}{Further arguments passed to \code{\link[=modal]{modal()}} (such as \code{title = "Title!"} or \code{size = "fullscreen"})}
 }
 \description{
-Place the UI of a module in a [softui::modal()], and call the 
-server module in one command. The idea is that a module does not normally 
-open a modal for you, but if you need the module in a modal, use `modalize`.
-See `shintocatman` package for usage.
+Place the UI of a module in a \code{\link[=modal]{modal()}}, and call the
+server module in one command. The idea is that a module does not normally
+open a modal for you, but if you need the module in a modal, use \code{modalize}.
+See \code{shintocatman} package for usage.
 }
