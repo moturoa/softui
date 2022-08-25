@@ -10,7 +10,8 @@ sub_box(
   icon = NULL,
   grey_level = 0.1,
   collapsible = TRUE,
-  collapsed = FALSE
+  collapsed = FALSE,
+  margin_bottom = 0
 )
 }
 \arguments{
@@ -18,7 +19,15 @@ sub_box(
 
 \item{title}{A title for the box}
 
+\item{icon}{An icon (optional), placed left of the title}
+
 \item{grey_level}{Value between 0.1 (standard) and 0.9 (very dark), in steps of 0.1.}
+
+\item{collapsible}{If TRUE (default), can be minimized}
+
+\item{collapsed}{If TRUE, starts minimized}
+
+\item{margin_bottom}{Margin below the \code{sub_box}, in pixels}
 }
 \description{
 You are not allowed to place a \code{softui::box} inside another \code{softui::box}, but you can
