@@ -3,9 +3,13 @@
 #' @param username Current username (for logout menu)
 #' @export
 #' @importFrom shintoshiny appInfoModule
-populate_header <- function(username){
+populate_header <- function(username, hide = FALSE){
   
-  shiny::callModule(softui::userLogoutModule, "user", username = username)
+  if(hide){
+    shinyjs::hide(id = "softui_dropdown_current_user")
+  } else {
+    shiny::callModule(softui::userLogoutModule, "user", username = username)  
+  }
   
   shiny::callModule(shintoshiny::appInfoModule, "appinfo")
   

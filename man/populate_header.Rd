@@ -4,7 +4,7 @@
 \alias{populate_header}
 \title{Write header information}
 \usage{
-populate_header(username)
+populate_header(username, hide = FALSE)
 }
 \arguments{
 \item{username}{Current username (for logout menu)}

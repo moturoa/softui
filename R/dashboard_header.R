@@ -57,11 +57,16 @@ dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
                                          shintoshiny::appInfoUI("appinfo"),
                                          align_right = TRUE
                    ),
-                   softui::dropdown_item(bsicon("person-circle"), 
-                                         header = "Gebruiker",
-                                         softui::userLogoutUI("user"),
-                                         align_right = TRUE
-                   )
+                   
+                   
+                   htmltools::tagAppendAttributes(
+                     softui::dropdown_item(bsicon("person-circle"), 
+                                           header = "Gebruiker",
+                                           softui::userLogoutUI("user"),
+                                           align_right = TRUE
+                    ),
+                    id = "softui_dropdown_current_user")
+                    
                    
                  )
                )
