@@ -4,13 +4,7 @@
 \alias{with_tooltip}
 \title{Add a tooltip next to a label}
 \usage{
-with_tooltip(
-  label = NULL,
-  tooltip,
-  icon = bsicon("info-circle-fill"),
-  position = "top",
-  ...
-)
+with_tooltip(label = NULL, tooltip, icon = bsicon("info-circle-fill"), ...)
 }
 \arguments{
 \item{label}{Label, the text to appear left of the icon. If you want only the icon, do not set.}
@@ -19,12 +13,8 @@ with_tooltip(
 
 \item{icon}{The icon to show next to the label}
 
-\item{position}{Position of the tooltip, default 'top' (see \code{?prompter::add_prompt} for options)}
-
-\item{\dots}{Further arguments passed to \code{\link[prompter:add_prompt]{prompter::add_prompt()}}}
+\item{\dots}{Further arguments passed to \code{\link[tippy:tippy]{tippy::tippy()}}}
 }
 \description{
 Adds an icon right of a label, on hover shows help text.
-Uses the \code{prompter} package. For this to work, add \code{use_prompter()} in the UI function of
-your app, this is already loaded by \code{dashboard_page} and \code{simple_page}.
 }

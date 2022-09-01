@@ -1,7 +1,7 @@
 Package: softui
 Type: Package
 Title: Layout for Shinto Apps - 2022
-Version: 0.8.12
+Version: 0.8.13
 Author: Remko Duursma
 Maintainer: Remko Duursma <remko@shintolabs.nl>
 Description: A shiny dashboard template with Soft UI styling. 
@@ -22,7 +22,7 @@ Imports:
     kableExtra,
     htmltools,
     uuid
-Depends: shiny, glue, htmltools, dplyr
+Depends: shiny, glue, htmltools, dplyr, tippy (>= 1.0)
 Suggests: tibble
 Encoding: UTF-8
 LazyData: true
