@@ -22,7 +22,8 @@ box_collection(
   width_nav = 3,
   width_boxes = 9,
   fill = FALSE,
-  style = ""
+  style = "",
+  .list = NULL
 )
 }
 \arguments{

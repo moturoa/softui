@@ -59,15 +59,22 @@ box_collection <- function(...,
                           width_nav = 3,
                           width_boxes = 9,
                           fill = FALSE,
-                          style = ""){
+                          style = "",
+                          .list = NULL){
   
   
-  items <- dropNulls(list(...))
+  if(is.null(.list)){
+    items <- dropNulls(list(...))  
+  } else {
+    items <- dropNulls(.list)
+  }
+  
   n_items <- length(items)
   idnr <- as.character(sample(1000:9999,1))
   
   for(i in seq_along(items)){
-    items[[i]] <- items[[i]] %>% tagAppendAttributes(index = i)
+    items[[i]] <- items[[i]] %>% 
+      tagAppendAttributes(index = i)
   }
   
   atr <- lapply(items, "[[", "attribs")
