@@ -12,6 +12,7 @@ modalize(
   server_pars = list(),
   header_ui = NULL,
   footer_ui = NULL,
+  default_output = NULL,
   ...
 )
 }
@@ -29,6 +30,8 @@ modalize(
 \item{header_ui}{Extra UI to place above the module UI (in the modal)}
 
 \item{footer_ui}{Extra UI to place below the module UI (in the modal)}
+
+\item{default_output}{Starting value for the value returned by the modal server function (before OK is clicked)}
 
 \item{\dots}{Further arguments passed to \code{\link[=modal]{modal()}} (such as \code{title = "Title!"} or \code{size = "fullscreen"})}
 }

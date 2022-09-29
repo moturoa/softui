@@ -10,6 +10,7 @@
 #' @param server_pars A list of arguments to send to the server module function
 #' @param header_ui Extra UI to place above the module UI (in the modal)
 #' @param footer_ui Extra UI to place below the module UI (in the modal)
+#' @param default_output Starting value for the value returned by the modal server function (before OK is clicked)
 #' @param \dots Further arguments passed to [softui::modal()] (such as `title = "Title!"` or `size = "fullscreen"`)
 #'
 #' @export
@@ -22,6 +23,7 @@ modalize <- function(trigger_open = reactive(NULL),
                      server_pars = list(),  
                      header_ui = NULL,
                      footer_ui = NULL,
+                     default_output = NULL,
                      
                      ...){
   
@@ -46,8 +48,11 @@ modalize <- function(trigger_open = reactive(NULL),
                  module_out <- do.call(callModule, c(list(module = server_module, id = id), 
                                                      server_pars))
                  
-                 out <- shiny::eventReactive(input$btn_modal_ok, {
-                   module_out()
+                 out <- reactiveVal(default_output)
+                 
+                 observeEvent(input$btn_modal_ok, {
+                   
+                   out(module_out())
                  })
                  
                  return(out)
