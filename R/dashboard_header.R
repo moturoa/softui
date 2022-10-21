@@ -2,10 +2,11 @@
 #' @param tag_line A short statement to appear in the header (italic text)
 #' @param left_content UI to place on the left (just right of the tagline). Untested.
 #' @param \dots Any header items, usually made with `softui::dropdown_item`. 
+#' @param info Passed to [shintoshiny::appInfoUI()]
 #' @export
 #' @rdname dashboard_header
 #' @importFrom shintoshiny appInfoUI userLogoutUI
-dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
+dashboard_header <- function(..., tag_line = NULL, left_content = NULL, info = NULL){
 
   tag_line <- shiny::tags$h6(class = "header_tagline fw-light", tag_line)
   
@@ -54,7 +55,7 @@ dashboard_header <- function(..., tag_line = NULL, left_content = NULL){
                    # Two standard dropdowns for Shinto apps
                    softui::dropdown_item(bsicon("gear-fill"), 
                                          header = "App Info",
-                                         shintoshiny::appInfoUI("appinfo"),
+                                         shintoshiny::appInfoUI("appinfo", info = info),
                                          align_right = TRUE
                    ),
                    

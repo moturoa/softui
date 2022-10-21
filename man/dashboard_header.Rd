@@ -6,7 +6,7 @@
 \alias{dropdown_item}
 \title{The dashboard header}
 \usage{
-dashboard_header(..., tag_line = NULL, left_content = NULL)
+dashboard_header(..., tag_line = NULL, left_content = NULL, info = NULL)
 
 header_item(...)
 
@@ -18,6 +18,8 @@ dropdown_item(icon, ..., header = NULL, align_right = FALSE)
 \item{tag_line}{A short statement to appear in the header (italic text)}
 
 \item{left_content}{UI to place on the left (just right of the tagline). Untested.}
+
+\item{info}{Passed to \code{\link[shintoshiny:appInfoModule]{shintoshiny::appInfoUI()}}}
 }
 \description{
 The dashboard header
