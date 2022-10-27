@@ -24,8 +24,10 @@ modal <- function(...,
                   close_icon = softui::bsicon("x-lg"),
                   remove_modal_on_confirm = TRUE,
                   size = c("m", "s", "l", "xl", "fullscreen"), 
+                  id = NULL,
                   #fullscreen_up_to = c("always","sm","md","lg","xl","xxl"),
-                  session = shiny::getDefaultReactiveDomain()){
+                  session = shiny::getDefaultReactiveDomain(),
+                  ns = session$ns){
   
   # see zzz.R; inst/logo is available under logo/
   img <- "shintologo/logoshintolabs.png"
@@ -33,6 +35,7 @@ modal <- function(...,
   modal_dialog(
     easyClose = easyClose,
     size = size, # fullscreen_up_to = fullscreen_up_to,  # lijkt geen effect te hebben
+    id = id,
     title = shiny::tags$div(title, 
                     shiny::tags$span(
                       shiny::tags$img(src=img, width = 70), 
@@ -50,7 +53,7 @@ modal <- function(...,
       },
       
       if(confirm_button){
-        btn <- action_button(session$ns(id_confirm), 
+        btn <- action_button(ns(id_confirm), 
                      confirm_txt, 
                      icon = confirm_icon, 
                      status = "success")
@@ -70,7 +73,7 @@ modal <- function(...,
 modal_dialog <- function (..., title = NULL, footer = modalButton("Dismiss"), 
                          size = c("m", "s", "l", "xl", "fullscreen"), 
                          fullscreen_up_to = c("always","sm","md","lg","xl","xxl"),
-                         easyClose = FALSE, fade = TRUE){
+                         easyClose = FALSE, fade = TRUE, id = NULL){
   
   size <- match.arg(size)
   fullscreen_up_to <- match.arg(fullscreen_up_to)
@@ -83,9 +86,10 @@ modal_dialog <- function (..., title = NULL, footer = modalButton("Dismiss"),
     class <- paste0(class,"-",fullscreen_up_to,"-down")
   }
   
-  div(id = "shiny-modal", class = "modal", class = if (fade) 
+  div(id = if(is.null(id))"shiny-modal" else id, class = "modal", class = if (fade) 
     "fade", tabindex = "-1", `data-backdrop` = backdrop, 
-    `data-bs-backdrop` = backdrop, `data-keyboard` = keyboard, 
+    `data-bs-backdrop` = backdrop, 
+    `data-keyboard` = keyboard, 
     `data-bs-keyboard` = keyboard, 
     div(class = "modal-dialog", 
         class = class, 
@@ -93,7 +97,12 @@ modal_dialog <- function (..., title = NULL, footer = modalButton("Dismiss"),
             if (!is.null(title)) div(class = "modal-header", tags$h4(class = "modal-title", title)), 
             div(class = "modal-body", ...), 
             if (!is.null(footer)) div(class = "modal-footer", footer))), 
-    tags$script(HTML("if (window.bootstrap && !window.bootstrap.Modal.VERSION.match(/^4\\./)) {\n         var modal = new bootstrap.Modal(document.getElementById('shiny-modal'));\n         modal.show();\n      } else {\n         $('#shiny-modal').modal().focus();\n      }")))
+    if(is.null(id)){
+      tags$script(HTML(paste("if (window.bootstrap && !window.bootstrap.Modal.VERSION.match(/^4\\./)) {\n   ",
+                             "var modal = new bootstrap.Modal(document.getElementById('shiny-modal'));\n  ",
+                             "  modal.show();\n      } else {\n         $('#shiny-modal').modal().focus();\n   }")))
+    }
+  )
 }
 
 
