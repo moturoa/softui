@@ -6,13 +6,23 @@
 #' @param text Text for the box (bold, white)
 #' @param status Status color (see `?valid_statuses`)
 #' @export
-alert_box <- function(text, status = "warning"){
+alert_box <- function(text, status = "warning", closable = FALSE){
   
   validate_status(status)
   
   shiny::tags$div(class= glue::glue("alert alert-{status} alert-dismissible fade show text-white font-weight-bold"), 
                   role = "alert",
-           text
+           text,
+           if(closable){
+             tags$button(type = "button", class = "btn-close", onclick = "$(this).closest('.alert').fadeOut();",
+                         style = glue::glue("display: inline-block;",
+                                            "color: black !important;",
+                                            "margin-left: 8px;",
+                                            "opacity: 0.9;",
+                                            "background: none;"),
+                         bsicon("x-lg")
+             )
+           }
 
   )
            
