@@ -14,14 +14,20 @@ alert_box <- function(text, status = "warning", closable = FALSE){
                   role = "alert",
            text,
            if(closable){
-             tags$button(type = "button", class = "btn-close", onclick = "$(this).closest('.alert').fadeOut();",
-                         style = glue::glue("display: inline-block;",
-                                            "color: black !important;",
-                                            "margin-left: 8px;",
-                                            "opacity: 0.9;",
-                                            "background: none;"),
-                         bsicon("x-lg")
+             tags$div(
+               style = glue::glue("box-sizing: border-box;",
+                                  "margin-bottom: 5px;"),
+                 tags$button(type = "button", class = "btn-close", onclick = "$(this).closest('.alert').fadeOut();",
+                             style = glue::glue("display: inline-block;",
+                                                "color: white !important;",
+                                                #"padding: 0;",
+                                                
+                                                "opacity: 0.9;",
+                                                "background: none;"),
+                             bsicon("x-lg")
+                 )  
              )
+             
            }
 
   )
