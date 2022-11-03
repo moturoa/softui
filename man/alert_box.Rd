@@ -4,7 +4,7 @@
 \alias{alert_box}
 \title{Alert boxes}
 \usage{
-alert_box(text, status = "warning")
+alert_box(text, status = "warning", closable = FALSE)
 }
 \arguments{
 \item{text}{Text for the box (bold, white)}
