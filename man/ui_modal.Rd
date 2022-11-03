@@ -3,11 +3,14 @@
 \name{ui_modal}
 \alias{ui_modal}
 \alias{modal_action_button}
+\alias{modal_action_link}
 \title{UI-side Modal}
 \usage{
 ui_modal(id, ..., ns = function(x) x)
 
-modal_action_button(inputId, modalId, ...)
+modal_action_button(inputId = uuid::UUIDgenerate(), modalId, ...)
+
+modal_action_link(inputId = uuid::UUIDgenerate(), modalId, ...)
 }
 \arguments{
 \item{id}{Id of the modal, corresponds to \code{modalId} in \code{modal_action_button}}

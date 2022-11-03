@@ -38,11 +38,22 @@ ui_modal <- function(id, ..., ns = function(x)x){
 
 #' @export
 #' @rdname ui_modal
-modal_action_button <- function(inputId, modalId, ...){
+modal_action_button <- function(inputId = uuid::UUIDgenerate(), modalId, ...){
   
   btn <- softui::action_button(inputId, ...)
   htmltools::tagAppendAttributes(btn, 
                                  `data-bs-toggle` = "modal", 
                                  `data-bs-target` = paste0("#",modalId)
                                  )
+}
+
+#' @export
+#' @rdname ui_modal
+modal_action_link <- function(inputId = uuid::UUIDgenerate(), modalId, ...){
+  
+  btn <- actionLink(inputId, ...)
+  htmltools::tagAppendAttributes(btn, 
+                                 `data-bs-toggle` = "modal", 
+                                 `data-bs-target` = paste0("#",modalId)
+  )
 }
