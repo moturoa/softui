@@ -129,3 +129,20 @@ Shiny.addCustomMessageHandler("setBodyGreyLevel", setBodyGreyLevel);
 
 
 
+
+// Set root variable
+setCSSVariable = function(data){
+  
+  let root = document.documentElement;
+  
+  root.style.setProperty(data.variable, data.value);
+  
+  
+}
+
+Shiny.addCustomMessageHandler("setCSSVariable", setCSSVariable);
+
+
+
+
+
