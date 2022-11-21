@@ -6,7 +6,7 @@
 #' @param tabName Name of the tab. Must be provided, except when the `menu_item` has `menu_subitem`'s.
 #' @param separator_above Add a separator above this menu item
 #' @param separator_below Add a separator below this menu item
-#' @param id Id of the `li` tag (optional)
+#' @param id Id of the `li` tag (optional, can be used to remove the item with `shinyjs::hide('id')`
 #' @param \dots Any number of `menu_subitem`'s to appear under this menu item.
 #' @export
 #' @rdname menu_item
@@ -52,12 +52,14 @@ menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
 
 #' @export
 #' @rdname menu_item
-menu_subitem <- function(text, tabName){
+menu_subitem <- function(text, tabName, id = NULL){
   
+  if(is.null(id))id <- random_id()
   validate_tab_name(tabName)
   tabref <- glue::glue("#shiny-tab-{tabName}")
   
-  shiny::tags$li(class="nav-item ", 
+  shiny::tags$li(id = id, 
+                 class="nav-item ", 
           shiny::tags$a(class="nav-link show", 
                  href = tabref,
                  `data-bs-toggle` = "tab",
