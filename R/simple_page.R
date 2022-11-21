@@ -5,14 +5,14 @@
 #' @importFrom shinyjs inlineCSS
 simple_page <- function(...){
 
-  fluid_page(
-    style = "padding-top: 36px !important;",
-    shinyjs::inlineCSS("body{background-color: #F8F9FA;}"),
-    softui_dependencies(),
-    package_ui_dependencies(busybar_color = "#346E6E", 
-                            disconnect_message = "De sessie is verlopen of er ging iets fout!"),
-    ...
-  )  
+  add_softui_dependencies(
+    shiny::tags$body(class = "bg-gray-100",
+                     softui_dependencies(),
+                     package_ui_dependencies(busybar_color = "#346E6E", 
+                                             disconnect_message = "De sessie is verlopen of er ging iets fout!"),
+                     ...)
+  )
+  
   
 }
 

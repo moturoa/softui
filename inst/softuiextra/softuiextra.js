@@ -109,9 +109,23 @@ Shiny.addCustomMessageHandler("selectTabItem", selectTabItem);
 
 
     
+// Set body background color class
+setBodyGreyLevel = function(data) {
+  
+  var $el = $('body');
+  var classList = $el.attr('class').split(' ');
+  
+  $.each(classList, function(id, item) {
+      if (item.indexOf('bg-gray-') == 0){
+        $el.removeClass(item);
+      }
+  });
+  
+  $el.addClass("bg-gray-"+data.level);
+};
     
     
-    
-    
+Shiny.addCustomMessageHandler("setBodyGreyLevel", setBodyGreyLevel);
+
 
 

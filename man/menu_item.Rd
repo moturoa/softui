@@ -16,7 +16,7 @@ menu_item(
   id = NULL
 )
 
-menu_subitem(text, tabName)
+menu_subitem(text, tabName, id = NULL)
 
 menu_link(tabName, icon, text)
 }
@@ -33,7 +33,7 @@ menu_link(tabName, icon, text)
 
 \item{separator_below}{Add a separator below this menu item}
 
-\item{id}{Id of the \code{li} tag (optional)}
+\item{id}{Id of the \code{li} tag (optional, can be used to remove the item with \code{shinyjs::hide('id')}}
 }
 \description{
 Functions to make menu items in the sidebar menu. See \code{?sidebar_menu}
