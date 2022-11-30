@@ -23,8 +23,15 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
   }
   
   # First menu item is always selected
-  items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
-                                                             class = "show active")
+  if(length(items) == 1){
+    items[[1]]$children[[2]][[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[2]][[1]], 
+                                                                       class = "show active")
+  } else {
+    items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
+                                                               class = "show active")  
+  }
+  
+  
 
   shiny::tags$ul(
      class = "navbar-nav sidebar-menu nav navtabs",
