@@ -5,7 +5,7 @@
 \alias{sidebar_menu}
 \title{Sidebar menu}
 \usage{
-dashboard_sidebar(arg)
+dashboard_sidebar(menu, ui_above = NULL, ui_below = NULL)
 
 sidebar_menu(..., id = NULL, .list = NULL)
 }

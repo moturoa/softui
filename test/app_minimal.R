@@ -1,13 +1,18 @@
 
-library(softui)
+#library(softui)
+devtools::load_all()
+
 library(shiny)
 library(dplyr)
 
 sidebar <- softui::dashboard_sidebar(
-  softui::sidebar_menu(
+  menu = softui::sidebar_menu(
     softui::menu_item("Page1", tabName = "page1", icon = bsicon("bar-chart-fill")),
     softui::menu_item("Page2", tabName = "page2", icon = bsicon("tools"))
-  )
+  ),
+  
+  ui_above = action_button("btn_watch", "Bekijk video!", status = "info"),
+  ui_below = action_button("btn_update", "Systeem herladen", status = "success")
 )
 
 body <- softui::dashboard_body(
@@ -18,10 +23,10 @@ body <- softui::dashboard_body(
                      column(7, class = "mx-auto",
                       softui::box(title = "Page 1", width = 12,
                                   
-                                  shiny::tags$a("Dit een een klikbare link", href = "https://www.google.com"),
+                                  shiny::tags$a("Dit een een klikbare link", target = "_blank", href = "https://www.google.com"),
+                                  tags$br(),
                                   shiny::tags$a(shiny::tags$span("Dit een een klikbare link", class = "page_link")),
-                                  
-                                  
+                                  tags$br(),
                                   
                                   actionButton("btn1", softui::with_tooltip("Button","Can you read this or what?!?!"), class = "bg-gradient-primary"),
                                   actionButton("btn1", "Button", class = "bg-gradient-secondary"),

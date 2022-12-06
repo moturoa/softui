@@ -1,10 +1,14 @@
 
 #' @export
 #' @rdname sidebar
-dashboard_sidebar <- function(arg){
+dashboard_sidebar <- function(menu, ui_above = NULL, ui_below = NULL){
   
   # should really do some validating here. maybe.
-  arg
+  tagList(
+    ui_above,
+    menu,
+    ui_below
+  )
 }
 
 
