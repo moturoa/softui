@@ -23,7 +23,7 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
 
   items <- dropNulls(c(list(...), .list))
   if(is.null(id)){
-    id <- paste0("tabs_", round(stats::runif(1, min = 0, max = 1e+09)))
+    id <- paste0("tabs_", random_id())
   }
   
   # First menu item is always selected
@@ -34,7 +34,6 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
     items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
                                                                class = "show active")  
   }
-  
   
 
   shiny::tags$ul(
