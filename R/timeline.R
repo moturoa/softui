@@ -3,9 +3,11 @@
 #' Use the `timeline_from_data` function to make a timeline from a dataframe. Can be used in a `uiOutput`.
 #' @export
 #' @rdname timeline
-#' @importFrom shinipsum random_text
 #' @importFrom tibble tribble
 #' @examples
+#' \dontrun{
+#' 
+#' if(!require("shinipsum"))stop("Install shinipsum!")
 #' 
 #' # Manual timeline
 #' # (only works in a softui page!)
@@ -32,6 +34,7 @@
 #'    "2021-4-1", "Overlijden",shinipsum::random_text(nwords=20), "hourglass-bottom", "danger"
 #'  )
 #'  timeline_from_data(time_data)
+#'  }
 timeline <- function(..., .list = NULL){
   
   items <- c(list(...), .list)

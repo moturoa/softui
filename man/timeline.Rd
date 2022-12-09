@@ -47,6 +47,9 @@ The \code{timeline} function makes a timeline consisting of \code{timeline_block
 Use the \code{timeline_from_data} function to make a timeline from a dataframe. Can be used in a \code{uiOutput}.
 }
 \examples{
+\dontrun{
+
+if(!require("shinipsum"))stop("Install shinipsum!")
 
 # Manual timeline
 # (only works in a softui page!)
@@ -73,4 +76,5 @@ time_data <- tibble::tribble(
    "2021-4-1", "Overlijden",shinipsum::random_text(nwords=20), "hourglass-bottom", "danger"
  )
  timeline_from_data(time_data)
+ }
 }
