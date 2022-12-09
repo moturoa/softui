@@ -129,3 +129,15 @@ Shiny.addCustomMessageHandler("setBodyGreyLevel", setBodyGreyLevel);
 
 
 
+// Collapse a box
+collapseBox = function(data){
+  
+  $('#collapse-'+data.id)[0].click(); 
+  
+};
+
+Shiny.addCustomMessageHandler("collapseBox", collapseBox);
+
+
+
+

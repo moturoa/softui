@@ -22,6 +22,7 @@
 #' @param class Extra CSS class for the `card` (the `div` will get class `card` + provided CSS classes). 
 #' Can be a vector of classes or e.g. "class1 class2". Softui (and Bootstrap 5.1) have a number of interesting classes such as
 #' 'card-plain', 'card-blog', or various margin-modifying classes ('mt-5', 'mt-md-0'). More research needed.
+#' @param id An id for the box, you must set this if you want to collapse the box with [collapse_box()].
 #' @export
 #' @examples
 #' ui <- softui::simple_page(
@@ -60,9 +61,15 @@ box <- function(..., width = 12,
                 header_ui = NULL,
                 height = NULL,
                 margin_bottom = 32, 
-                class = ""){
+                class = "",
+                id = NULL){
 
-  id_bx <- random_id()
+  if(is.null(id)){
+    id_bx <- random_id()  
+  } else {
+    id_bx <- id
+  }
+  
   
   validate_status(tag_status)
   
@@ -90,6 +97,7 @@ box <- function(..., width = 12,
                 shiny::tags$a(style = "display: inline-block;",
                   `data-bs-toggle` = "collapse",
                   href = paste0("#",id_bx),
+                  id = paste0("collapse-",id_bx),
                   collapse_tool
                 )
               },

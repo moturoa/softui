@@ -21,7 +21,7 @@ body <- softui::dashboard_body(
     softui::tab_item("page1",
                      
                      column(7, class = "mx-auto",
-                      softui::box(title = "Page 1", width = 12,
+                      softui::box(title = "Page 1", width = 12, id = "thisismybox",
                                   
                                   shiny::tags$a("Dit een een klikbare link", target = "_blank", href = "https://www.google.com"),
                                   tags$br(),
@@ -45,7 +45,8 @@ body <- softui::dashboard_body(
                                   actionButton("btn1", "Button", class = "btn-info")
                                   
                                   
-                                  )
+                        ),
+                      softui::action_button("clickme", "Collapse Box!")
                      )
     ),
 
@@ -65,6 +66,13 @@ ui <- softui::dashboard_page(title = "Shinto App",
                              sidebar = sidebar,
                              body = body)
 
-server <- function(input, output, session){}
+server <- function(input, output, session){
+  
+  
+  observeEvent(input$clickme, {
+    softui::collapse_box("thisismybox")
+  })
+  
+}
 
 shinyApp(ui, server)

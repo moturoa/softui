@@ -18,7 +18,8 @@ box(
   header_ui = NULL,
   height = NULL,
   margin_bottom = 32,
-  class = ""
+  class = "",
+  id = NULL
 )
 }
 \arguments{
@@ -49,6 +50,8 @@ box(
 \item{class}{Extra CSS class for the \code{card} (the \code{div} will get class \code{card} + provided CSS classes).
 Can be a vector of classes or e.g. "class1 class2". Softui (and Bootstrap 5.1) have a number of interesting classes such as
 'card-plain', 'card-blog', or various margin-modifying classes ('mt-5', 'mt-md-0'). More research needed.}
+
+\item{id}{An id for the box, you must set this if you want to collapse the box with \code{\link[=collapse_box]{collapse_box()}}.}
 }
 \description{
 All content in a softui application should be placed inside a \code{softui::box}.
