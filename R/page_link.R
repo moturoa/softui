@@ -14,7 +14,10 @@ page_link <- function(id, label,
                       class = "page_link"){
   
   
-  id_out <- session$ns(id_out)  
+  if(!is.null(session$ns)){ # inside module (usually)
+    id_out <- session$ns(id_out)    
+  }
+  
   
   
   glue::glue("<a onclick=\"setClickId('{id}',",

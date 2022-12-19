@@ -25,7 +25,7 @@ body <- softui::dashboard_body(
                                   
                                   shiny::tags$a("Dit een een klikbare link", target = "_blank", href = "https://www.google.com"),
                                   tags$br(),
-                                  shiny::tags$a(shiny::tags$span("Dit een een klikbare link", class = "page_link")),
+                                  HTML(softui::page_link(id = "abcdefgh", label = "Dit is een page_link, click me!", id_out = "persoon")),
                                   tags$br(),
                                   
                                   actionButton("btn1", softui::with_tooltip("Button","Can you read this or what?!?!"), class = "bg-gradient-primary"),
@@ -68,6 +68,7 @@ ui <- softui::dashboard_page(title = "Shinto App",
 
 server <- function(input, output, session){
   
+  softui::route_page_link("persoon", tabName = "page2", input = input)
   
   observeEvent(input$clickme, {
     softui::collapse_box("thisismybox")
@@ -76,3 +77,6 @@ server <- function(input, output, session){
 }
 
 shinyApp(ui, server)
+
+
+
