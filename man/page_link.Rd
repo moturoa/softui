@@ -3,6 +3,8 @@
 \name{page_link}
 \alias{page_link}
 \alias{route_page_link}
+\alias{clicked_link_id}
+\alias{go_to_page}
 \title{Utilities for links to pages}
 \usage{
 page_link(
@@ -19,6 +21,10 @@ route_page_link(
   input,
   session = shiny::getDefaultReactiveDomain()
 )
+
+clicked_link_id(id, input, session = shiny::getDefaultReactiveDomain())
+
+go_to_page(selected, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
 \item{id}{Value of the ID that will be sent as link information (e.g. person ID, location ID)}
@@ -34,7 +40,20 @@ route_page_link(
 \item{tabName}{Which page to jump to on clicking the link}
 
 \item{input}{Shiny input object}
+
+\item{selected}{The page to go to, corresponds to \code{tabName} in \code{menu_item} in the main UI}
 }
 \description{
 Utilities for links to pages
+}
+\details{
+\itemize{
+\item \code{page_link} is used to make an anchor tag with a javascript onclick method that sets an id (+nonce) to an
+input id of choice.
+\item \code{route_page_link} has to be called for the input \code{id_out} in \code{page_link} to allow changing pages when
+a link of that id has been clicked . It calls \code{go_to_page} for you.
+\item \code{go_to_page} replaces 'shinydashboard::updateTabItems' (also works inside modules) and is used
+to change pages (a \code{tabName} in the softui dashboard menu).
+\item \code{clicked_link_id} is a helper function
+}
 }
