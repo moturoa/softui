@@ -38,14 +38,20 @@ idle_timeout_mod <- function(input, output, session, timeout_warning, timeout_st
       showModal(
         softui::modal(
           title = "Sessie verlengen?",
-          close_button = FALSE, confirm_txt = "OK",
+          close_button = FALSE, 
+          confirm_button = FALSE, 
+          easyClose = FALSE,
           icon = bsicon("alarm-fill", status = "info"),
           
           tags$p("Uw sessie is al lang ongebruikt, en zal binnenkort gesloten worden."),
-          tags$p("Klik OK om verder te gaan."),
+          
+          softui::action_button(session$ns("btn_continue"), 
+                                "Klik hier om verder te gaan", 
+                                icon = bsicon("check"),
+                                status = "success"),
           
           softui::action_button(session$ns("btn_logout"), 
-                                "Of klik hier om uit te loggen", 
+                                "Klik hier om uit te loggen", 
                                 icon = bsicon("box-arrow-right"),
                                 status = "warning",
                                 onclick = "document.location.href = document.location.href + '__logout__';")
@@ -55,6 +61,11 @@ idle_timeout_mod <- function(input, output, session, timeout_warning, timeout_st
       
     }
     
+  })
+  
+  observeEvent(input$btn_continue, {
+    removeModal()
+    idle_warning_modal_show(FALSE)
   })
   
   
