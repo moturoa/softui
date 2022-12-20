@@ -118,7 +118,6 @@ add_softui_dependencies <- function(tag){
       stylesheet = "opensans.css",
       package = "softui"
     )
-
   )
 
   shiny::tagList(tag, deps)

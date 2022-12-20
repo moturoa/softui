@@ -1,6 +1,6 @@
 
-#library(softui)
-devtools::load_all()
+library(softui)
+#devtools::load_all()
 
 library(shiny)
 library(dplyr)
@@ -22,6 +22,8 @@ body <- softui::dashboard_body(
                      
                      column(7, class = "mx-auto",
                       softui::box(title = "Page 1", width = 12, id = "thisismybox",
+                                  
+                                  uiOutput("idletime"),
                                   
                                   shiny::tags$a("Dit een een klikbare link", target = "_blank", href = "https://www.google.com"),
                                   tags$br(),
@@ -46,7 +48,11 @@ body <- softui::dashboard_body(
                                   
                                   
                         ),
-                      softui::action_button("clickme", "Collapse Box!")
+                      softui::action_button("clickme", "Collapse Box!"),
+                      
+                      softui::box(
+                        verbatimTextOutput("txtout")
+                      )
                      )
     ),
 
@@ -74,6 +80,13 @@ server <- function(input, output, session){
     softui::collapse_box("thisismybox")
   })
   
+  output$idletime <- renderUI({
+    tags$p("Idle time:", input$softui_app_idle_time)
+  })
+  
+  output$txtout <- renderPrint({
+    reactiveValuesToList(input)
+  })
 }
 
 shinyApp(ui, server)

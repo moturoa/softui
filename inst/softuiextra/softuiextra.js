@@ -22,6 +22,26 @@ $( document ).ready(function() {
   });
   
   
+  // https://stackoverflow.com/questions/667555/how-to-detect-idle-time-in-javascript-elegantly
+  var idleTime = 0;
+  function timerIncrement() {
+    idleTime = idleTime + 1;
+  
+    Shiny.setInputValue("softui_app_idle_time", idleTime);
+  
+  }
+
+  var idleInterval = setInterval(timerIncrement, 1000); // millisec
+
+  //Zero the idle timer on mouse movement.
+  $(this).mousemove(function (e) {
+    idleTime = 0;
+  });
+  $(this).keypress(function (e) {
+    idleTime = 0;
+  });
+    
+
   // Minimize sidebar menu_item
   // code from  softui.js, but copied here because it does not work outside a document.ready function.
 
