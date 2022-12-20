@@ -27,7 +27,7 @@ $( document ).ready(function() {
   function timerIncrement() {
     idleTime = idleTime + 1;
   
-    Shiny.setInputValue("softui_app_idle_time", idleTime);
+    Shiny.setInputValue("idle_timeout-app_idle_time", idleTime);
   
   }
 
