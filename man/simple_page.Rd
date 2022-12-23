@@ -4,7 +4,7 @@
 \alias{simple_page}
 \title{Simple page without sidebar or header}
 \usage{
-simple_page(...)
+simple_page(..., padding = "40px")
 }
 \description{
 Make a simple page with the correct background color, and all of \code{softui}'s dependencies.
