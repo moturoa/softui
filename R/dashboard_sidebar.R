@@ -28,8 +28,20 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
   
   # First menu item is always selected
   if(length(items) == 1){
-    items[[1]]$children[[2]][[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[2]][[1]], 
-                                                                       class = "show active")
+    
+    child <- items[[1]]$children
+    
+    if(length(child) == 1){
+      
+      items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
+                                                                      class = "show active")
+      
+    } else {
+      items[[1]]$children[[2]][[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[2]][[1]], 
+                                                                      class = "show active")  
+    }
+    
+    
   } else {
     items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
                                                                class = "show active")  
