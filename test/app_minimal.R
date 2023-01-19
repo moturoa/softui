@@ -6,13 +6,22 @@ library(shiny)
 library(dplyr)
 
 sidebar <- softui::dashboard_sidebar(
-  menu = softui::sidebar_menu(
-    softui::menu_item("Page1", tabName = "page1", icon = bsicon("bar-chart-fill")),
-    softui::menu_item("Page2", tabName = "page2", icon = bsicon("tools"))
-  ),
   
-  ui_above = action_button("btn_watch", "Bekijk video!", status = "info"),
-  ui_below = action_button("btn_update", "Systeem herladen", status = "success")
+  menu = softui::sidebar_menu(
+    
+    softui::menu_item("Page1", icon = bsicon("bar-chart-fill"),
+                      softui::menu_subitem("Sub-pagina 1", tabName = "page1"),
+                      softui::menu_subitem("Sub-pagina 2", tabName = "page2")
+                      ),
+    softui::menu_item("Page2", icon = bsicon("bar-chart-fill"),
+                      softui::menu_subitem("Sub-pagina 3", tabName = "page3"),
+                      softui::menu_subitem("Sub-pagina 4", tabName = "page4")
+    )
+    #softui::menu_item("Page2", tabName = "page2", icon = bsicon("tools"))
+  )
+  
+  # ui_above = action_button("btn_watch", "Bekijk video!", status = "info"),
+  # ui_below = action_button("btn_update", "Systeem herladen", status = "success")
 )
 
 body <- softui::dashboard_body(

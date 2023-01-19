@@ -43,8 +43,15 @@ sidebar_menu <- function(..., id = NULL, .list = NULL){
     
     
   } else {
-    items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
-                                                               class = "show active")  
+    
+    if(!is.null(items[[1]]$children[[1]])){
+      items[[1]]$children[[1]] <- htmltools::tagAppendAttributes(items[[1]]$children[[1]], 
+                                                                 class = "show active")    
+    } else {
+      items[[2]]$children[[2]][[1]] <- htmltools::tagAppendAttributes(items[[2]]$children[[2]][[1]],class="show active")
+    }
+    
+    
   }
   
 
