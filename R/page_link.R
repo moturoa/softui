@@ -82,6 +82,7 @@ clicked_link_id <- function(id, input, session = shiny::getDefaultReactiveDomain
 #' @rdname page_link
 go_to_page <- function(selected, session = shiny::getDefaultReactiveDomain()){
   session$sendCustomMessage("selectMenuItem", list(selected = selected))
+  shiny::removeModal() # kan nodig zijn, lijkt nooit nodig om de modal te behouden!
 }
 
 
