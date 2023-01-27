@@ -21,7 +21,17 @@ userLogoutModule <- function(input, output, session, username = "unknown"){
   # --> expand
   output$user_content <- shiny::renderUI({
     
-    shiny::tags$p(glue::glue("Ingelogd als {username}"))
+    shiny::tags$div(
+      shiny::tags$p(glue::glue("Ingelogd als '{username}'")),
+      shiny::tags$hr(),
+      
+      action_button(session$ns("btn_logout"), 
+                            "Uitloggen", 
+                            icon = bsicon("box-arrow-right"),
+                            status = "warning",
+                            onclick = "document.location.href = document.location.href + '__logout__';")
+    )
+    
     
   })
   
