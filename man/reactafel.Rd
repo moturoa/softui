@@ -7,6 +7,7 @@
 reactafel(
   ...,
   wrap = FALSE,
+  striped = TRUE,
   resizable = TRUE,
   pageLength = 10,
   rownames = FALSE,

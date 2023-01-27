@@ -2,9 +2,15 @@
 % Please edit documentation in R/set_background_grey_level.R
 \name{set_background_grey_level}
 \alias{set_background_grey_level}
+\alias{setContrastMenuUI}
+\alias{setContrastMenu}
 \title{Set body background grey level for higher contrast}
 \usage{
 set_background_grey_level(level, session = shiny::getDefaultReactiveDomain())
+
+setContrastMenuUI(id)
+
+setContrastMenu(input, output, session)
 }
 \arguments{
 \item{level}{100, 200, 300, etc.}

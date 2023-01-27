@@ -50,11 +50,11 @@ get_application_version = function(){
 #' @rdname tenantNewsModule
 tenantNewsModuleUI <- function(id){
   
-  ns <- NS(id)
+  ns <- shiny::NS(id)
   
-  tags$div(
+  shiny::tags$div(
     class = "dropdown",
-    actionLink(ns("lnk_show_all_news"), 
+    shiny::actionLink(ns("lnk_show_all_news"), 
                class = "nav-link", bsicon("stars"))
   )
   
