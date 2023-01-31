@@ -14,7 +14,7 @@ value_box <- function(value,
                       sub_status = "success",
                       icon = icon("chart-bar"),
                       width = 4,
-                      format_value = TRUE,
+                      format_value = FALSE,
                       height = NULL){
 
 
