@@ -86,7 +86,8 @@ box <- function(..., width = 12,
   
   collapse_tool <- htmltools::tagAppendAttributes(
     shiny::tags$div(softui::bsicon("chevron-up")),
-    class = "rotate"
+    class = "rotate",
+    onclick = "$(this).toggleClass('rotated180');"  # rotate the icon on click
   )
   
   if(collapsed)collapse_tool <- htmltools::tagAppendAttributes(collapse_tool, class = "rotated180")
@@ -103,7 +104,8 @@ box <- function(..., width = 12,
               },
               
               if(closable){
-                tags$button(type = "button", class = "btn-close", onclick = "$(this).closest('.card').fadeOut();",
+                tags$button(type = "button", class = "btn-close", 
+                            onclick = "$(this).closest('.card').fadeOut();",
                             style = glue::glue("display: inline-block;",
                                                "color: black !important;",
                                                "margin-left: 8px;",
@@ -131,6 +133,7 @@ box <- function(..., width = 12,
                                shiny::tags$h5(class = "card-title", title, style = "display: inline-block !important; float: left;"),
                                tool_ui,  
                              ),
+                             
                              shiny::tags$h6(class = "card-subtitle text-muted", subtitle), 
                              header_ui
     )
@@ -149,7 +152,6 @@ box <- function(..., width = 12,
                         style = "padding-top: 4px;",
                         ...)
              )
-             
     )
   )
 

@@ -16,12 +16,6 @@ $( document ).ready(function() {
       
   });  
   
-  // Icons with class 'rotate' can rotate 180deg on clicking
-  $(".rotate").click(function(){
-    $(this).toggleClass("rotated180"); 
-  });
-  
-  
   // https://stackoverflow.com/questions/667555/how-to-detect-idle-time-in-javascript-elegantly
   var idleTime = 0;
   function timerIncrement() {
