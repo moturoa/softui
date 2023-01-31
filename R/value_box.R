@@ -5,6 +5,7 @@
 #' @param sub_value A subtitle under the value
 #' @param sub_status Status color of the badge (best: "success" for positive, "danger" for negative, or see `?valid_statuses`)
 #' @param icon An icon to place
+#' @param format_value If TRUE, values like "1000" are formatted as "1,000". For this to work, value has to be numeric!
 #' @param height Height of the value box (NULL to autosize) (400 or "400px")
 #' @export
 value_box <- function(value,
@@ -13,10 +14,16 @@ value_box <- function(value,
                       sub_status = "success",
                       icon = icon("chart-bar"),
                       width = 4,
+                      format_value = TRUE,
                       height = NULL){
 
 
   validate_status(sub_status)
+  
+  if(is.numeric(value) && format_value){
+    fun <- scales::label_comma(accuracy = 1)
+    value <- fun(value)
+  }
   
   dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)}"))
   
