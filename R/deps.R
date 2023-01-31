@@ -99,7 +99,7 @@ add_softui_dependencies <- function(tag){
     ),
     htmltools::htmlDependency(
       name = "bootstrapicons",
-      version = "1.9.0",   # downloaded 2022/7/14
+      version = "1.10.3",   # downloaded 2023/1/31
       src = c(file = "bootstrap_icons"),
       stylesheet = "bootstrap-icons.css",
       package = "softui"
