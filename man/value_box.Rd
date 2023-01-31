@@ -11,6 +11,7 @@ value_box(
   sub_status = "success",
   icon = icon("chart-bar"),
   width = 4,
+  format_value = FALSE,
   height = NULL
 )
 }
@@ -22,6 +23,8 @@ value_box(
 \item{sub_status}{Status color of the badge (best: "success" for positive, "danger" for negative, or see \code{?valid_statuses})}
 
 \item{icon}{An icon to place}
+
+\item{format_value}{If TRUE, values like "1000" are formatted as "1,000". For this to work, value has to be numeric!}
 
 \item{height}{Height of the value box (NULL to autosize) (400 or "400px")}
 }
