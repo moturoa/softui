@@ -14,10 +14,12 @@ value_box <- function(value,
                       sub_status = "success",
                       icon = icon("chart-bar"),
                       width = 4,
+                      status = "primary",
                       format_value = FALSE,
                       height = NULL){
 
 
+  validate_status(status)
   validate_status(sub_status)
   
   if(is.numeric(value) && format_value){
@@ -47,7 +49,7 @@ value_box <- function(value,
           )
         ),
         shiny::tags$div(class = "col-4 text-end",
-          shiny::tags$div(class = "icon icon-shape bg-gradient-primary shadow text-center border-radius-md",
+          shiny::tags$div(class = glue::glue("icon icon-shape bg-gradient-{status} shadow text-center border-radius-md"),
             style = "float: right;",
               icon
             )

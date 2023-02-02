@@ -11,6 +11,7 @@ value_box(
   sub_status = "success",
   icon = icon("chart-bar"),
   width = 4,
+  status = "primary",
   format_value = FALSE,
   height = NULL
 )

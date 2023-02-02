@@ -10,6 +10,7 @@ value_icon_table(...)
 value_icon_item(
   title = NULL,
   icon = NULL,
+  status = "dark",
   value = 0,
   value_suffix = "items",
   sub_value = NULL,
