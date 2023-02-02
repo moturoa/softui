@@ -66,7 +66,26 @@ body <- softui::dashboard_body(
     ),
 
     softui::tab_item("page2",
-                     softui::box(title = "Page 2", width = 12)
+                     softui::box(title = "Page 2", width = 12,
+                                 
+                                 
+                                 
+                                 value_icon_table(
+                                   value_icon_item("Signalen", bsicon("shield-shaded"),
+                                                   value = "121", value_suffix = "ingevoerd",
+                                                   sub_value = "+12", sub_value_suffix = "vorige maand"
+                                                   ),
+                                   value_icon_item("Acties", bsicon("flag-fill"),
+                                                   value = "54", value_suffix = "ingevoerd",
+                                                   sub_value = "+5", sub_value_suffix = "vorige maand"
+                                   )
+                                 )
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 )
     )
   )
 )
@@ -95,7 +114,7 @@ server <- function(input, output, session){
   })
   
   
-  idle_time <- softui::idle_timeout(timeout_warning = 5)
+  idle_time <- softui::idle_timeout(timeout_warning = 30) 
   output$idletime <- renderUI(tags$p("Idle time:",idle_time()))
 }
 
