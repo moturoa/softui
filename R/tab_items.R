@@ -18,7 +18,8 @@ dashboard_body <- function(..., .list = NULL){
 tab_items <- function(..., .list = NULL){
 
 
-  items <- c(list(...), .list)
+  items <- dropNulls(c(list(...), .list))
+  
   items[[1]] <- htmltools::tagAppendAttributes(items[[1]], class = "active") 
 
   fluid_page(

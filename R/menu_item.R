@@ -38,7 +38,7 @@ menu_item <- function(text, ..., icon = bsicon("bar-chart-fill"),
   
   shiny::tags$li(
     id = id,
-    class = "nav-item",
+    class = "nav-item has-treeview",
     if(separator_above){
       shiny::tags$hr(class = "horizontal dark")
     },
@@ -84,7 +84,8 @@ menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
   self_id <- random_id()
   
   htmltools::tagList(
-    shiny::tags$a(class = "nav-link show", id = self_id,
+    
+    shiny::tags$a(class = "nav-link",
          
          href = paste0("#", collapse_id),
          `data-bs-toggle` = "collapse",
@@ -96,6 +97,7 @@ menu_link_with_subitems <- function(..., icon, text, tabName = NULL){
          ),
          shiny::tags$span(class = "nav-link-text ms-1",  text)
     ),
+    
     
     shiny::tags$div(
       class = "collapse", 

@@ -16,6 +16,23 @@ $( document ).ready(function() {
       
   });  
   
+  //var $tablinks = $(
+  //  ".sidebar-menu a[data-toggle='tab']," + ".sidebar-menu li.has-treeview > a"
+  //);
+
+
+  //$tablinks.on("click",
+  
+    //function(event) {
+    //  $tablinks.not($(this)).removeClass("active");
+      
+    //  $(this).addClass("active");
+      
+    //}
+  //);
+  
+  
+  
   // https://stackoverflow.com/questions/667555/how-to-detect-idle-time-in-javascript-elegantly
   var idleTime = 0;
   function timerIncrement() {
