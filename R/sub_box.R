@@ -40,7 +40,9 @@ sub_box <- function(...,
   
   icon_ <- htmltools::tagAppendAttributes(
     shiny::tags$div(softui::bsicon("chevron-up")),
-    class = "rotate"
+    class = "rotate",
+    onclick = "$(this).toggleClass('rotated180');"  # rotate the icon on click
+    
   )
   
   if(collapsed)icon_ <- htmltools::tagAppendAttributes(icon_, class = "rotated180")
@@ -49,6 +51,7 @@ sub_box <- function(...,
     shiny::tags$a(style = "float:right;display:inline-block;", 
                   `data-bs-toggle` = "collapse",
                   href = paste0("#",id_bx),
+                  id = paste0("collapse-",id_bx),
                   icon_
     )
   } else NULL
