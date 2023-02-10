@@ -124,7 +124,6 @@ tab_box <- function(...,
             shiny::tags$div(class = "tab-content", `data-tabsetid` = idnr,
                      cont
             )
-
       )
 
     )
