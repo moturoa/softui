@@ -9,6 +9,7 @@ box_panel(
   title = "",
   ...,
   value = title,
+  box_title = NULL,
   icon = NULL,
   class = "",
   width = NULL

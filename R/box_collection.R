@@ -17,7 +17,10 @@
 #')
 #'
 #'shinyApp(ui, function(input,output){})
-box_panel <- function(title = "", ..., value = title, icon = NULL, class = "", width = NULL){
+box_panel <- function(title = "", ..., 
+                      value = title, 
+                      box_title = NULL,
+                      icon = NULL, class = "", width = NULL){
   
   if(!is.null(width)){
     warning("width ignored; sized by box_collection")
@@ -35,6 +38,10 @@ box_panel <- function(title = "", ..., value = title, icon = NULL, class = "", w
     value <- random_id()
   }
 
+  if(!is.null(box_title)){
+    title <- box_title
+  }
+  
   shiny::tags$div(class = "tab-pane", 
                   `data-value` = value, tab_title = HTML(tab_title), 
                   
