@@ -16,6 +16,7 @@ datatafel(
   scrollX = FALSE,
   options = list(),
   lengthChange = FALSE,
+  default_style = "bootstrap4",
   class = "row-border hover"
 )
 }
