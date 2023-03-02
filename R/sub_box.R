@@ -58,7 +58,7 @@ sub_box <- function(...,
   
   
   tags$div(class = glue::glue("border-0 p-4 {bg_css} border-radius-lg"),
-           style = glue::glue("margin-bottom: {margin_bottom}px"),
+           style = glue::glue("margin-bottom: {margin_bottom}px;"),
         if(!is.null(title)){
           shiny::tagList(
             shiny::tags$div(style = "width: 100% !important; height: 32px !important;",

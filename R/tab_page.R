@@ -77,7 +77,7 @@ tab_page <- function(...,
                         shiny::tags$div(class = "card-header",
                                         ui_above_nav,
                                         shiny::tags$ul(class = nav_cl,
-                                                       `data-tabsetid`= glue::glue("{idnr}"),
+                                                       `data-tabsetid` = glue::glue("{idnr}"),
                                                        tab_links
                                         )
                         )

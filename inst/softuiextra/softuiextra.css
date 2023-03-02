@@ -1,3 +1,4 @@
+
 .nav-link.active .sidebar-icon{
    color: white !important;
 }
@@ -44,6 +45,26 @@
   text-transform: none !important;
   line-height: 1.5 !important;
 } 
+
+/* fileInput */
+.btn-file{
+ background-color: white;
+ border-top-right-radius:0 !important;
+ border-bottom-right-radius:0 !important;
+ line-height: 1rem !important;
+ border: 1px solid lightgrey !important;
+ box-shadow: none !important;
+ padding: 1rem 1.5rem;
+ margin-bottom:0;
+}
+
+/* fileInput button does not fit with file input to the right fix*/
+.input-group-prepend{
+   margin-bottom: 0 !important;
+}
+
+
+
 
 /* datatable background color */
 .table.dataTable tbody tr.active td {
