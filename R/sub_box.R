@@ -16,7 +16,10 @@ sub_box <- function(...,
                     grey_level = 0.1,
                     collapsible = TRUE,
                     collapsed = FALSE,
-                    margin_bottom = 0){
+                    dashed_border = FALSE,
+                    border_width = 3,
+                    margin_bottom = 0,
+                    title_container = shiny::tags$h6){
   
   grey_level <- as.numeric(grey_level)
   if((10 *grey_level) %% 1 > 0){
@@ -24,59 +27,15 @@ sub_box <- function(...,
   }
   stopifnot(grey_level >= 0 & grey_level <= 0.9)
   
-  bg_css <- if(grey_level == 0){
-    ""  
-  } else {
-    glue::glue("bg-gray-{1000*grey_level}")
-  }
+  bg_css <- ifelse(grey_level == 0, "", glue::glue("bg-gray-{1000*grey_level}"))
+  border_css <- ifelse(!dashed_border, "", glue::glue("border-dashed border-{border_width}"))
+  box_class <- paste("card-plain", bg_css, border_css)  # card-plain switches off box-shadow
   
-  
-  
-  if(!is.null(icon)){
-    title <- htmltools::tagList(icon, title)
-  }
-  
-  id_bx <- random_id()
-  
-  icon_ <- htmltools::tagAppendAttributes(
-    shiny::tags$div(softui::bsicon("chevron-up")),
-    class = "rotate",
-    onclick = "$(this).toggleClass('rotated180');"  # rotate the icon on click
-    
+  box(
+    title = title, class = box_class,
+    collapsed = collapsed, collapsible = collapsible,
+    title_container = title_container,
+    ...
   )
-  
-  if(collapsed)icon_ <- htmltools::tagAppendAttributes(icon_, class = "rotated180")
-  
-  tool_ui <- if(collapsible){
-    shiny::tags$a(style = "float:right;display:inline-block;", 
-                  `data-bs-toggle` = "collapse",
-                  href = paste0("#",id_bx),
-                  id = paste0("collapse-",id_bx),
-                  icon_
-    )
-  } else NULL
-  
-  
-  tags$div(class = glue::glue("border-0 p-4 {bg_css} border-radius-lg"),
-           style = glue::glue("margin-bottom: {margin_bottom}px;"),
-        if(!is.null(title)){
-          shiny::tagList(
-            shiny::tags$div(style = "width: 100% !important; height: 32px !important;",
-                            shiny::tags$h6(class="text-sm", 
-                                           title, 
-                                           style = paste("display: inline-block !important;",
-                                                         "float: left;")),
-                            tags$div(tool_ui, style = "float: right;")
-            ) 
-          )
-        }, 
-        
-        shiny::tags$div(
-          id = id_bx, class = ifelse(collapsed, "collapse", "collapse show"),
-          ...
-        )
-    )
-    
-  
-}
 
+}

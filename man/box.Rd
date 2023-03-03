@@ -19,6 +19,7 @@ box(
   height = NULL,
   margin_bottom = 32,
   class = "",
+  title_container = shiny::tags$h5,
   id = NULL
 )
 }

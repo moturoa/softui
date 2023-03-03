@@ -96,12 +96,7 @@ box <- function(..., width = 12,
   tool_ui <- tags$div(style = "float:right;display:inline-block;", 
                       
               if(collapsible){
-                shiny::tags$a(style = "display: inline-block;",
-                  `data-bs-toggle` = "collapse",
-                  href = paste0("#",id_bx),
-                  id = paste0("collapse-",id_bx),
                   collapse_tool
-                )
               },
               
               if(closable){
@@ -126,6 +121,8 @@ box <- function(..., width = 12,
   if(is.null(title) & is.null(subtitle)){
     head_section <- NULL
   } else {
+    
+
     head_section <- shiny::tags$div(class = paste("card-header",class),
                              style = "border-radius: 1rem; border: none;",
                              tag_ui,
@@ -138,6 +135,22 @@ box <- function(..., width = 12,
                              shiny::tags$h6(class = "card-subtitle text-muted", subtitle), 
                              header_ui
     )
+    
+    
+    if(collapsible){
+      
+      
+      head_section <- shiny::tags$a(style = "display: inline-block;",
+                                    `data-bs-toggle` = "collapse",
+                                    href = paste0("#",id_bx),
+                                    id = paste0("collapse-",id_bx),
+                                    
+                                    onclick = "$(this).find('.rotate').toggleClass('rotated180');",
+                                    
+                                    head_section)
+      
+    }
+    
   }
   
   dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)};"))

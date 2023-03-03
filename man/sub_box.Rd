@@ -11,7 +11,10 @@ sub_box(
   grey_level = 0.1,
   collapsible = TRUE,
   collapsed = FALSE,
-  margin_bottom = 0
+  dashed_border = FALSE,
+  border_width = 3,
+  margin_bottom = 0,
+  title_container = shiny::tags$h6
 )
 }
 \arguments{
