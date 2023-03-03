@@ -32,7 +32,7 @@ sub_box <- function(...,
   box_class <- paste("card-plain", bg_css, border_css)  # card-plain switches off box-shadow
   
   box(
-    title = title, class = box_class,
+    title = title, class = box_class, icon = icon,
     collapsed = collapsed, collapsible = collapsible,
     title_container = title_container,
     ...
