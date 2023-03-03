@@ -47,7 +47,8 @@ tab_box <- function(...,
                     fill = FALSE,
                     ui_above_nav = NULL,
                     ui_below_nav = NULL,
-                    style = ""){
+                    style = "",
+                    class = ""){
 
   
   type <- "pills"  # want tabs is lelijk hier
@@ -111,7 +112,9 @@ tab_box <- function(...,
 
   shiny::tags$div(class = glue::glue("col-lg-{width}"),
               
-    shiny::tags$div(class = "card", id = id, style = style,
+    shiny::tags$div(class = paste("card",class), 
+                    id = id, style = style,
+                    
       shiny::tags$div(class = "card-header",
                       ui_above_nav,
         shiny::tags$ul(class = nav_cl,
