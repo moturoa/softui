@@ -10,10 +10,25 @@ tabset_panel(
   selected = NULL,
   width = 12,
   fill = FALSE,
-  type = c("pills", "tabs"),
+  type = NULL,
   style = ""
 )
 }
+\arguments{
+\item{...}{Furher arguments to \code{\link[=tab_box]{tab_box()}}, and \code{tab_panel}'s}
+
+\item{id}{Optional id for the tab_box}
+
+\item{selected}{Which tab is selected initially? Defaults to the first tab}
+
+\item{width}{Width of tab_box in bootstrap units (default = 12)}
+
+\item{fill}{If TRUE, makes the tab panel titles fill the entire available width}
+
+\item{style}{Extra CSS for the \code{card} class.}
+}
 \description{
-Tab panel
+Just like tab_box, but without a box-shadow. You can use a tabset_panel in a box,
+but you cannot use a tab_box in a box (double box shadows!).
+Identical to \code{tab_box(..., class = 'card-plain')}
 }
