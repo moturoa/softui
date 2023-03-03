@@ -15,7 +15,8 @@ tab_box(
   fill = FALSE,
   ui_above_nav = NULL,
   ui_below_nav = NULL,
-  style = ""
+  style = "",
+  class = ""
 )
 }
 \arguments{
