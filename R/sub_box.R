@@ -22,9 +22,6 @@ sub_box <- function(...,
                     title_container = shiny::tags$h6){
   
   grey_level <- as.numeric(grey_level)
-  if((10 *grey_level) %% 1 > 0){
-    stop("provide grey_level in steps of 0.1")
-  }
   stopifnot(grey_level >= 0 & grey_level <= 0.9)
   
   bg_css <- ifelse(grey_level == 0, "", glue::glue("bg-gray-{1000*grey_level}"))
