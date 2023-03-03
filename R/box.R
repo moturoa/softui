@@ -62,6 +62,7 @@ box <- function(..., width = 12,
                 height = NULL,
                 margin_bottom = 32, 
                 class = "",
+                title_container = shiny::tags$h5,
                 id = NULL){
 
   if(is.null(id)){
@@ -119,18 +120,18 @@ box <- function(..., width = 12,
   
   
   tag_ui <- if(!is.null(tag) && tag != ""){
-    shiny::tags$span(class=glue::glue("text-gradient text-{tag_status} text-uppercase text-xs font-weight-bold my-2"),tag)
+    shiny::tags$span(class = glue::glue("text-gradient text-{tag_status} text-uppercase text-xs font-weight-bold my-2"),tag)
   } else NULL
   
   if(is.null(title) & is.null(subtitle)){
     head_section <- NULL
   } else {
     head_section <- shiny::tags$div(class = paste("card-header",class),
-                             style = "border-radius: 1rem;",
+                             style = "border-radius: 1rem; border: none;",
                              tag_ui,
 
                              shiny::tags$div(style = "width: 100% !important; height: 40px !important;",
-                               shiny::tags$h5(class = "card-title", title, style = "display: inline-block !important; float: left;"),
+                               title_container(class = "card-title", title, style = "display: inline-block !important; float: left;"),
                                tool_ui,  
                              ),
                              
