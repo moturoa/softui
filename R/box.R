@@ -86,14 +86,15 @@ box <- function(..., width = 12,
   }
   
   collapse_tool <- htmltools::tagAppendAttributes(
-    shiny::tags$div(softui::bsicon("chevron-up")),
+    shiny::tags$div(softui::bsicon("chevron-up"), 
+                    style = "display: inline-block;"),
     class = "rotate",
     onclick = "$(this).toggleClass('rotated180');"  # rotate the icon on click
   )
   
   if(collapsed)collapse_tool <- htmltools::tagAppendAttributes(collapse_tool, class = "rotated180")
   
-  tool_ui <- tags$div(style = "float:right;display:inline-block;", 
+  tool_ui <- tags$div(style = "float:right;display:inline-block;", class = "softui-box-tools",
                       
               if(collapsible){
                   collapse_tool
