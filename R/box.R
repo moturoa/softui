@@ -116,7 +116,9 @@ box <- function(..., width = 12,
   
   
   tag_ui <- if(!is.null(tag) && tag != ""){
-    shiny::tags$span(class = glue::glue("text-gradient text-{tag_status} text-uppercase text-xs font-weight-bold my-2"),tag)
+    shiny::tags$span(class = glue::glue("text-gradient text-{tag_status} text-uppercase text-xs font-weight-bold my-2"),
+                     style = "text-decoration: none !important;",
+                     tag)
   } else NULL
   
   if(is.null(title) & is.null(subtitle)){
@@ -173,17 +175,4 @@ box <- function(..., width = 12,
 }
 
 
-
-
-# 
-# shiny::tags$a(class = "btn btn-primary", 
-#        `data-bs-toggle`="collapse", 
-#        href="#collapseExample"),
-# shiny::tags$div(
-#   class = "collapse", id = "collapseExample",
-#   shiny::tags$div(class = "card card-body",
-#            "Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."
-#            
-#   )
-# ),
 
