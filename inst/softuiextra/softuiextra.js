@@ -32,7 +32,8 @@ $( document ).ready(function() {
   //);
   
   
-  
+  // Idle timer: number of seconds since the app is 'untouched' (no clicks)
+  // Sent to an input ID, used in the idle timer in softui.
   // https://stackoverflow.com/questions/667555/how-to-detect-idle-time-in-javascript-elegantly
   var idleTime = 0;
   function timerIncrement() {
@@ -84,6 +85,10 @@ $( document ).ready(function() {
 });
   
     
+// First time the app is 'idle', not busy. This is used to time how long it takes for the app to load
+$(document).one('shiny:idle', function(){
+  Shiny.setInputValue("softui_app_is_idle", Math.random());
+});
 
 
 // Simpler alternative to updateTabItems
