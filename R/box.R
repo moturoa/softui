@@ -88,8 +88,7 @@ box <- function(..., width = 12,
   collapse_tool <- htmltools::tagAppendAttributes(
     shiny::tags$div(softui::bsicon("chevron-up"), 
                     style = "display: inline-block;"),
-    class = "rotate",
-    onclick = "$(this).toggleClass('rotated180');"  # rotate the icon on click
+    class = "rotate"
   )
   
   if(collapsed)collapse_tool <- htmltools::tagAppendAttributes(collapse_tool, class = "rotated180")
@@ -117,7 +116,6 @@ box <- function(..., width = 12,
   
   tag_ui <- if(!is.null(tag) && tag != ""){
     shiny::tags$span(class = glue::glue("text-gradient text-{tag_status} text-uppercase text-xs font-weight-bold my-2"),
-                     style = "text-decoration: none !important;",
                      tag)
   } else NULL
   
@@ -147,7 +145,7 @@ box <- function(..., width = 12,
                                     `data-bs-toggle` = "collapse",
                                     href = paste0("#",id_bx),
                                     id = paste0("collapse-",id_bx),
-                                    
+                                    style = "text-decoration: none !important;",
                                     onclick = "$(this).find('.rotate').toggleClass('rotated180');",
                                     
                                     head_section)

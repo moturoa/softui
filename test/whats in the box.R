@@ -6,6 +6,7 @@ ui <- softui::simple_page(
 
   softui::box(
 
+    tag = "data",
     title = "Box in a box",
     
     # softui::box(
