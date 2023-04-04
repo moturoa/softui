@@ -58,6 +58,11 @@
  margin-bottom:0;
 }
 
+.progress-bar{
+  margin-top: 4px !important;
+  height: 12px !important;
+}
+
 /* fileInput button does not fit with file input to the right fix*/
 .input-group-prepend{
    margin-bottom: 0 !important;
