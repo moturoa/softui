@@ -23,6 +23,10 @@ application_read_news <- function(category = NULL, min_version = NULL, news_file
 
 #' @importFrom reactable reactable
 render_news_table <- function(data){
+  
+  # Do not show the same version twice
+  data$Version[duplicated(data$Version)] <- ""
+  
   data |> 
     dplyr::select(Versie = Version, Nieuws = HTML) |> 
     reactable::reactable(columns = list(
