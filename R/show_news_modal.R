@@ -1,8 +1,9 @@
 
 
-
+#' Read the NEWS.md file and maybe filter by category (tenant)
 #' @importFrom dplyr filter
-application_read_news <- function(category = NULL, min_version = NULL, news_file = "NEWS.md"){
+#' @export
+read_application_news <- function(category = NULL, min_version = NULL, news_file = "NEWS.md"){
   
   if(!file.exists(news_file)){
     stop("Make a NEWS.md file first (see WBM, Apollo)")
@@ -99,9 +100,9 @@ show_version_news_modal <- function(previous_version = NULL,
   changes_since <- match.arg(changes_since)
   
   data <- if(changes_since == "all"){
-    application_read_news(category = category)  
+    read_application_news(category = category)  
   } else {
-    application_read_news(category = category, 
+    read_application_news(category = category, 
                           min_version = previous_version)
   }
   
