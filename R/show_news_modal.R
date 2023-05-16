@@ -70,7 +70,7 @@ tenantNewsModuleUI <- function(id){
 tenantNewsModule <- function(input, output, session, category = NULL){
   
   observeEvent(input$lnk_show_all_news, {
-    show_version_news_modal(changes_since = "all", category = NULL)
+    show_version_news_modal(changes_since = "all", category = category)
   })
   
 }
