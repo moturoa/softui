@@ -2,9 +2,15 @@
 % Please edit documentation in R/collapse_box.R
 \name{collapse_box}
 \alias{collapse_box}
+\alias{toggle_box}
+\alias{expand_box}
 \title{Collapse and uncollapse a box}
 \usage{
 collapse_box(id, session = shiny::getDefaultReactiveDomain())
+
+toggle_box(id, session = shiny::getDefaultReactiveDomain())
+
+expand_box(id, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
 \item{id}{The id of the \code{\link[=box]{box()}}}

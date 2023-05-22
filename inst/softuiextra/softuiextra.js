@@ -168,11 +168,39 @@ Shiny.addCustomMessageHandler("setBodyGreyLevel", setBodyGreyLevel);
 // Collapse a box
 collapseBox = function(data){
   
-  $('#collapse-'+data.id)[0].click(); 
+  let el = $('#collapse-'+data.id);
+
+  // box is already collapsed; do not collapse it again!
+  if(el.find('.rotated180').length == 0){
+    el[0].click();
+  }
   
 };
 
+expandBox = function(data){
+  
+  let el = $('#collapse-'+data.id);
+
+  // box is already collapsed; do not collapse it again!
+  if(el.find('.rotated180').length !== 0){
+    el[0].click();
+  }
+  
+};
+
+toggleBox = function(data){
+  
+  let el = $('#collapse-'+data.id);
+
+  el[0].click();
+
+};
+
 Shiny.addCustomMessageHandler("collapseBox", collapseBox);
+Shiny.addCustomMessageHandler("expandBox", expandBox);
+Shiny.addCustomMessageHandler("toggleBox", toggleBox);
+
+
 
 
 
