@@ -27,7 +27,21 @@ See `?dashboard_page` for a simple example to get started.
 - Dutch version interface to `DT::datatable` (`datatafel`) and `reactable::reactable` (`reactafel`).
 - Wrappers around common inputs with enterprise settings, `select_input`, `virtual_select_input`, `modal`
 - SoftUI elements: `value_box`, `value_icon_list`, `timeline_from_data`, `icon_action_button`, `badge`, etc.
+- Up to date bootstrap icons (`bsicon`)
 
+## Files
+
+All R functions are defined in `R/`; other dependencies are collected in the folder `inst/` ;
+- `assets` : files shipped with the SoftUI template (with slight modifications)
+- `bootstrap_icons` : manual download from [https://icons.getbootstrap.com/#install] ("Download latest zip")
+- `bs51` : Bootstrap 5.1 from [https://getbootstrap.com/docs/5.1/getting-started/download/], no update needed. Switching to a later Bootstrap is probably not worth the effort.
+- `clicksystem` : JS dependencies for click system
+- `clock` : unused
+- `fontawesome` : not sure why this is needed; the FontAwesome font (again)
+- `icofont` : for `softui::icoicon` (not very nice)
+- `logo` : ShintoLabs logo
+- `opensans` : the OpenSans font used by SoftUI
+- `softuiextra` : extra custom CSS/JS to make everything work nice
 
 
 ## Known issues
@@ -38,3 +52,4 @@ Some R packages with shiny widgets (such as `shinyWidgets`, `shinyBS`) may not p
 ## Contact
 
 Remko Duursma
+
