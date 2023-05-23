@@ -17,7 +17,6 @@ Imports:
     shintoshiny,
     shinyWidgets,
     tibble,
-    reactable,
     rlang,
     prompter,
     kableExtra,

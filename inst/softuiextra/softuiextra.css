@@ -1,4 +1,8 @@
 
+/*  Extra CSS written by Shinto Labs for softui-based shinto applications */
+/* Fixes various small layout/size/margin problems with common shiny or page elements */
+
+/* Icon in menu left in dashboard_page */
 .nav-link.active .sidebar-icon{
    color: white !important;
 }
@@ -20,7 +24,7 @@
 .sidenav{
   overflow: hidden;
 }
-
+/* menu left (sidenav) tidy collapse */
 #sidenav-collapse-main{
   overflow: hidden;
 }
@@ -58,6 +62,7 @@
  margin-bottom:0;
 }
 
+/* shinycssloader busy bar top of app */
 .progress-bar{
   margin-top: 4px !important;
   height: 12px !important;
