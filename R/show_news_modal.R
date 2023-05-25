@@ -106,6 +106,11 @@ show_version_news_modal <- function(previous_version = NULL,
                           min_version = previous_version)
   }
   
+  if(nrow(data) == 0){
+    message("No news to show in softui::show_version_news_modal")
+    return(NULL)
+  }
+  
   header <- if(changes_since == "all"){
     header_label$all
   } else {
