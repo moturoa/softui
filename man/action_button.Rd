@@ -4,7 +4,7 @@
 \alias{action_button}
 \title{Simple wrapper around actionButton with softui CSS classes}
 \usage{
-action_button(..., class = "", status = NULL)
+action_button(..., class = "", status = NULL, disabled = FALSE)
 }
 \arguments{
 \item{\dots}{Arguments sent to \code{shiny::actionButton}}
