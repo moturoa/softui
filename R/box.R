@@ -23,6 +23,7 @@
 #' Can be a vector of classes or e.g. "class1 class2". Softui (and Bootstrap 5.1) have a number of interesting classes such as
 #' 'card-plain', 'card-blog', or various margin-modifying classes ('mt-5', 'mt-md-0'). More research needed.
 #' @param id An id for the box, you must set this if you want to collapse the box with [collapse_box()].
+#' @param id_close If closable, an optional input ID for the close button (so you can add an observer to it in shiny)
 #' @export
 #' @examples
 #' ui <- softui::simple_page(
@@ -63,7 +64,8 @@ box <- function(..., width = 12,
                 margin_bottom = 32, 
                 class = "",
                 title_container = shiny::tags$h5,
-                id = NULL){
+                id = NULL,
+                id_close = NULL){
 
   if(is.null(id)){
     id_bx <- random_id()  
@@ -100,7 +102,8 @@ box <- function(..., width = 12,
               },
               
               if(closable){
-                tags$button(type = "button", class = "btn-close", 
+                tags$button(type = "button", class = "btn-close action-button", 
+                            id = id_close,
                             onclick = "$(this).closest('.card').fadeOut();",
                             style = glue::glue("display: inline-block;",
                                                "color: black !important;",

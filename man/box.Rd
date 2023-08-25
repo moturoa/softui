@@ -20,7 +20,8 @@ box(
   margin_bottom = 32,
   class = "",
   title_container = shiny::tags$h5,
-  id = NULL
+  id = NULL,
+  id_close = NULL
 )
 }
 \arguments{
@@ -53,6 +54,8 @@ Can be a vector of classes or e.g. "class1 class2". Softui (and Bootstrap 5.1) h
 'card-plain', 'card-blog', or various margin-modifying classes ('mt-5', 'mt-md-0'). More research needed.}
 
 \item{id}{An id for the box, you must set this if you want to collapse the box with \code{\link[=collapse_box]{collapse_box()}}.}
+
+\item{id_close}{If closable, an optional input ID for the close button (so you can add an observer to it in shiny)}
 }
 \description{
 All content in a softui application should be placed inside a \code{softui::box}.
