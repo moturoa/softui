@@ -25,7 +25,8 @@ box(
 )
 }
 \arguments{
-\item{width}{Bootstrap width}
+\item{width}{Bootstrap width. The box is placed in a \code{div} with class e.g. \code{col-lg-12} for width = 12.
+If \code{width=NULL}, the class is simply \code{col} (handy for some bootstrap layouts)}
 
 \item{title}{Title for the box}
 

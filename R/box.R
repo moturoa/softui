@@ -7,7 +7,8 @@
 #' of 32px at the bottom (see argument `margin_bottom`).
 #' @details This is actually a `div` with class `card` (and sub components), 
 #' a standard Bootstrap 5.1 component further styled by softui CSS.
-#' @param width Bootstrap width
+#' @param width Bootstrap width. The box is placed in a `div` with class e.g. `col-lg-12` for width = 12. 
+#' If `width=NULL`, the class is simply `col` (handy for some bootstrap layouts)
 #' @param title Title for the box
 #' @param subtitle Subtitle for the box
 #' @param icon Optional icon (will be placed left of title)
@@ -71,6 +72,13 @@ box <- function(..., width = 12,
     id_bx <- random_id()  
   } else {
     id_bx <- id
+  }
+  
+  
+  if(!is.null(width)){
+    container_class <- paste0("col-lg-", width)  
+  } else {
+    container_class <- "col"
   }
   
   
@@ -160,7 +168,7 @@ box <- function(..., width = 12,
   dvst <- ifelse(is.null(height), "", glue::glue("height: {shiny::validateCssUnit(height)};"))
   mst <- glue::glue("margin-bottom: {shiny::validateCssUnit(margin_bottom)} !important;")
   
-  shiny::tags$div(class = glue::glue("col-lg-{width}"), 
+  shiny::tags$div(class = container_class, 
     shiny::tags$div(class = paste("card",class),
              style = paste(mst,dvst),
              head_section,        
