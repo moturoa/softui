@@ -92,8 +92,6 @@ body <- softui::dashboard_body(
                         softui::tab_panel("Picker select", value = "picker",
                                           icon = bsicon("list-task"),
                                           
-                                          picker_select_ui("test", "Select project", width = 350),
-                                          
                                           actionButton("btn_switch", "Go to other tab", class = "btn-primary")
 
                         ),       
@@ -384,13 +382,6 @@ server <- function(input, output, session) {
   })
 
 
-
-  
-  
-  out <- shiny::callModule(picker_select_module, "test", 
-                    choices = sort(readRDS("ehv_projecten.rds")$projectnaam))
-  
-  
 }
 
 shinyApp(ui, server)

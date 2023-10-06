@@ -55,7 +55,7 @@ dashboard_header <- function(..., tag_line = NULL, left_content = NULL, info = N
                    # Two standard dropdowns for Shinto apps
                    softui::dropdown_item(bsicon("gear-fill"), 
                                          header = "App Info",
-                                         shintoshiny::appInfoUI("appinfo", info = info),
+                                         appInfoUI("appinfo", info = info),
                                          align_right = TRUE
                    ),
                    

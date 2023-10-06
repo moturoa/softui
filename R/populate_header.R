@@ -11,7 +11,7 @@ populate_header <- function(username, hide = FALSE){
     shiny::callModule(softui::userLogoutModule, "user", username = username)  
   }
   
-  shiny::callModule(shintoshiny::appInfoModule, "appinfo")
+  shiny::callModule(appInfoModule, "appinfo")
   
 }
 

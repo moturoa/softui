@@ -14,7 +14,6 @@ Imports:
     shinydisconnect,
     shinyjs,
     shinytoastr,
-    shintoshiny,
     shinyWidgets,
     tibble,
     rlang,
@@ -22,7 +21,8 @@ Imports:
     kableExtra,
     htmltools,
     uuid,
-    reactable
+    reactable,
+    gert
 Depends: shiny, glue, htmltools, dplyr, tippy (>= 1.0)
 Suggests: shinipsum, tibble
 Encoding: UTF-8

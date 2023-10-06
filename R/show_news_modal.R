@@ -39,7 +39,7 @@ render_news_table <- function(data){
 
 #' Read software version from VERSION
 #' @export
-get_application_version = function(){
+get_application_version <- function(){
   
   fn <- "VERSION"
   if(!file.exists(fn)){

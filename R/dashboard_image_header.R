@@ -35,7 +35,7 @@ dashboard_header_image <- function(..., height = 150, image = NULL, icon_color =
                      # Two standard dropdowns for Shinto apps
                      softui::dropdown_item_color(bsicon("gear-fill"), 
                                            header = "App Info",
-                                           shintoshiny::appInfoUI("appinfo"),
+                                           appInfoUI("appinfo"),
                                            align_right = TRUE,
                                            icon_color = icon_color
                      ),

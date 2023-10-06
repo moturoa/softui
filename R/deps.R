@@ -137,7 +137,7 @@ package_ui_dependencies <- function(busybar_color, disconnect_message){
     shinytoastr::useToastr(),
     
     # logout, appinfo modules
-    shintoshiny::shintoshiny_dependencies(),
+    #shintoshiny::shintoshiny_dependencies(),
     
     # tooltips
     prompter::use_prompt(),
@@ -146,7 +146,7 @@ package_ui_dependencies <- function(busybar_color, disconnect_message){
     shinybusy::add_busy_bar(color = busybar_color, height = "6px"),
     
     # custom disconnect message
-    shintoshiny::disconnect_message(disconnect_message)
+    disconnect_message(disconnect_message)
   )
   
 }
