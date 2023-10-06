@@ -1,6 +1,6 @@
 #' Shiny module for logout menu
 #' @param id Input id
-#' @param username Use e.g. `shintoshiny::get_user` to get the current user.
+#' @param username Use e.g. `get_user()` to get the current user.
 #' @param input Shiny input object
 #' @param output Shiny output object
 #' @param session Shiny session object

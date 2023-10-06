@@ -18,7 +18,7 @@ userLogoutModule(input, output, session, username = "unknown")
 
 \item{session}{Shiny session object}
 
-\item{username}{Use e.g. \code{shintoshiny::get_user} to get the current user.}
+\item{username}{Use e.g. \code{get_user()} to get the current user.}
 }
 \description{
 Shiny module for logout menu
