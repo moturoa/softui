@@ -19,7 +19,7 @@ dropdown_item(icon, ..., header = NULL, align_right = FALSE)
 
 \item{left_content}{UI to place on the left (just right of the tagline). Untested.}
 
-\item{info}{Passed to \code{\link[shintoshiny:appInfoModule]{shintoshiny::appInfoUI()}}}
+\item{info}{Passed to appInfoUI()}
 }
 \description{
 The dashboard header

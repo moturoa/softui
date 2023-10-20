@@ -43,7 +43,6 @@
 #' server <- function(input, output, session) {}
 #' @importFrom shinybusy add_busy_bar
 #' @importFrom shinytoastr useToastr
-#' @importFrom shintoshiny disconnect_message shintoshiny_dependencies loadingscreen
 #' @importFrom shinyjs useShinyjs
 #' @importFrom prompter use_prompt
 dashboard_page <- function(header, sidebar, body, title = "", 

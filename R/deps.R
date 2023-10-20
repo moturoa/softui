@@ -136,9 +136,6 @@ package_ui_dependencies <- function(busybar_color, disconnect_message){
     # info popups
     shinytoastr::useToastr(),
     
-    # logout, appinfo modules
-    #shintoshiny::shintoshiny_dependencies(),
-    
     # tooltips
     prompter::use_prompt(),
     

@@ -9,7 +9,6 @@ R package with "softui" design. A wrapper around CSS/HTML/JS from (Creative Tim)
 ## Installation
 
 ```
-remotes::install_github("moturoa/shintoshiny")
 remotes::install_github("moturoa/softui")
 ```
 
@@ -21,7 +20,7 @@ See `?dashboard_page` for a simple example to get started.
 
 - Dashboard template
 - Click system : utils for making links that open another page, or open a page with `softui::go_to_page`
-- Application utilities : logout menu, app info menu, loading screen, disconnect message (imported from `shintoshiny`)
+- Application utilities : logout menu, app info menu, loading screen, disconnect message
 - Application NEWS popup, utilities to read and filter NEWS.md file
 - Enhanced `box` function (a "card" in Bootstrap) : simple collapse/expand functions, layout options, `sub_box` for boxes for placement inside `box`es, flexible tab boxes and tabset panels (`tab_box`, `tabset_panel`)
 - Dutch version interface to `DT::datatable` (`datatafel`) and `reactable::reactable` (`reactafel`).
@@ -43,6 +42,14 @@ All R functions are defined in `R/`; other dependencies are collected in the fol
 - `opensans` : the OpenSans font used by SoftUI
 - `softuiextra` : extra custom CSS/JS to make everything work nice
 
+## Updating bootstrap icons
+
+If you want to include the latest bootstrap icons (although nowadays we can also use the `bsicons` R package),
+follow these steps
+
+1. Download latest zip from https://icons.getbootstrap.com/ (click on the version, e.g. 1.11.1)
+2. Unzip and overwrite files `inst/fonts/` and `bootstrap-icons.css` (do not copy and include any other files)
+3. Rebuild the package
 
 ## Known issues
 
