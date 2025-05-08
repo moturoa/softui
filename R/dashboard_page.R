@@ -50,7 +50,8 @@ dashboard_page <- function(header, sidebar, body, title = "",
                            loadingscreen_time = 4,
                            busybar_color = "#346E6E",
                            shinto_logo = TRUE,
-                           disconnect_message = "De sessie is verlopen of er ging iets fout!"
+                           disconnect_message = "De sessie is verlopen of er ging iets fout!",
+                           additional_head_tags = NULL
                            ){
 
 
@@ -63,8 +64,14 @@ dashboard_page <- function(header, sidebar, body, title = "",
     ),
     shiny::tags$meta(`http-equiv` = "x-ua-compatible", content = "ie=edge"),
     shiny::tags$title(title)
+    
  
   )
+  
+  if(!is.null(additional_head_tags)){
+    head_tag$children <- c(head_tag$children, additional_head_tags)
+  }
+  
 
 
   sidebar_and_title_tag <-
