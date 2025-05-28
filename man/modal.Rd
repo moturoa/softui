@@ -10,6 +10,7 @@ modal(
   easyClose = TRUE,
   confirm_button = TRUE,
   id_confirm = "btn_confirm_modal",
+  id_close = "btn_close_modal",
   confirm_txt = "OK",
   confirm_icon = softui::bsicon("check-lg"),
   close_button = TRUE,

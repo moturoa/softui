@@ -1,0 +1,38 @@
+.icon-radio-input {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.icon-radio-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px; /* space between circle and label */
+  user-select: none;
+}
+
+.radio-icon-circle {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.icon-radio-option.selected .radio-icon-circle {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.radio-label {
+  font-size: 14px;
+  text-align: center;
+}

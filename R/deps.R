@@ -117,6 +117,14 @@ add_softui_dependencies <- function(tag){
       src = c(file = "opensans"),
       stylesheet = "opensans.css",
       package = "softui"
+    ),
+    htmltools::htmlDependency(
+      name = "iconRadio",
+      version = "0.1",
+      src = c(file = "iconRadio"),
+      script = "iconRadio.js",
+      stylesheet = "iconRadio.css",
+      package = "softui"
     )
   )
 

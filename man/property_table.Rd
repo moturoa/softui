@@ -7,6 +7,7 @@
 property_table(
   data,
   full_width = TRUE,
+  show_na = TRUE,
   bold_property = TRUE,
   css_property = "font-size: 1.1em;",
   css_value = "font-size: 1.0em;"
@@ -16,6 +17,8 @@ property_table(
 \item{data}{A dataframe with one row.}
 
 \item{full_width}{If TRUE, fills the container 100\%}
+
+\item{show_na}{if TRUE, NA values are shown. If FALSE, rows with a value NA are not shown}
 
 \item{bold_property}{Whether the property column is in bold font (default)}
 
